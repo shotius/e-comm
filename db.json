@@ -1,32 +1,14 @@
-<<<<<<< HEAD
 {
   "users": [
     {
-<<<<<<< HEAD
       "email": "olivier@mail.com",
-      "password": "$2a$10$tOKvGmglbHzUSEZGaFkxqeUKWC0Yjst60WJLi66/iSrx/MUAEfh9O",
-      "id": 1
-    }
-=======
-      "email": "asdf@gmail.com",
-      "password": "$2a$10$eIK8a4nVU67ntH7i6fu65.ajp4DOfPIu3dTrl9Vx1JbBUGfdJzZKu",
+      "password": "$2a$10$.jA3YQuW0xja4JtZDPfPYOx8JaIBB64PG91KlvIoB9KsqLY/k6IXG",
       "id": 1
     }
   ],
-  "products": [
+  "posts": [
     {
-      "title": "rame",
-      "price": 1600,
-      "userId": 1
-    },
-    {
-      "title": "rame",
-      "price": 1600
+      "title": "text1"
     }
->>>>>>> 24dc63ea62deb6e8d284d06aa17a16b9c2b42644
   ]
-=======
-{
-  "users": []
->>>>>>> 16cc66b28483cce0b370eccafc71b2292ca294d9
 }

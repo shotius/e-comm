@@ -36,9 +36,7 @@ const App = () => {
 
 
   return <Router>
-
     {wrapLayout()}
-
   </Router>
 }
 
