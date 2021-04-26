@@ -4,6 +4,14 @@
       "email": "olivier@mail.com",
       "password": "$2a$10$.jA3YQuW0xja4JtZDPfPYOx8JaIBB64PG91KlvIoB9KsqLY/k6IXG",
       "id": 1
+    },
+    {
+      "email": "shotius@mail.com",
+      "password": "$2a$10$/BGMIPw19pnS7I6/D7O9MeG9r4/w5KhybfpCs1Wh7KVOjc6l.19x.",
+      "firstname": "shota",
+      "lastname": "archem",
+      "age": 21,
+      "id": 2
     }
   ],
   "posts": [
