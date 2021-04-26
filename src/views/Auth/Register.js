@@ -1,12 +1,17 @@
 import React, {useCallback, useRef, useState} from "react";
 import {Button, Form, Input, Select} from "antd";
 import {Link} from "react-router-dom";
+import { registerUser } from '../../redux/actions/authActions'
+import { useDispatch } from 'react-redux'
 
 const {Option} = Select;
 
 // matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
 
 export const Register = () => {
+
+  const dispatch = useDispatch()
+
    const [inputEmail, setInputEmail] = useState("gmail.com");
    const [inputPhone, setInputPhone] = useState("+995");
 
@@ -22,6 +27,7 @@ export const Register = () => {
     }
     e.preventDefault();
   }, [])
+
 
   const selectAfterEmail = (
     <Select onChange={(e) => setInputEmail(e)} defaultValue="@gmail.com" className="select-after">
@@ -39,6 +45,7 @@ export const Register = () => {
 
 
   const onFinish = (values) => {
+    dispatch(registerUser(values))
     console.log('Success:', {...values, email: values.email + inputEmail, phone: inputPhone + values.phone});
   };
 
@@ -51,6 +58,7 @@ export const Register = () => {
     name="login"
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
+    // initialValues={{username: "username", name: "name", phone: 123123123, email: "test@gmail.com", password: "1234", confirm_password: "1234"}}
   >
     <Form.Item
       label="Username"
@@ -75,7 +83,7 @@ export const Register = () => {
         },
       ]}
     >
-      <Input/>
+      <Input />
     </Form.Item>
     <Form.Item
       label="Phone"

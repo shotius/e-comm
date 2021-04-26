@@ -2,6 +2,11 @@ post http://localhost:3001/register
 Content-Type: application/json
 
 {
-  "email": "olivier@mail.com",
-  "password": "bestPassw0rd"
+  "confirm_password": "123",
+  "email": "shotiu@mail.com",
+  "name": "shota",
+  "password": "123",
+  "phone" :"123123123",
+  "username": "shotius"
+
 }

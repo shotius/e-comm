@@ -17,7 +17,9 @@ const App = () => {
     let generated_routes = [];
     for (const route in routes) {
       const {path, view, isPrivate} = routes[route];
+      // views from view module
       const component = views[view];
+      // all routes are here
       generated_routes.push(
         isPrivate ?
           <PrivateRoute path={`/${path}`} key={route}  component={component}/>
@@ -27,17 +29,26 @@ const App = () => {
     return generated_routes;
   }
 
+  // wraps routes in two different layouts 
   const wrapLayout = () => {
     const generated_routes = generateRoutes(AppRoutes)
-    const mySwitch = <Switch>{generated_routes}</Switch>
-    if (isLoggedIn) return <AppLayout>{mySwitch}</AppLayout>
-    return <AuthLayout>{mySwitch}</AuthLayout>
+    const routesInSwitch = <Switch>{generated_routes}</Switch>
+
+    if (isLoggedIn) 
+      return (
+        <AppLayout>{routesInSwitch}</AppLayout>
+      )
+    return (
+      <AuthLayout>{routesInSwitch}</AuthLayout>
+    )
   }
 
 
-  return <Router>
-    {wrapLayout()}
-  </Router>
+  return (
+    <Router> 
+      {wrapLayout()} 
+    </Router>
+  )
 }
 
 export default App;

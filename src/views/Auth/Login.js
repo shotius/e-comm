@@ -2,14 +2,18 @@ import React from "react";
 import {Form, Input, Button} from 'antd';
 import "./index.css"
 import {Link} from "react-router-dom";
+import { useDispatch } from 'react-redux'
+import { loginUser } from '../../redux/actions/authActions'
 
 export const Login = () => {
+  const dispatch = useDispatch()
+  
   const onFinish = (values) => {
-    console.log('Success:', values);
+    dispatch(loginUser(values))
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    // some notification error
   };
 
   return<Form
