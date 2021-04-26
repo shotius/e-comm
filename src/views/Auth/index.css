@@ -1,3 +1,13 @@
 .auth-form {
     padding: 13px;
 }
+
+.auth-form small {
+    color: #7a7c7e;
+    font-size: 12px;
+}
+
+.auth-form p {
+    margin-top: 15px;
+    margin-bottom: 0;
+}

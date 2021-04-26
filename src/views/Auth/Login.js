@@ -1,6 +1,7 @@
 import React from "react";
 import {Form, Input, Button} from 'antd';
 import "./index.css"
+import {Link} from "react-router-dom";
 
 export const Login = () => {
   const onFinish = (values) => {
@@ -45,8 +46,11 @@ export const Login = () => {
 
     <Form.Item>
       <Button type="primary" htmlType="submit">
-        Submit
+        Sign In
       </Button>
+      <p>
+        <small>Need an account?</small> <Link to="/register">Register Now</Link>
+      </p>
     </Form.Item>
   </Form>
 
