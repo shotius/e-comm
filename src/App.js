@@ -27,9 +27,11 @@ const App = () => {
   }
 
   const wrapLayout = () => {
+    const generated_routes = generateRoutes(AppRoutes)
+    console.dir(generated_routes)
     // if (isLoggedIn) return <AppLayout>{generateRoutes(AppRoutes)}</AppLayout>
     // return <AuthLayout>{generateRoutes(AppRoutes)}</AuthLayout>
-    return generateRoutes(AppRoutes)
+    return generated_routes
   }
 
 
