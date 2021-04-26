@@ -4,18 +4,23 @@ import {
   LOGIN_SUCCESS,
   LOGIN_ERROR,
   USER_FETCH_SUCCESS,
-  LOGOUT
+  LOGOUT,
+  REGISTER_USER_SUCCESS,
+  REGISTER_USER_FAIL,
+  START_REGISTER_USER
 } from "../constants";
 
 const base_url = "http://localhost:3001"
 
 export const registerUser = (user) => {
-  console.log('registering user', user)
   return dispatch => {
+    dispatch(userRegisterStart())
     axios
       .post(`http://localhost:3001/register`, user)
-      .then(({data}) => console.log(data))
-      .catch(error => console.log(error.message))
+      .then(({data}) => {
+        dispatch(registerUserSuccess())
+      })
+      .catch(error => dispatch(registerUserFail(error)))
   }
 }
 
@@ -27,6 +32,19 @@ export const loginUser = (user) => {
       .catch(err => console.log(err))
   }
 }
+
+const userRegisterStart = () => ({
+  type: START_REGISTER_USER
+})
+
+const registerUserFail = (error) => ({
+  type: REGISTER_USER_FAIL,
+  error
+})
+
+const registerUserSuccess = () => ({
+  type: REGISTER_USER_SUCCESS
+})
 
 export const loginRequest = () => ({
   type: LOGIN_REQUEST

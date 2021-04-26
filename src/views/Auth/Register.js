@@ -9,15 +9,6 @@ const {Option} = Select;
 export const Register = () => {
   const dispatch = useDispatch()
 
-  const damnData = {
-    "confirm_password": "1234",
-    "email": "shotiu@mail.com",
-    "name": "shota",
-    "password": "1234",
-    "phone" :"123123123",
-    "username": "shotius"
-  }
-
   const isValidNumber = (e) => {
     // e.preventDefault()
   }
