@@ -1,13 +1,19 @@
 import React from "react";
-import {Layout} from "antd";
+import {Layout, Row, Col} from "antd";
 
 const {Content} = Layout;
 
 const AuthLayout = ({children}) => {
   return (
     <Layout>
+      AuthLayout
       <Content className="auth-layout-content">
-        {children}
+        <Row>
+          <Col span={8}>
+            {children}
+          </Col>
+        </Row>
+
       </Content>
     </Layout>
   )
