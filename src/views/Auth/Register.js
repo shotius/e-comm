@@ -1,13 +1,25 @@
 import React from "react";
 import {Button, Form, Input, Select} from "antd";
 import {Link} from "react-router-dom";
+import { registerUser } from '../../redux/actions/authActions'
+import { useDispatch } from 'react-redux'
 
 const {Option} = Select;
 
 export const Register = () => {
+  const dispatch = useDispatch()
+
+  const damnData = {
+    "confirm_password": "1234",
+    "email": "shotiu@mail.com",
+    "name": "shota",
+    "password": "1234",
+    "phone" :"123123123",
+    "username": "shotius"
+  }
 
   const isValidNumber = (e) => {
-    e.preventDefault()
+    // e.preventDefault()
   }
 
   const selectAfterEmail = (
@@ -26,7 +38,7 @@ export const Register = () => {
 
 
   const onFinish = (values) => {
-    console.log('Success:', values);
+    dispatch(registerUser(values))
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -38,6 +50,7 @@ export const Register = () => {
     name="login"
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
+    // initialValues={{username: "username", name: "name", phone: 123123123, email: "test@gmail.com", password: "1234", confirm_password: "1234"}}
   >
     <Form.Item
       label="Username"
@@ -62,7 +75,7 @@ export const Register = () => {
         },
       ]}
     >
-      <Input/>
+      <Input />
     </Form.Item>
     <Form.Item
       label="Phone"

@@ -10,11 +10,12 @@ import {
 const base_url = "http://localhost:3001"
 
 export const registerUser = (user) => {
+  console.log('registering user', user)
   return dispatch => {
     axios
-      .post(`${base_url}/users`, user)
+      .post(`http://localhost:3001/register`, user)
       .then(({data}) => console.log(data))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error.message))
   }
 }
 
