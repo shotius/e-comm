@@ -1,17 +1,30 @@
-import React from "react";
+import React, {useCallback, useRef, useState} from "react";
 import {Button, Form, Input, Select} from "antd";
 import {Link} from "react-router-dom";
 
 const {Option} = Select;
 
-export const Register = () => {
+// matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
 
-  const isValidNumber = (e) => {
-    e.preventDefault()
-  }
+export const Register = () => {
+   const [inputEmail, setInputEmail] = useState("gmail.com");
+   const [inputPhone, setInputPhone] = useState("+995");
+
+  const isValidPhone = useCallback((e) => {
+    if (
+      (e.keyCode >= 48 && e.keyCode <= 57) ||
+      (e.keyCode >= 96 && e.keyCode <= 105) ||
+      e.keyCode === 8 ||
+      e.keyCode === 190 ||
+      e.keyCode === 9
+    ) {
+      return;
+    }
+    e.preventDefault();
+  }, [])
 
   const selectAfterEmail = (
-    <Select defaultValue="@gmail.com" className="select-after">
+    <Select onChange={(e) => setInputEmail(e)} defaultValue="@gmail.com" className="select-after">
       <Option value="@gmail.com">@gmail.com</Option>
       <Option value="@yahoo.com">@yahoo.com</Option>
       <Option value="@sweeft.com">@sweeft.com</Option>
@@ -19,18 +32,18 @@ export const Register = () => {
   );
 
   const selectBeforePhone = (
-    <Select defaultValue="+995" className="select-before">
+    <Select defaultValue="+995" onChange={e => setInputPhone(e)} className="select-before">
       <Option value="+995">+995</Option>
     </Select>
   )
 
 
   const onFinish = (values) => {
-    console.log('Success:', values);
+    console.log('Success:', {...values, email: values.email + inputEmail, phone: inputPhone + values.phone});
   };
 
   const onFinishFailed = (errorInfo) => {
-    console.log('Failed:', errorInfo);
+    console.log('Form Failed:', errorInfo);
   };
 
   return <Form
@@ -49,7 +62,7 @@ export const Register = () => {
         },
       ]}
     >
-      <Input/>
+      <Input maxLength={20}/>
     </Form.Item>
 
     <Form.Item
@@ -74,7 +87,7 @@ export const Register = () => {
         },
       ]}
     >
-     <Input maxLength={9} onKeyDown={(e) => isValidNumber(e)} addonBefore={selectBeforePhone} />
+      <Input maxLength={9} onKeyDown={(e) => isValidPhone(e)} addonBefore={selectBeforePhone}/>
     </Form.Item>
 
     <Form.Item
@@ -118,7 +131,7 @@ export const Register = () => {
 
 
     <Form.Item>
-      <Button type="primary" htmlType="submit">
+      <Button type="primary" htmlType="submit" loading={true}>
         Sign Up
       </Button>
       <p>
