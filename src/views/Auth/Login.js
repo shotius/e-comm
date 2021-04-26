@@ -1,8 +1,9 @@
 import React from "react";
 import {Form, Input, Button} from 'antd';
 import "./index.css"
+import {Link} from "react-router-dom";
+import { useDispatch } from 'react-redux'
 import { loginUser } from '../../redux/actions/authActions'
-import {useDispatch, useSelector} from 'react-redux'
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -12,7 +13,7 @@ export const Login = () => {
   };
 
   const onFinishFailed = (errorInfo) => {
-    // dispatch(loginUser(errorInfo))
+    // some notification error
   };
 
   return<Form
@@ -49,8 +50,11 @@ export const Login = () => {
 
     <Form.Item>
       <Button type="primary" htmlType="submit">
-        Submit
+        Sign In
       </Button>
+      <p>
+        <small>Need an account?</small> <Link to="/register">Register Now</Link>
+      </p>
     </Form.Item>
   </Form>
 
