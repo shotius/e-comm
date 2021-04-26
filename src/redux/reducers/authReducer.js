@@ -5,7 +5,10 @@ import {
   LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  REGISTER_USER_START
+  REGISTER_USER_START,
+  LOGIN_USER_START,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL
 } from "../constants";
 
 // const initState = {
@@ -76,6 +79,30 @@ export default function authReducer(state = initState, action) {
         ...state,
         userRegisterError: action.error,
         userRegisterLoading: false
+      }
+    case LOGIN_USER_SUCCESS:
+      return {
+        ...state,
+        userLoginLoading: true,
+        userLoginError: null
+      }
+    case LOGIN_USER_START:
+      return {
+        ...state, 
+        userLoginError: null,
+        userLoginLoading: true
+      }
+    case LOGIN_USER_SUCCESS:
+      return {
+        ...state,
+        userLoginLoading: false,
+        userLoginError: null
+      }
+    case LOGIN_USER_FAIL:
+      return {
+        ...state,
+        userLoginError: action.error,
+        userLoginLoading: false
       }
     default:
       return state;

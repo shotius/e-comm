@@ -1,12 +1,13 @@
 import React from "react";
 import {Form, Input, Button} from 'antd';
 import "./index.css"
-import {Link} from "react-router-dom";
+import { Link, useHistory} from "react-router-dom";
 import { useDispatch } from 'react-redux'
 import { loginUser } from '../../redux/actions/authActions'
 
 export const Login = () => {
   const dispatch = useDispatch()
+  const history = useHistory()
   
   const onFinish = (values) => {
     dispatch(loginUser(values))

@@ -1,17 +1,16 @@
-import React, {useCallback, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
+import { Link, useHistory } from "react-router-dom";
 import {Button, Form, Input, notification, Select} from "antd";
-import {Link} from "react-router-dom";
 import { registerUser } from '../../redux/actions/authActions'
 import {useDispatch, useSelector} from 'react-redux'
 const {Option} = Select;
-
-// matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
 
 export const Register = () => {
 
   const userRegisterLoading = useSelector(state => state.authReducer.userRegisterLoading);
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
    const [inputEmail, setInputEmail] = useState("@gmail.com");
    const [inputPhone, setInputPhone] = useState("+995");

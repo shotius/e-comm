@@ -1,0 +1,34 @@
+{
+  "users": [
+    {
+      "email": "olivier@mail.com",
+      "password": "$2a$10$.jA3YQuW0xja4JtZDPfPYOx8JaIBB64PG91KlvIoB9KsqLY/k6IXG",
+      "id": 1
+    },
+    {
+      "email": "test1f@gmail.com",
+      "password": "$2a$10$B.eeQhttICrXv0h/S6d6IOflQwQCMXO4ok8amh4Y5zXatkgYvi9vC",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "confirm_password": "1234515",
+      "id": 2
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$0VshLe7SYZUp2de6WoE9XuCWLI3LWru9TeZQ5FkxxynMVK/MVY79C",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 3
+    },
+    {
+      "email": "testa@gmail.com",
+      "password": "$2a$10$9rhiqq/GWjPn65OALPek/e8TUier4Ql/HDpn7wXPX8OdqFW1tdjVm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 4
+    }
+  ]
+}
