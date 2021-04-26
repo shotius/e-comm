@@ -12,6 +12,7 @@ import AuthLayout from "./modules/layout/AuthLayout";
 const App = () => {
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
 
+  // returns routes
   const generateRoutes = (routes) => {
     let generated_routes = [];
     for (const route in routes) {
@@ -19,8 +20,8 @@ const App = () => {
       const component = views[view];
       generated_routes.push(
         isPrivate ?
-        <PrivateRoute path={`/${path}`} key={route} exact={exact} component={component}/>
-          : <UnauthenticatedRoute path={`/${path}`} exact={exact} key={route} component={component} />
+          <PrivateRoute path={`/${path}`} key={route}  component={component}/>
+          : <UnauthenticatedRoute path={`/${path}`}  key={route} component={component}/>
       );
     }
     return generated_routes;
@@ -28,20 +29,16 @@ const App = () => {
 
   const wrapLayout = () => {
     const generated_routes = generateRoutes(AppRoutes)
-    console.dir(generated_routes)
-    // if (isLoggedIn) return <AppLayout>{generateRoutes(AppRoutes)}</AppLayout>
-    // return <AuthLayout>{generateRoutes(AppRoutes)}</AuthLayout>
-    return generated_routes
+    const mySwitch = <Switch>{generated_routes}</Switch>
+    if (isLoggedIn) return <AppLayout>{mySwitch}</AppLayout>
+    return <AuthLayout>{mySwitch}</AuthLayout>
   }
 
 
   return <Router>
-    <Switch>
-      {wrapLayout()}
-      <Route path="*">
-        Error Page
-      </Route>
-    </Switch>
+
+    {wrapLayout()}
+
   </Router>
 }
 

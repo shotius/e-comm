@@ -6,7 +6,6 @@ const {Content} = Layout;
 const AuthLayout = ({children}) => {
   return (
     <Layout>
-      AuthLayout
       <Content className="auth-layout-content">
         <Row>
           <Col span={8}>
