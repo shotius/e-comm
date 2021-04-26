@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Switch} from "react-router-dom";
 import {AppRoutes} from "./const/app-routes";
 import * as views from "./views"
 import PrivateRoute from "./modules/components/Router/PrivateRoute";
@@ -16,7 +16,7 @@ const App = () => {
   const generateRoutes = (routes) => {
     let generated_routes = [];
     for (const route in routes) {
-      const {path, view, isPrivate, exact} = routes[route];
+      const {path, view, isPrivate} = routes[route];
       const component = views[view];
       generated_routes.push(
         isPrivate ?

@@ -1,20 +1,7 @@
 import React from "react";
 import {Form, Input, Button} from 'antd';
+import "./index.css"
 
-const layout = {
-  labelCol: {
-    span: 8,
-  },
-  wrapperCol: {
-    span: 16,
-  },
-};
-const tailLayout = {
-  wrapperCol: {
-    offset: 8,
-    span: 16,
-  },
-};
 export const Login = () => {
   const onFinish = (values) => {
     console.log('Success:', values);
@@ -25,21 +12,18 @@ export const Login = () => {
   };
 
   return<Form
-    {...layout}
-    name="basic"
-    initialValues={{
-      remember: true,
-    }}
+    className="auth-form"
+    name="login"
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
   >
     <Form.Item
-      label="Username"
-      name="username"
+      label="Email"
+      name="email"
       rules={[
         {
           required: true,
-          message: 'Please input your username!',
+          message: 'Please input your email!',
         },
       ]}
     >
@@ -59,7 +43,7 @@ export const Login = () => {
       <Input.Password/>
     </Form.Item>
 
-    <Form.Item {...tailLayout}>
+    <Form.Item>
       <Button type="primary" htmlType="submit">
         Submit
       </Button>

@@ -1,3 +1,3 @@
-export * from "./Login";
-export * from "./Register";
+export * from "./Auth/Login";
+export * from "./Auth/Register";
 export * from "./Products";

@@ -1,18 +1,16 @@
 import React from "react";
-import {Layout, Row, Col} from "antd";
+import {Layout, Card} from "antd";
+import "./index.css";
 
 const {Content} = Layout;
 
 const AuthLayout = ({children}) => {
   return (
-    <Layout>
+    <Layout style={{minHeight: "100vh"}} >
       <Content className="auth-layout-content">
-        <Row>
-          <Col span={8}>
-            {children}
-          </Col>
-        </Row>
-
+        <Card bordered={true} className="auth-layout-card">
+          {children}
+        </Card>
       </Content>
     </Layout>
   )
