@@ -1,6 +1,6 @@
 import React, {useCallback, useRef, useState} from "react";
 import {Button, Form, Input, Select} from "antd";
-import {Link} from "react-router-dom";
+import { Link, useHistory, userHistory } from "react-router-dom";
 import { registerUser } from '../../redux/actions/authActions'
 import { useDispatch } from 'react-redux'
 
@@ -11,6 +11,7 @@ const {Option} = Select;
 export const Register = () => {
 
   const dispatch = useDispatch()
+  const history = useHistory()
 
    const [inputEmail, setInputEmail] = useState("gmail.com");
    const [inputPhone, setInputPhone] = useState("+995");
@@ -45,8 +46,7 @@ export const Register = () => {
 
 
   const onFinish = (values) => {
-    dispatch(registerUser(values))
-    console.log('Success:', {...values, email: values.email + inputEmail, phone: inputPhone + values.phone});
+    dispatch(registerUser(values, () => history.push('/login')))
   };
 
   const onFinishFailed = (errorInfo) => {
@@ -58,7 +58,7 @@ export const Register = () => {
     name="login"
     onFinish={onFinish}
     onFinishFailed={onFinishFailed}
-    // initialValues={{username: "username", name: "name", phone: 123123123, email: "test@gmail.com", password: "1234", confirm_password: "1234"}}
+    initialValues={{username: "username", name: "name", phone: 123123123, email: "test@gmail.com", password: "1234", confirm_password: "1234"}}
   >
     <Form.Item
       label="Username"
@@ -139,7 +139,7 @@ export const Register = () => {
 
 
     <Form.Item>
-      <Button type="primary" htmlType="submit" loading={true}>
+      <Button type="primary" htmlType="submit">
         Sign Up
       </Button>
       <p>

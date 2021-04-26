@@ -1,4 +1,5 @@
 import axios from "axios";
+import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
@@ -7,18 +8,22 @@ import {
   LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  START_REGISTER_USER
+  START_REGISTER_USER,
+  LOGIN_USER_START,
+  LOGIN_USER_SUCCESS,
+  LOGIN_USER_FAIL
 } from "../constants";
 
 const base_url = "http://localhost:3001"
 
-export const registerUser = (user) => {
+export const registerUser = (user, callback) => {
   return dispatch => {
     dispatch(userRegisterStart())
     axios
       .post(`http://localhost:3001/register`, user)
-      .then(({data}) => {
+      .then(() => {
         dispatch(registerUserSuccess())
+        callback()
       })
       .catch(error => dispatch(registerUserFail(error)))
   }
@@ -26,12 +31,28 @@ export const registerUser = (user) => {
 
 export const loginUser = (user) => {
   return dispatch => {
+    dispatch(userLoginStart())
     axios
       .post(`${base_url}/login`, user)
-      .then(({data}) => console.log(data))
-      .catch(err => console.log(err))
+      .then(() => {
+        dispatch(userLoginSuccess())
+      })
+      .catch(error => dispatch(userLoginFail(error)))
   }
 }
+
+const userLoginStart = () => ({
+  type: LOGIN_USER_START
+})
+
+const userLoginSuccess = () => ({
+  type: LOGIN_USER_SUCCESS
+})
+
+const userLoginFail = (error) => ({
+  type: LOGIN_USER_FAIL,
+  error
+})
 
 const userRegisterStart = () => ({
   type: START_REGISTER_USER

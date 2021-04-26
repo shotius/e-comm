@@ -13,6 +13,6 @@ export const AppRoutes =
     products: {
       path: 'products',
       view: 'Products',
-      isPrivate: true,
+      isPrivate: false,
     }
   }
