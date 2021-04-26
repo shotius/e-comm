@@ -5,7 +5,7 @@ import {
   LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  START_REGISTER_USER
+  REGISTER_USER_START
 } from "../constants";
 
 // const initState = {
@@ -59,7 +59,7 @@ export default function authReducer(state = initState, action) {
         loginLoading: false,
         isLoggedIn: false
       }
-    case START_REGISTER_USER:
+    case REGISTER_USER_START:
       return {
         ...state, 
         userRegisterLoading: true,
