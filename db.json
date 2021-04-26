@@ -1,0 +1,12 @@
+{
+  "users": [
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$tKz5J75LA6nIDjhG8xZmNO5OJj7oegDHpEMjI69gi.H40c/GtDRNS",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 1
+    }
+  ]
+}
