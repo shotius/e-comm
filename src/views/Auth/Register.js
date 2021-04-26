@@ -1,19 +1,18 @@
 import React, {useCallback, useRef, useState} from "react";
-import {Button, Form, Input, Select} from "antd";
-import { Link, useHistory, userHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import {Button, Form, Input, notification, Select} from "antd";
 import { registerUser } from '../../redux/actions/authActions'
-import { useDispatch } from 'react-redux'
-
+import {useDispatch, useSelector} from 'react-redux'
 const {Option} = Select;
 
-// matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
-
 export const Register = () => {
+
+  const userRegisterLoading = useSelector(state => state.authReducer.userRegisterLoading);
 
   const dispatch = useDispatch()
   const history = useHistory()
 
-   const [inputEmail, setInputEmail] = useState("gmail.com");
+   const [inputEmail, setInputEmail] = useState("@gmail.com");
    const [inputPhone, setInputPhone] = useState("+995");
 
   const isValidPhone = useCallback((e) => {
@@ -46,19 +45,28 @@ export const Register = () => {
 
 
   const onFinish = (values) => {
-    dispatch(registerUser(values, () => history.push('/login')))
-  };
+    if (values.password === values.confirm_password) {
+      const userInfo = {...values, email: values.email + inputEmail, phone: inputPhone + values.phone};
+      delete userInfo.confirm_password;
+      dispatch(registerUser(userInfo, () => {
+        notification.success({
+          message: "You've successfully registered"
+        })
+      }))
+    } else {
+       notification.error({
+         message: "Passwords didn’t match. Please try again"
+       })
+    }
 
-  const onFinishFailed = (errorInfo) => {
-    console.log('Form Failed:', errorInfo);
+    console.log('Success:', {...values, email: values.email + inputEmail, phone: inputPhone + values.phone});
   };
 
   return <Form
     className="auth-form"
     name="login"
     onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
-    initialValues={{username: "username", name: "name", phone: 123123123, email: "test@gmail.com", password: "1234", confirm_password: "1234"}}
+    initialValues={{username: "username", name: "name", phone: 123123123, email: "test", password: "1234", confirm_password: "1234"}}
   >
     <Form.Item
       label="Username"
@@ -139,7 +147,7 @@ export const Register = () => {
 
 
     <Form.Item>
-      <Button type="primary" htmlType="submit">
+      <Button type="primary" htmlType="submit" loading={userRegisterLoading}>
         Sign Up
       </Button>
       <p>

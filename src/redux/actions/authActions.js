@@ -8,7 +8,7 @@ import {
   LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  START_REGISTER_USER,
+  REGISTER_USER_START,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL
@@ -23,7 +23,7 @@ export const registerUser = (user, callback) => {
       .post(`http://localhost:3001/register`, user)
       .then(() => {
         dispatch(registerUserSuccess())
-        callback()
+        callback();
       })
       .catch(error => dispatch(registerUserFail(error)))
   }
@@ -55,7 +55,7 @@ const userLoginFail = (error) => ({
 })
 
 const userRegisterStart = () => ({
-  type: START_REGISTER_USER
+  type: REGISTER_USER_START
 })
 
 const registerUserFail = (error) => ({

@@ -5,7 +5,7 @@ import {
   LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
-  START_REGISTER_USER,
+  REGISTER_USER_START,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL
@@ -62,7 +62,7 @@ export default function authReducer(state = initState, action) {
         loginLoading: false,
         isLoggedIn: false
       }
-    case START_REGISTER_USER:
+    case REGISTER_USER_START:
       return {
         ...state, 
         userRegisterLoading: true,
@@ -85,6 +85,12 @@ export default function authReducer(state = initState, action) {
         ...state,
         userLoginLoading: true,
         userLoginError: null
+      }
+    case LOGIN_USER_START:
+      return {
+        ...state, 
+        userLoginError: null,
+        userLoginLoading: true
       }
     case LOGIN_USER_SUCCESS:
       return {
