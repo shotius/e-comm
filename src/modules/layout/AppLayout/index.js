@@ -1,8 +1,8 @@
 import React from "react";
-import Layout from "antd";
+import {Layout} from "antd";
 import Header from "../../components/Header";
 
-const {Content} = Layout;
+const {Content, Footer} = Layout;
 
 const AppLayout = ({children}) => {
   return <Layout classname="site-layout">
@@ -10,6 +10,7 @@ const AppLayout = ({children}) => {
     <Content classname="content-holder">
       {children}
     </Content>
+    <Footer>Footer</Footer>
   </Layout>
 }
 

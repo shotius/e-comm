@@ -1,5 +1,20 @@
 {
   "users": [
-
+    {
+      "email": "asdf@gmail.com",
+      "password": "$2a$10$eIK8a4nVU67ntH7i6fu65.ajp4DOfPIu3dTrl9Vx1JbBUGfdJzZKu",
+      "id": 1
+    }
+  ],
+  "products": [
+    {
+      "title": "rame",
+      "price": 1600,
+      "userId": 1
+    },
+    {
+      "title": "rame",
+      "price": 1600
+    }
   ]
 }
