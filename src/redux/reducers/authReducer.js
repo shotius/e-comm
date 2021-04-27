@@ -16,45 +16,50 @@ import {
 
 const initState = {
   isLoggedIn: false,
+  loginError: false,
+  user: null,
   token: "",
   expirationDate: 0,
-  loginError: false,
-  loginLoading: true,
-  user: null,
-  userLoading: true,
   userRegisterLoading: false,
   userRegisterError: null,
-  expiraitondate: null,
+  userLoginError: false,
+  userLoginLoading: false
+
 }
 
 export default function authReducer(state = initState, action) {
   switch (action.type) {
-    case LOGIN_REQUEST:
+     /******************** LOGIN *****************/
+    case LOGIN_USER_START:
       return {
         ...state,
-        loginError: false,
-        loginLoading: true
+        userLoginError: null,
+        userLoginLoading: true
       }
-    case LOGIN_SUCCESS:
+    case LOGIN_USER_SUCCESS:
       return {
         ...state,
-        loginLoading: false,
-        isLoggedIn: true,
+        userLoginLoading: true,
+        userLoginError: null,
+        token: action.token,
         expirationDate: action.expirationDate,
-        token: action.token
+        isLoggedIn: true
       }
-    case LOGIN_ERROR:
+    case LOGIN_USER_FAIL:
       return {
         ...state,
-        loginError: action.error,
-        loginLoading: false
+        userLoginError: action.error,
+        userLoginLoading: false,
+        isLoggedIn: false,
+        token: ""
       }
-    case LOGOUT:
+    case LOG_OUT:
       return {
         ...state,
-        loginLoading: false,
-        isLoggedIn: false
+        isLoggedIn: false,
+        token: ""
       }
+    /******************** REGISTER *****************/
     case REGISTER_USER_START:
       return {
         ...state, 
@@ -77,31 +82,6 @@ export default function authReducer(state = initState, action) {
       return {
         ...state,
         userRegisterError: null
-      }
-    case LOGIN_USER_START:
-      return {
-        ...state, 
-        userLoginError: null,
-        userLoginLoading: true
-      }
-    case LOGIN_USER_SUCCESS:
-      return {
-        ...state,
-        userLoginLoading: true,
-        userLoginError: null,
-        token: action.token,
-        expirationDate: action.expirationDate
-      }
-    case LOGIN_USER_FAIL:
-      return {
-        ...state,
-        userLoginError: action.error,
-        userLoginLoading: false
-      }
-    case LOG_OUT:
-      return {
-        ...state
-        // need to fill out
       }
     default:
       return state;

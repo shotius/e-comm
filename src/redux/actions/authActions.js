@@ -1,11 +1,6 @@
 import axios from "axios";
 import moment from "moment";
-// import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
 import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR,
-  LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
@@ -41,6 +36,7 @@ export const loginUser = (user, callback) => {
     axios
       .post(`${base_url}/login`, user)
       .then(({ data }) => {
+
         dispatch(userLoginSuccess(data.accessToken));
         // callback()
       })
@@ -58,6 +54,7 @@ export const logOut = () => {
     });
   };
 };
+
 
 const userLoginStart = () => ({
   type: LOGIN_USER_START,
@@ -108,19 +105,3 @@ export const registerErrorClear = () => ({
   type: REGISTER_ERROR_CLEAR
 })
 
-export const loginRequest = () => ({
-  type: LOGIN_REQUEST,
-});
-
-export const loginUserSuccess = () => ({
-  type: LOGIN_SUCCESS,
-});
-
-export const loginUserError = (error) => ({
-  type: LOGIN_ERROR,
-  error,
-});
-
-export const logout = () => ({
-  type: LOGOUT,
-});
