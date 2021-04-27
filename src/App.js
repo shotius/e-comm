@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Switch} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {AppRoutes} from "./const/app-routes";
 import * as views from "./views"
 import PrivateRoute from "./modules/components/Router/PrivateRoute";
@@ -22,8 +22,8 @@ const App = () => {
       // all routes are here
       generated_routes.push(
         isPrivate ?
-          <PrivateRoute path={`/${path}`} key={route}  component={component}/>
-          : <UnauthenticatedRoute path={`/${path}`}  key={route} component={component}/>
+          <PrivateRoute path={`/${path}`} key={route} component={component}/>
+          : <UnauthenticatedRoute path={`/${path}`} key={route} component={component}/>
       );
     }
     return generated_routes;
@@ -32,9 +32,14 @@ const App = () => {
   // wraps routes in two different layouts 
   const wrapLayout = () => {
     const generated_routes = generateRoutes(AppRoutes)
-    const routesInSwitch = <Switch>{generated_routes}</Switch>
+    const routesInSwitch = <Switch>
+      {generated_routes}
+      <Route path="*">
+        Error Component
+      </Route>
+    </Switch>
 
-    if (isLoggedIn) 
+    if (isLoggedIn)
       return (
         <AppLayout>{routesInSwitch}</AppLayout>
       )
@@ -45,8 +50,8 @@ const App = () => {
 
 
   return (
-    <Router> 
-      {wrapLayout()} 
+    <Router>
+      {wrapLayout()}
     </Router>
   )
 }

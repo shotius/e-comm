@@ -4,7 +4,6 @@ import {Link} from "react-router-dom";
 import { registerUser } from '../../redux/actions/authActions'
 import {useDispatch, useSelector} from 'react-redux'
 const {Option} = Select;
-
 // matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
 
 export const Register = () => {

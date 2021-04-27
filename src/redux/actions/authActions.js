@@ -17,7 +17,8 @@ export const registerUser = (user, callback) => {
     dispatch(userRegisterStart())
     axios
       .post(`http://localhost:3001/register`, user)
-      .then(({data}) => {
+      .then((response) => {
+        console.log(response)
         dispatch(registerUserSuccess())
         callback();
       })
