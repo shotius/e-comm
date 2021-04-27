@@ -1,0 +1,34 @@
+.products-carousel {
+    position: relative;
+}
+
+.carousel-left,
+.carousel-right {
+    position: absolute;
+    z-index: 999;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    outline: none;
+    border: none;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
+.carousel-left:hover,
+.carousel-right:hover {
+    opacity: 1;
+}
+
+.carousel-left {
+    left: 1%;
+}
+
+.carousel-right {
+    right: 1%;
+}
+
+.carousel-icon {
+    font-size: 50px;
+    cursor: pointer;
+}

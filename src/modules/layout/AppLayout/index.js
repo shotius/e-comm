@@ -5,9 +5,9 @@ import Header from "../../components/Header";
 const {Content, Footer} = Layout;
 
 const AppLayout = ({children}) => {
-  return <Layout classname="site-layout">
+  return <Layout className="site-layout">
     <Header />
-    <Content classname="content-holder">
+    <Content className="content-holder">
       {children}
     </Content>
     <Footer>Footer</Footer>
