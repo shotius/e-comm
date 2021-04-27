@@ -39,6 +39,14 @@
       "name": "demna mikava",
       "phone": "+995456546464",
       "id": 5
+    },
+    {
+      "email": "sandropeikro@gmail.com",
+      "password": "$2a$10$jLk4r3uGTrTgVyP/jnXrdempKFctmK5qrkA2RIzGpzA/FU9piA8EO",
+      "username": "sandro",
+      "name": "sandro peikrishvili",
+      "phone": "+995599120514",
+      "id": 6
     }
   ]
 }
