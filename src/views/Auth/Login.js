@@ -1,17 +1,30 @@
-import React from "react";
-import {Form, Input, Button} from 'antd';
+import React, {useEffect} from "react";
+import {Form, Input, Button, notification} from 'antd';
 import "./index.css"
 import { Link, useHistory} from "react-router-dom";
-import { useDispatch } from 'react-redux'
-import { loginUser } from '../../redux/actions/authActions'
+import {useDispatch, useSelector} from 'react-redux'
+import {loginErrorClear, loginUser} from '../../redux/actions/authActions'
 
 export const Login = () => {
   const dispatch = useDispatch()
   const history = useHistory()
-  
+  const userLoginError = useSelector(state => state.authReducer.userLoginError);
+
   const onFinish = (values) => {
+    // console.log(values)
     dispatch(loginUser(values))
   };
+
+  useEffect(() => {
+    if (userLoginError) {
+      notification.error({
+        message: 'Invalid credentials' || userLoginError.message
+      })
+    }
+
+    dispatch(loginErrorClear())
+
+  }, [userLoginError])
 
   return<Form
     className="auth-form"

@@ -1,8 +1,4 @@
 import {
-  LOGIN_REQUEST,
-  LOGIN_SUCCESS,
-  LOGIN_ERROR,
-  LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
@@ -10,7 +6,8 @@ import {
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  LOG_OUT
+  LOG_OUT,
+  LOGIN_ERROR_CLEAR
 } from "../constants";
 
 
@@ -58,6 +55,11 @@ export default function authReducer(state = initState, action) {
         ...state,
         isLoggedIn: false,
         token: ""
+      }
+    case LOGIN_ERROR_CLEAR:
+      return {
+        ...state,
+        userLoginError: null
       }
     /******************** REGISTER *****************/
     case REGISTER_USER_START:
