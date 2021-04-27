@@ -7,6 +7,14 @@
       "name": "vaniko akopashvili",
       "phone": "+995568769804",
       "id": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$7uWrBD8jfMT9hUOwUP7JBOnvGWYOugc3iqn/bvyVMqkBqa/MshZZW",
+      "username": "shota",
+      "name": "shota",
+      "phone": "+995123123123",
+      "id": 2
     }
   ]
 }

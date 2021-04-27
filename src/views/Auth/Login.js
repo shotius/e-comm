@@ -3,7 +3,7 @@ import {Form, Input, Button} from 'antd';
 import "./index.css"
 import { Link, useHistory} from "react-router-dom";
 import { useDispatch } from 'react-redux'
-import { loginUser } from '../../../redux/actions/authActions'
+import { loginUser } from '../../redux/actions/authActions'
 
 export const Login = () => {
   const dispatch = useDispatch()
