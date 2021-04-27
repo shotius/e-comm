@@ -8,7 +8,8 @@ import {
   REGISTER_USER_START,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL
+  LOGIN_USER_FAIL,
+  LOG_OUT
 } from "../constants";
 
 // const initState = {
@@ -32,6 +33,8 @@ const initState = {
   userLoading: true,
   userRegisterLoading: false,
   userRegisterError: null,
+  token: null,
+  expiraitondate: null,
 }
 
 export default function authReducer(state = initState, action) {
@@ -80,12 +83,6 @@ export default function authReducer(state = initState, action) {
         userRegisterError: action.error,
         userRegisterLoading: false
       }
-    case LOGIN_USER_SUCCESS:
-      return {
-        ...state,
-        userLoginLoading: true,
-        userLoginError: null
-      }
     case LOGIN_USER_START:
       return {
         ...state, 
@@ -95,14 +92,21 @@ export default function authReducer(state = initState, action) {
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
-        userLoginLoading: false,
-        userLoginError: null
+        userLoginLoading: true,
+        userLoginError: null,
+        token: action.token,
+        expirationDate: action.expirationDate
       }
     case LOGIN_USER_FAIL:
       return {
         ...state,
         userLoginError: action.error,
         userLoginLoading: false
+      }
+    case LOG_OUT:
+      return {
+        ...state
+        // need to fill out
       }
     default:
       return state;

@@ -1,20 +1,22 @@
 import axios from "axios";
-import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
+import moment from 'moment'
+// import { __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED } from "react-dom";
 import {
   LOGIN_REQUEST,
   LOGIN_SUCCESS,
   LOGIN_ERROR,
-  USER_FETCH_SUCCESS,
   LOGOUT,
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
-  LOGIN_USER_FAIL
+  LOGIN_USER_FAIL,
+  LOG_OUT
 } from "../constants";
 
 const base_url = "http://localhost:3001"
+let expirationTimeout = null;
 
 export const registerUser = (user, callback) => {
   return dispatch => {
@@ -25,19 +27,34 @@ export const registerUser = (user, callback) => {
         dispatch(registerUserSuccess())
         callback();
       })
-      .catch(error => dispatch(registerUserFail(error)))
+      .catch(error => {
+        dispatch(registerUserFail(error))
+        callback()
+      })
   }
 }
 
-export const loginUser = (user) => {
+export const loginUser = (user, callback) => {
   return dispatch => {
     dispatch(userLoginStart())
     axios
       .post(`${base_url}/login`, user)
-      .then(() => {
-        dispatch(userLoginSuccess())
+      .then(({data}) => {
+        dispatch(userLoginSuccess(data.accessToken))
+        // callback()
       })
-      .catch(error => dispatch(userLoginFail(error)))
+      .catch(error => {
+        dispatch(userLoginFail(error))
+        // callback()
+      })
+  }
+}
+export const logOut = () => {
+  return dispatch => {
+    window.localStorage.clear()
+    dispatch({
+      type: LOG_OUT
+    })
   }
 }
 
@@ -45,9 +62,28 @@ const userLoginStart = () => ({
   type: LOGIN_USER_START
 })
 
-const userLoginSuccess = () => ({
-  type: LOGIN_USER_SUCCESS
-})
+const userLoginSuccess = (token) => {
+  return dispatch => {
+    const expirationTime = 1000 * 60 * 60 // one hour
+    const expirationDate = moment().valueOf() + expirationTime
+
+    window.localStorage.setItem('token', token)
+    window.localStorage.setItem('expirationDate', expirationDate)
+
+    // log out user after one hour
+    clearTimeout(expirationTimeout) 
+    expirationTimeout = setTimeout(() => {
+      dispatch(logOut())
+    }, expirationTime)
+
+    // send token and expiration date to redux
+    dispatch({
+      type: LOGIN_USER_SUCCESS,
+      token: token,
+      expirationDate: expirationDate
+    })
+  }
+}
 
 const userLoginFail = (error) => ({
   type: LOGIN_USER_FAIL,
