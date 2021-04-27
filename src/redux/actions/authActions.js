@@ -9,12 +9,13 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
+  REGISTER_ERROR_CLEAR,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOG_OUT,
 } from "../constants";
-import {notification} from "antd";
+
 
 const base_url = "http://localhost:3001";
 let expirationTimeout = null;
@@ -102,6 +103,10 @@ const registerUserFail = (error) => ({
 const registerUserSuccess = () => ({
   type: REGISTER_USER_SUCCESS,
 });
+
+export const registerErrorClear = () => ({
+  type: REGISTER_ERROR_CLEAR
+})
 
 export const loginRequest = () => ({
   type: LOGIN_REQUEST,

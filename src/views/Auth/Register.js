@@ -1,12 +1,11 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
 import {Button, Form, Input, notification, Select} from "antd";
-import {registerUser} from "../../redux/actions/authActions";
+import {registerErrorClear, registerUser} from "../../redux/actions/authActions";
 import {useDispatch, useSelector} from "react-redux";
 
 const {Option} = Select;
 // matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
-
 
 export const Register = () => {
   const {userRegisterLoading, userRegisterError} = useSelector(
@@ -80,6 +79,7 @@ export const Register = () => {
       notification.error({
         message: userRegisterError.message
       })
+      dispatch(registerErrorClear());
     }
   }, [userRegisterError])
 

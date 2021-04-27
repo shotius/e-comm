@@ -6,22 +6,13 @@ import {
   REGISTER_USER_SUCCESS,
   REGISTER_USER_FAIL,
   REGISTER_USER_START,
+  REGISTER_ERROR_CLEAR,
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOG_OUT
 } from "../constants";
 
-// const initState = {
-//   isLoggedIn: !!localStorage.token,
-//   token: localStorage.token,
-//   expirationDate: localStorage.expirationDate,
-//   idToken: null,
-//   loginError: false,
-//   loginLoading: true,
-//   user: null,
-//   userLoading: true
-// }
 
 const initState = {
   isLoggedIn: false,
@@ -81,6 +72,11 @@ export default function authReducer(state = initState, action) {
         ...state,
         userRegisterError: action.error,
         userRegisterLoading: false
+      }
+    case REGISTER_ERROR_CLEAR:
+      return {
+        ...state,
+        userRegisterError: null
       }
     case LOGIN_USER_START:
       return {
