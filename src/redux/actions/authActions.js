@@ -8,7 +8,7 @@ import {
   LOGIN_USER_START,
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
-  LOG_OUT,
+  LOG_OUT, LOGIN_ERROR_CLEAR,
 } from "../constants";
 
 
@@ -36,7 +36,6 @@ export const loginUser = (user, callback) => {
     axios
       .post(`${base_url}/login`, user)
       .then(({ data }) => {
-
         dispatch(userLoginSuccess(data.accessToken));
         // callback()
       })
@@ -87,6 +86,10 @@ const userLoginFail = (error) => ({
   type: LOGIN_USER_FAIL,
   error,
 });
+
+export const loginErrorClear = () => ({
+  type: LOGIN_ERROR_CLEAR
+})
 
 const userRegisterStart = () => ({
   type: REGISTER_USER_START,

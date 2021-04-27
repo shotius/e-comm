@@ -43,10 +43,10 @@ const App = () => {
 
     if (isLoggedIn)
       return (
-      <AppLayout>{routesInSwitch}</AppLayout>
+        <AppLayout>{routesInSwitch}</AppLayout>
       )
     return (
-    <AuthLayout>{routesInSwitch}</AuthLayout>
+      <AuthLayout>{routesInSwitch}</AuthLayout>
     )
   }
 
