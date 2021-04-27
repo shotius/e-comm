@@ -1,14 +1,16 @@
-import React, { useCallback, useRef, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { Button, Form, Input, notification, Select } from "antd";
-import { registerUser } from "../../redux/actions/authActions";
-import { useDispatch, useSelector } from "react-redux";
-const { Option } = Select;
+import React, {useCallback, useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import {Button, Form, Input, notification, Select} from "antd";
+import {registerUser} from "../../redux/actions/authActions";
+import {useDispatch, useSelector} from "react-redux";
+
+const {Option} = Select;
 // matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
 
+
 export const Register = () => {
-  const userRegisterLoading = useSelector(
-    (state) => state.authReducer.userRegisterLoading
+  const {userRegisterLoading, userRegisterError} = useSelector(
+    (state) => state.authReducer
   );
 
   const dispatch = useDispatch();
@@ -53,35 +55,36 @@ export const Register = () => {
   );
 
   const onFinish = (values) => {
-    if (values.password === values.confirm_password) {
-      const userInfo = {
+    if (values.password !== values.confirm_password) {
+      notification.error({
+        message: "Passwords didn’t match. Please try again",
+      });
+
+    } else {
+      const {confirm_password, ...userInfo} = {
         ...values,
         email: values.email + inputEmail,
         phone: inputPhone + values.phone,
       };
-      delete userInfo.confirm_password;
-      dispatch(
-        registerUser(userInfo, () => {
-          notification.success({
-            message: "You've successfully registered",
-          });
-          history.push("/login");
+      dispatch(registerUser(userInfo, () => {
+        notification.success({
+          message: "You've successfully registered"
         })
-      );
-    } else {
-      notification.error({
-        message: "Passwords didn’t match. Please try again",
-      });
+        history.push('/login')
+      }))
     }
-
-    console.log("Success:", {
-      ...values,
-      email: values.email + inputEmail,
-      phone: inputPhone + values.phone,
-    });
   };
 
+  useEffect(() => {
+    if (userRegisterError) {
+      notification.error({
+        message: userRegisterError.message
+      })
+    }
+  }, [userRegisterError])
+
   return (
+
     <Form
       className="auth-form"
       name="login"
@@ -105,7 +108,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input maxLength={20} />
+        <Input maxLength={20}/>
       </Form.Item>
 
       <Form.Item
@@ -118,7 +121,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input />
+        <Input/>
       </Form.Item>
       <Form.Item
         label="Phone"
@@ -147,7 +150,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input addonAfter={selectAfterEmail} />
+        <Input addonAfter={selectAfterEmail}/>
       </Form.Item>
 
       <Form.Item
@@ -160,7 +163,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password/>
       </Form.Item>
 
       <Form.Item
@@ -173,7 +176,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password/>
       </Form.Item>
 
       <Form.Item>

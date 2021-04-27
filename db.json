@@ -7,6 +7,38 @@
       "name": "name",
       "phone": "+995123123123",
       "id": 1
+    },
+    {
+      "email": "testdd@gmail.com",
+      "password": "$2a$10$BQzZcHd8MpUOdIvWF72vjOoncwqyhFAgJaxDuxt.Kq.y9T4V8eNPS",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 2
+    },
+    {
+      "email": "testff@gmail.com",
+      "password": "$2a$10$Xst1vcYkKTGWRtDrckWOOuLXwbLD1DtcPrB60/lEZfr8FZFlux6K2",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 3
+    },
+    {
+      "email": "testfdsaf@gmail.com",
+      "password": "$2a$10$sgV7Nmx26NZYbHb.pp8YuObqED5rKZjWHsaJUC5eZOjMSJj4v3Lv2",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 4
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "$2a$10$HoNwzisWa49iZeo.NTHydu0AVFi8szKzm4kAC8HjGj1PEw6SpfcG2",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 5
     }
   ]
 }

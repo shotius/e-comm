@@ -14,6 +14,7 @@ import {
   LOGIN_USER_FAIL,
   LOG_OUT,
 } from "../constants";
+import {notification} from "antd";
 
 const base_url = "http://localhost:3001";
 let expirationTimeout = null;
@@ -21,7 +22,7 @@ let expirationTimeout = null;
 export const registerUser = (user, callback) => {
   return (dispatch) => {
     dispatch(userRegisterStart());
-    axios
+    return axios
       .post(`http://localhost:3001/register`, user)
       .then(() => {
         dispatch(registerUserSuccess());
@@ -29,8 +30,7 @@ export const registerUser = (user, callback) => {
       })
       .catch((error) => {
         dispatch(registerUserFail(error));
-        callback();
-      });
+      })
   };
 };
 

@@ -33,7 +33,6 @@ const initState = {
   userLoading: true,
   userRegisterLoading: false,
   userRegisterError: null,
-  token: null,
   expiraitondate: null,
 }
 
