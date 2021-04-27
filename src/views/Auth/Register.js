@@ -52,6 +52,7 @@ export const Register = () => {
         notification.success({
           message: "You've successfully registered"
         })
+        history.push('/login')
       }))
     } else {
        notification.error({
