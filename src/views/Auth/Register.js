@@ -1,6 +1,6 @@
 import React, { useCallback, useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { Button, Form, Input, notification, Select } from "antd";
+import { Button, Form, Input,notification,  Select } from "antd";
 import { registerUser } from "../../redux/actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
 const { Option } = Select;
@@ -53,13 +53,18 @@ export const Register = () => {
   );
 
   const onFinish = (values) => {
-    if (values.password === values.confirm_password) {
-      const userInfo = {
+    if (values.password !== values.confirm_password) {
+      notification.error({
+        message: "Passwords didn’t match. Please try again",
+      });
+    } else {
+      // destructure values except confirm_password 
+      const {confirm_password, ...userInfo}  = {
         ...values,
         email: values.email + inputEmail,
         phone: inputPhone + values.phone,
-      };
-      delete userInfo.confirm_password;
+      }
+      
       dispatch(
         registerUser(userInfo, () => {
           notification.success({
@@ -68,10 +73,6 @@ export const Register = () => {
           history.push("/login");
         })
       );
-    } else {
-      notification.error({
-        message: "Passwords didn’t match. Please try again",
-      });
     }
 
     console.log("Success:", {

@@ -29,7 +29,6 @@ export const registerUser = (user, callback) => {
       })
       .catch((error) => {
         dispatch(registerUserFail(error));
-        callback();
       });
   };
 };
