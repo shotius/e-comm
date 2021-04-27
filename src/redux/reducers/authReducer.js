@@ -12,11 +12,11 @@ import {
 
 
 const initState = {
-  isLoggedIn: false,
+  isLoggedIn: !!localStorage.token,
   loginError: false,
   user: null,
-  token: "",
-  expirationDate: 0,
+  token: localStorage.token,
+  expirationDate: localStorage.expirationDate,
   userRegisterLoading: false,
   userRegisterError: null,
   userLoginError: false,

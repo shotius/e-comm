@@ -15,6 +15,30 @@
       "name": "shota",
       "phone": "+995123123123",
       "id": 2
+    },
+    {
+      "email": "vano@sweeft.com",
+      "password": "$2a$10$vL4LE5mCGBihT.oJ8OyBa.t4J/fdyI1Jt3h3Hb6nUbtAqYBMbvC6C",
+      "username": "vano.akofa",
+      "name": "vaniko",
+      "phone": "+995565656565",
+      "id": 3
+    },
+    {
+      "email": "vano@gmail.com",
+      "password": "$2a$10$f/AnzHXFXrpBLAGoJiraD.5mgaAD2XK.rFLFXReiU./6x6anpTUGK",
+      "username": "ghddg",
+      "name": "dhfg",
+      "phone": "+995645656266",
+      "id": 4
+    },
+    {
+      "email": "demna@gmail.com",
+      "password": "$2a$10$fMoiwlA5uLZEsJozj05MZu8HJ.ggqS/kiIJ1PvGfsLDkjdVVyHXjS",
+      "username": "demna",
+      "name": "demna mikava",
+      "phone": "+995456546464",
+      "id": 5
     }
   ]
 }
