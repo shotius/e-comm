@@ -1,18 +1,27 @@
 import React from "react";
-import {Layout, Col, Row, Button} from "antd";
+import {Col, Row, Button, Input} from "antd";
 import logo from '../../../../assets/logo.png'
+import '/home/shoutius/e-comm/src/modules/layout/AppLayout/Header/index.css'
+import { logOut } from '/home/shoutius/e-comm/src/redux/actions/authActions.js'
+import { useDispatch } from 'react-redux'
 
 const Header = () => {
+  const dispatch = useDispatch()
+
   return (
-      <Row type="flex" justify="space-between">
-        <Col>
-          <img src={logo} alt="logo" />
+      <Row type="flex"   align="middle" style={{height: "70px", background: 'black'}} >
+        <Col span={2 }>
+          <img src={logo} className="logo" alt="logo" />
         </Col>
-        <Col>
-          <Button >Log Out</Button>
+        <Col span={13}>
+          <Input /> 
+        </Col>
+        <Col span={8}>
+          <Button className="logout" onClick={() => dispatch(logOut())}>Log Out</Button>
         </Col>
       </Row>
   )
 }
+
 
 export default Header;

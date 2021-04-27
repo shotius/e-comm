@@ -1,0 +1,14 @@
+.header {
+    height: 80px;
+    background: 'black';
+}
+
+
+.logo {
+    height: 70px;
+}
+
+.logout {
+    margin: 10px;
+    color: black;
+}
