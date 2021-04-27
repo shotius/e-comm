@@ -13,15 +13,10 @@ export const Login = () => {
     dispatch(loginUser(values))
   };
 
-  const onFinishFailed = (errorInfo) => {
-    // some notification error
-  };
-
   return<Form
     className="auth-form"
     name="login"
     onFinish={onFinish}
-    onFinishFailed={onFinishFailed}
   >
     <Form.Item
       label="Email"

@@ -1,14 +1,15 @@
-import React, { useCallback, useRef, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
-import { Button, Form, Input,notification,  Select } from "antd";
-import { registerUser } from "../../redux/actions/authActions";
-import { useDispatch, useSelector } from "react-redux";
-const { Option } = Select;
+import React, {useCallback, useEffect, useState} from "react";
+import {Link, useHistory} from "react-router-dom";
+import {Button, Form, Input, notification, Select} from "antd";
+import {registerErrorClear, registerUser} from "../../redux/actions/authActions";
+import {useDispatch, useSelector} from "react-redux";
+
+const {Option} = Select;
 // matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
 
 export const Register = () => {
-  const userRegisterLoading = useSelector(
-    (state) => state.authReducer.userRegisterLoading
+  const {userRegisterLoading, userRegisterError} = useSelector(
+    (state) => state.authReducer
   );
 
   const dispatch = useDispatch();
@@ -57,44 +58,45 @@ export const Register = () => {
       notification.error({
         message: "Passwords didn’t match. Please try again",
       });
+
     } else {
-      // destructure values except confirm_password 
-      const {confirm_password, ...userInfo}  = {
+      const {confirm_password, ...userInfo} = {
         ...values,
         email: values.email + inputEmail,
         phone: inputPhone + values.phone,
-      }
-      
-      dispatch(
-        registerUser(userInfo, () => {
-          notification.success({
-            message: "You've successfully registered",
-          });
-          history.push("/login");
+      };
+      dispatch(registerUser(userInfo, () => {
+        notification.success({
+          message: "You've successfully registered"
         })
-      );
+        history.push('/login')
+      }))
     }
-
-    console.log("Success:", {
-      ...values,
-      email: values.email + inputEmail,
-      phone: inputPhone + values.phone,
-    });
   };
 
+  useEffect(() => {
+    if (userRegisterError) {
+      notification.error({
+        message: userRegisterError.message
+      })
+      dispatch(registerErrorClear());
+    }
+  }, [userRegisterError])
+
   return (
+
     <Form
       className="auth-form"
       name="login"
       onFinish={onFinish}
-      initialValues={{
-        username: "username",
-        name: "name",
-        phone: 123123123,
-        email: "test",
-        password: "1234",
-        confirm_password: "1234",
-      }}
+      // initialValues={{
+      //   username: "username",
+      //   name: "name",
+      //   phone: 123123123,
+      //   email: "test",
+      //   password: "1234",
+      //   confirm_password: "1234",
+      // }}
     >
       <Form.Item
         label="Username"
@@ -106,7 +108,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input maxLength={20} />
+        <Input maxLength={20}/>
       </Form.Item>
 
       <Form.Item
@@ -119,7 +121,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input />
+        <Input/>
       </Form.Item>
       <Form.Item
         label="Phone"
@@ -148,7 +150,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input addonAfter={selectAfterEmail} />
+        <Input addonAfter={selectAfterEmail}/>
       </Form.Item>
 
       <Form.Item
@@ -161,7 +163,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password/>
       </Form.Item>
 
       <Form.Item
@@ -174,7 +176,7 @@ export const Register = () => {
           },
         ]}
       >
-        <Input.Password />
+        <Input.Password/>
       </Form.Item>
 
       <Form.Item>
