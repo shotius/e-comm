@@ -1,5 +1,5 @@
 import authReducer from "./reducers/authReducer";
-import {applyMiddleware, combineReducers, compose, createStore} from "redux";
+import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk"
 import { composeWithDevTools } from 'redux-devtools-extension'
 

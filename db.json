@@ -1,17 +1,12 @@
 {
   "users": [
     {
-      "email": "olivier@mail.com",
-      "password": "$2a$10$.jA3YQuW0xja4JtZDPfPYOx8JaIBB64PG91KlvIoB9KsqLY/k6IXG",
-      "id": 1
-    },
-    {
-      "email": "test1f@gmail.com",
-      "password": "$2a$10$B.eeQhttICrXv0h/S6d6IOflQwQCMXO4ok8amh4Y5zXatkgYvi9vC",
+      "email": "test@gmail.com",
+      "password": "$2a$10$uyZjNEMVqCsqpMdysQFk8eTxsVUFRhLPDtYRXgOiTIyet5fvqIiaC",
       "username": "username",
       "name": "name",
       "phone": "+995123123123",
-      "id": 2
+      "id": 1
     }
   ]
 }
