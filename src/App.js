@@ -31,20 +31,22 @@ const App = () => {
 
   // wraps routes in two different layouts 
   const wrapLayout = () => {
-    const generated_routes = generateRoutes(AppRoutes)
-    const routesInSwitch = <Switch>
-      {generated_routes}
-      <Route path="*">
-        Error Component
-      </Route>
-    </Switch>
+    // all routes are wrapped in switch
+    const routesInSwitch = (
+      <Switch>
+        {generateRoutes(AppRoutes)}
+        <Route path="*">
+          Error Component
+        </Route>
+      </Switch>
+    )
 
     if (isLoggedIn)
       return (
-        <AppLayout>{routesInSwitch}</AppLayout>
+      <AppLayout>{routesInSwitch}</AppLayout>
       )
     return (
-      <AuthLayout>{routesInSwitch}</AuthLayout>
+    <AuthLayout>{routesInSwitch}</AuthLayout>
     )
   }
 
