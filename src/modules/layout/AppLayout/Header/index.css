@@ -5,8 +5,18 @@
 }
 
 .logo {
-    height: 70px;
+    height: 40px;
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: 4px;
+    left: 8px;
+    z-index: 99;
+    opacity: 1;
+}
+
+.logo:hover {
+    opacity: 0.9;
 }
 
 
