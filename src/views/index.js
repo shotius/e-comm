@@ -1,4 +1,4 @@
 export * from "./Auth/Login";
 export * from "./Auth/Register";
-export * from "./Products";
+export * from "./Home";
 export * from "./ProductList";
