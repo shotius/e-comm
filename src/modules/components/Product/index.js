@@ -34,7 +34,7 @@ const Product = ({id}) => {
           <p className="product-price">${product?.price}</p>
           <Divider />
           <p className="product-description">{product?.description}</p>
-        <Button type={"primary"} size={"large"} className="product-btn">Add to Cart</Button>
+        <Button type={"primary"} className="product-btn">Add to Cart</Button>
         </div>
 
       </Col>

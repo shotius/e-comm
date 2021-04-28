@@ -51,19 +51,13 @@
   ],
   "products": [
     {
-      "title": "Iphone pro max 12",
-      "price": 2000,
-      "brand": "Apple",
-      "category": "smartphones",
+      "title": "Dell Latitute 5510",
+      "price": 4000,
+      "brand": "Dell",
+      "category": "laptops",
       "userId": 1,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Pixel XL 2",
-      "price": 1500,
-      "brand": "Google",
-      "category": "smartphones",
-      "userId": 2,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
@@ -77,43 +71,13 @@
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Lenovo Thinkpad",
+      "title": "Dell Latitute 5510",
       "price": 4000,
-      "brand": "Lenovo",
+      "brand": "Dell",
       "category": "laptops",
-      "userId": 3,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Lenovo Yoga",
-      "price": 6000,
-      "brand": "Lenovo",
-      "category": "laptops",
-      "userId": 3,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Bosch Refrigerator",
-      "price": 6000,
-      "brand": "Bosch",
-      "category": "Kitchen Appliances",
-      "userId": 3,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-       {
-      "title": "Iphone pro max 12",
-      "price": 2000,
-      "brand": "Apple",
-      "category": "smartphones",
       "userId": 1,
-         "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Pixel XL 2",
-      "price": 1500,
-      "brand": "Google",
-      "category": "smartphones",
-      "userId":  3,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
@@ -122,46 +86,8 @@
       "brand": "Dell",
       "category": "laptops",
       "userId": 1,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Lenovo Thinkpad",
-      "price": 4000,
-      "brand": "Lenovo",
-      "category": "laptops",
-      "userId": 3,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Lenovo Yoga",
-      "price": 6000,
-      "brand": "Lenovo",
-      "category": "laptops",
-      "userId": 3,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Bosch Refrigerator",
-      "price": 6000,
-      "brand": "Bosch",
-      "category": "Kitchen Appliances",
-      "userId": 3,
-      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-       {
-      "title": "Iphone pro max 12",
-      "price": 2000,
-      "brand": "Apple",
-      "category": "smartphones",
-      "userId": 1,
-         "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
-    },
-    {
-      "title": "Pixel XL 2",
-      "price": 1500,
-      "brand": "Google",
-      "category": "smartphones",
-      "userId":  3,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
@@ -170,30 +96,38 @@
       "brand": "Dell",
       "category": "laptops",
       "userId": 1,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Lenovo Thinkpad",
+      "title": "Dell Latitute 5510",
       "price": 4000,
-      "brand": "Lenovo",
+      "brand": "Dell",
       "category": "laptops",
-      "userId": 3,
+      "userId": 1,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Lenovo Yoga",
-      "price": 6000,
-      "brand": "Lenovo",
+      "title": "Dell Latitute 5510",
+      "price": 4000,
+      "brand": "Dell",
       "category": "laptops",
-      "userId": 3,
+      "userId": 1,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Bosch Refrigerator",
-      "price": 6000,
-      "brand": "Bosch",
-      "category": "Kitchen Appliances",
-      "userId": 3,
+      "title": "Dell Latitute 5510",
+      "price": 4000,
+      "brand": "Dell",
+      "category": "laptops",
+      "userId": 1,
+      "id": 100,
+      "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     }
   ]

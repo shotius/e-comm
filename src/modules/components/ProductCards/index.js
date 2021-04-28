@@ -28,11 +28,12 @@ const Products = ({category}) => {
           />
         }>
           <Meta
-            title=<Link to={`/products/${category}/${product.id}`}>{product.title}</Link>
+            title=<Link to={`/products/${product.category}/${product.id}`}>{product.title}</Link>
           description={`Price: ${product.price}`}
           style={{width: "100%"}}
           />
           <Button type="primary" style={{marginTop: "15px"}}>Add to Cart</Button>
+          {console.log(product.category, product.id, 'gela')}
         </Card>
       </Col>)
     )}</Row>
