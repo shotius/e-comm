@@ -10,6 +10,7 @@ export const Products = () => {
     <Slider />
     <div className="container">
       <ProductsFilter />
+
     </div>
   </>
 
