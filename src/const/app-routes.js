@@ -14,14 +14,14 @@ export const AppRoutes =
     },
     home: {
       path: '',
-      view: 'Products',
+      view: 'Home',
       isPrivate: true,
       exact: true
     },
 
     products: {
       path: 'products',
-      view: 'Products',
+      view: 'Home',
       isPrivate: true,
       exact: true
     },

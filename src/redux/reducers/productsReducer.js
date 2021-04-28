@@ -26,7 +26,6 @@ export default function productsReducer(state = initState, action) {
         productsFetchError: null
       }
     case PRODUCTS_FETCH_SUCCESS:
-      console.log(action,'ddd')
       return {
         ...state,
         productsFetchLoading: false,

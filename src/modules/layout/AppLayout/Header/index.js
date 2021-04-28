@@ -3,7 +3,7 @@ import {Col, Row, Button, Input, Space, Dropdown, Menu} from "antd";
 import  {ShoppingCartOutlined, UserOutlined} from '@ant-design/icons';
 import logo from '../../../../assets/logo.png'
 import './index.css';
-import { logOut } from '/home/shoutius/e-comm/src/redux/actions/authActions.js'
+// import { logOut } from '../../../../redux/actions/authActions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 const { Search } = Input;
@@ -18,6 +18,7 @@ const Header = () => {
       <Menu.Item key="1"onClick={() => dispatch(logOut())}>Log Out</Menu.Item>
     </Menu>
   );
+
 
   return (
     <div >

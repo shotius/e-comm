@@ -54,127 +54,145 @@
       "title": "Iphone pro max 12",
       "price": 2000,
       "brand": "Apple",
-      "category": "smartphone",
-      "userId": 1
+      "category": "smartphones",
+      "userId": 1,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Pixel XL 2",
       "price": 1500,
       "brand": "Google",
-      "category": "smartphone",
-      "userId": 2
+      "category": "smartphones",
+      "userId": 2,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Dell Latitute 5510",
       "price": 4000,
       "brand": "Dell",
-      "category": "laptop",
-      "userId": 1
+      "category": "laptops",
+      "userId": 1,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Lenovo Thinkpad",
       "price": 4000,
       "brand": "Lenovo",
-      "category": "laptop",
-      "userId": 3
+      "category": "laptops",
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Lenovo Yoga",
       "price": 6000,
       "brand": "Lenovo",
-      "category": "laptop",
-      "userId": 3
+      "category": "laptops",
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Bosch Refrigerator",
       "price": 6000,
       "brand": "Bosch",
       "category": "Kitchen Appliances",
-      "userId": 3
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
        {
       "title": "Iphone pro max 12",
       "price": 2000,
       "brand": "Apple",
-      "category": "smartphone",
-      "userId": 1
+      "category": "smartphones",
+      "userId": 1,
+         "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Pixel XL 2",
       "price": 1500,
       "brand": "Google",
-      "category": "smartphone",
-      "userId": 2
+      "category": "smartphones",
+      "userId":  3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Dell Latitute 5510",
       "price": 4000,
       "brand": "Dell",
-      "category": "laptop",
-      "userId": 1
+      "category": "laptops",
+      "userId": 1,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Lenovo Thinkpad",
       "price": 4000,
       "brand": "Lenovo",
-      "category": "laptop",
-      "userId": 3
+      "category": "laptops",
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Lenovo Yoga",
       "price": 6000,
       "brand": "Lenovo",
-      "category": "laptop",
-      "userId": 3
+      "category": "laptops",
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Bosch Refrigerator",
       "price": 6000,
       "brand": "Bosch",
       "category": "Kitchen Appliances",
-      "userId": 3
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
        {
       "title": "Iphone pro max 12",
       "price": 2000,
       "brand": "Apple",
-      "category": "smartphone",
-      "userId": 1
+      "category": "smartphones",
+      "userId": 1,
+         "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Pixel XL 2",
       "price": 1500,
       "brand": "Google",
-      "category": "smartphone",
-      "userId": 2
+      "category": "smartphones",
+      "userId":  3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Dell Latitute 5510",
       "price": 4000,
       "brand": "Dell",
-      "category": "laptop",
-      "userId": 1
+      "category": "laptops",
+      "userId": 1,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Lenovo Thinkpad",
       "price": 4000,
       "brand": "Lenovo",
-      "category": "laptop",
-      "userId": 3
+      "category": "laptops",
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Lenovo Yoga",
       "price": 6000,
       "brand": "Lenovo",
-      "category": "laptop",
-      "userId": 3
+      "category": "laptops",
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
       "title": "Bosch Refrigerator",
       "price": 6000,
       "brand": "Bosch",
       "category": "Kitchen Appliances",
-      "userId": 3
+      "userId": 3,
+      "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     }
   ]
 }

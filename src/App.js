@@ -11,7 +11,6 @@ import AuthLayout from "./modules/layout/AuthLayout";
 
 const App = () => {
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
-  console.log(views)
   // returns routes
   const generateRoutes = (routes) => {
     let generated_routes = [];
@@ -19,7 +18,6 @@ const App = () => {
       const {path, view, isPrivate, exact} = routes[route];
       // views from view module
       const component = views[view];
-      console.log(component, path, view, isPrivate)
       // all routes are here
       generated_routes.push(
         isPrivate ?
