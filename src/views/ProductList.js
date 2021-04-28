@@ -9,13 +9,13 @@ const {Content} = Layout;
 export const ProductList = () => {
   console.log('ProductList')
   const params = useParams();
-
+  console.log(params)
   return <Layout>
     <Content>
       <ProductsFilter />
-      <Row gutter={[8,8]} style={{padding: "13px"}}>
+
           <Products category={params.category} />
-      </Row>
+
     </Content>
   </Layout>
 
