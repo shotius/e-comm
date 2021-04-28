@@ -12,14 +12,14 @@ import {
 } from "../constants";
 
 
-const base_url = "http://localhost:3001";
+// const base_url = "http://localhost:3001";
 let expirationTimeout = null;
 
 export const registerUser = (user, callback) => {
   return (dispatch) => {
     dispatch(userRegisterStart());
     return axios
-      .post(`http://localhost:3001/register`, user)
+      .post(`${process.env.REACT_APP_BASE_URL}/register`, user)
       .then(() => {
         dispatch(registerUserSuccess());
         callback();
@@ -34,7 +34,7 @@ export const loginUser = (user, callback) => {
   return (dispatch) => {
     dispatch(userLoginStart());
     axios
-      .post(`${base_url}/login`, user)
+      .post(`${process.env.REACT_APP_BASE_URL}/login`, user)
       .then(({ data }) => {
         dispatch(userLoginSuccess(data.accessToken));
         // callback()

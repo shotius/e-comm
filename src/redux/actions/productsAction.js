@@ -5,12 +5,12 @@ import {
 } from "../constants";
 import axios from "axios";
 
-const base_url = "http://localhost:3001/products"
+// const base_url = "http://localhost:3001/products"
 
-export const fetchProducts = (category="") => {
+export const fetchProducts = (category = "") => {
   return (dispatch) => {
     dispatch(fetchProductsStart())
-    axios.get(`${base_url}?category=${category}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/products?category=${category}`)
       .then(response => {
         console.log(response)
         dispatch(fetchProductsSuccess(response.data))

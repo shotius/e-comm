@@ -25,12 +25,19 @@ export const AppRoutes =
       isPrivate: true,
       exact: true
     },
+    productDetailed: {
+      path: 'products/:category/:id',
+      view: 'ProductDetailed',
+      isPrivate: true,
+      exact: false
+    },
     productsList: {
       path: 'products/:category',
       view: 'ProductList',
       isPrivate: true,
-      exact: false
+      exact: true
     },
+
     basket: {
       path: "basket",
       view: "Basket",
