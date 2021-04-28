@@ -48,5 +48,133 @@
       "phone": "+995599120514",
       "id": 6
     }
+  ],
+  "products": [
+    {
+      "title": "Iphone pro max 12",
+      "price": 2000,
+      "brand": "Apple",
+      "category": "smartphone",
+      "userId": 1
+    },
+    {
+      "title": "Pixel XL 2",
+      "price": 1500,
+      "brand": "Google",
+      "category": "smartphone",
+      "userId": 2
+    },
+    {
+      "title": "Dell Latitute 5510",
+      "price": 4000,
+      "brand": "Dell",
+      "category": "laptop",
+      "userId": 1
+    },
+    {
+      "title": "Lenovo Thinkpad",
+      "price": 4000,
+      "brand": "Lenovo",
+      "category": "laptop",
+      "userId": 3
+    },
+    {
+      "title": "Lenovo Yoga",
+      "price": 6000,
+      "brand": "Lenovo",
+      "category": "laptop",
+      "userId": 3
+    },
+    {
+      "title": "Bosch Refrigerator",
+      "price": 6000,
+      "brand": "Bosch",
+      "category": "Kitchen Appliances",
+      "userId": 3
+    },
+       {
+      "title": "Iphone pro max 12",
+      "price": 2000,
+      "brand": "Apple",
+      "category": "smartphone",
+      "userId": 1
+    },
+    {
+      "title": "Pixel XL 2",
+      "price": 1500,
+      "brand": "Google",
+      "category": "smartphone",
+      "userId": 2
+    },
+    {
+      "title": "Dell Latitute 5510",
+      "price": 4000,
+      "brand": "Dell",
+      "category": "laptop",
+      "userId": 1
+    },
+    {
+      "title": "Lenovo Thinkpad",
+      "price": 4000,
+      "brand": "Lenovo",
+      "category": "laptop",
+      "userId": 3
+    },
+    {
+      "title": "Lenovo Yoga",
+      "price": 6000,
+      "brand": "Lenovo",
+      "category": "laptop",
+      "userId": 3
+    },
+    {
+      "title": "Bosch Refrigerator",
+      "price": 6000,
+      "brand": "Bosch",
+      "category": "Kitchen Appliances",
+      "userId": 3
+    },
+       {
+      "title": "Iphone pro max 12",
+      "price": 2000,
+      "brand": "Apple",
+      "category": "smartphone",
+      "userId": 1
+    },
+    {
+      "title": "Pixel XL 2",
+      "price": 1500,
+      "brand": "Google",
+      "category": "smartphone",
+      "userId": 2
+    },
+    {
+      "title": "Dell Latitute 5510",
+      "price": 4000,
+      "brand": "Dell",
+      "category": "laptop",
+      "userId": 1
+    },
+    {
+      "title": "Lenovo Thinkpad",
+      "price": 4000,
+      "brand": "Lenovo",
+      "category": "laptop",
+      "userId": 3
+    },
+    {
+      "title": "Lenovo Yoga",
+      "price": 6000,
+      "brand": "Lenovo",
+      "category": "laptop",
+      "userId": 3
+    },
+    {
+      "title": "Bosch Refrigerator",
+      "price": 6000,
+      "brand": "Bosch",
+      "category": "Kitchen Appliances",
+      "userId": 3
+    }
   ]
 }
