@@ -1,26 +1,23 @@
-import React, {useEffect} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {fetchProducts} from "../redux/actions/productsAction";
+import React from "react";
 import {useParams} from "react-router-dom";
-import {Col, Row, Skeleton} from "antd";
+import {Layout, Row} from "antd";
 import Products from "../modules/components/Product";
+const {Content} = Layout;
 
 
 export const ProductList = () => {
+  console.log('ProductList')
   const params = useParams();
-  const dispatch = useDispatch();
 
-  const {productsFetchLoading} = useSelector(state => state.productsReducer);
+  return <Layout>
+    <Content>
+      <Row>
+          <Products category={params.category} />
+      </Row>
+    </Content>
+  </Layout>
 
-  useEffect(() => {
-    dispatch(fetchProducts(params.category));
-  }, [])
 
-  return <Skeleton active loading={productsFetchLoading}>
-    <Row>
-      <Products />
-    </Row>
-    </Skeleton>
 
   
 }

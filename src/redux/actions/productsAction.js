@@ -14,7 +14,7 @@ export const fetchProducts = (category="") => {
       .then(response => {
         console.log(response)
         dispatch(fetchProductsSuccess(response.data))
-        dispatch(setCurrentCategory(category));
+        // dispatch(setCurrentCategory(category));
       })
       .catch(error => {
         console.log(error)

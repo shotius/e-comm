@@ -31,6 +31,4 @@ export const AppRoutes =
       isPrivate: true,
       exact: false
     }
-
-
   }
