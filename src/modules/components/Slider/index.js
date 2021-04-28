@@ -14,7 +14,7 @@ const Slider = () => {
     <Carousel autoplay ref={carouselRef} draggable={true}>
       {carouselData.map((slider, i) => <div key={i}>
           <Link to={slider.link}><h3 style={{
-            height: '300px',
+            height: '350px',
             color: '#fff',
             lineHeight: '200px',
             textAlign: 'center',

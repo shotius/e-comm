@@ -11,13 +11,13 @@ const {Meta} = Card;
 
 const Products = ({category}) => {
   const dispatch = useDispatch();
-  console.log("Products")
+
   useEffect(() => {
     dispatch(fetchProducts(category));
-  }, [category, dispatch])
+  }, [])
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
-  return productsFetchLoading ? <Spinner /> : products.map((product, i) => (<Col xs={24} sm={12} md={8} lg={6} key={i}>
+  return productsFetchLoading ? <Spinner /> : products.map((product, i) => (<Col xs={12} sm={8} md={6} lg={4} key={i}>
       <Card className="product-item" cover={
         <img
           alt="product picture"

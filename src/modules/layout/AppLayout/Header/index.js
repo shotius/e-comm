@@ -3,7 +3,7 @@ import {Col, Row, Button, Input, Space, Dropdown, Menu} from "antd";
 import  {ShoppingCartOutlined, UserOutlined} from '@ant-design/icons';
 import logo from '../../../../assets/logo.png'
 import './index.css';
-// import { logOut } from '../../../../redux/actions/authActions'
+import { logOut } from '../../../../redux/actions/authActions'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 const { Search } = Input;

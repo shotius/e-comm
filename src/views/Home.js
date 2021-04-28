@@ -5,7 +5,6 @@ import {useSelector} from "react-redux";
 
 
 export const Home = () => {
-  const currentCategory = useSelector(state => state.productsReducer.currentCategory);
   return <>
     {/*{!currentCategory && <Slider />}*/}
     <Slider />
