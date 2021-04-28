@@ -1,14 +1,31 @@
-.header {
-    height: 80px;
-    background: 'black';
-}
 
+.row {
+    background-color: #333;
+    height: 80px;
+}
 
 .logo {
-    height: 70px;
+    height: 80px;
+    position: absolute;
 }
-
+/* 
 .logout {
     margin: 10px;
     color: black;
+} */
+ 
+.col   {
+    display: flex;
+    align-items: center;
 }
+
+.icon {
+    font-size: 30px;
+    color: white !important
+}
+
+@media screen and (max-width: 576px) {
+    .logo {
+      display: none;
+    }
+  }
