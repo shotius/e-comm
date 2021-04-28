@@ -1,19 +1,15 @@
 
 .row {
     background-color: #333;
-    height: 80px;
+    height: 70px;
 }
 
 .logo {
-    height: 80px;
+    height: 70px;
     position: absolute;
 }
-/* 
-.logout {
-    margin: 10px;
-    color: black;
-} */
- 
+
+
 .col   {
     display: flex;
     align-items: center;
