@@ -5,28 +5,30 @@ import logo from '../../../../assets/logo.png'
 import './index.css';
 import { logOut } from '/home/shoutius/e-comm/src/redux/actions/authActions.js'
 import { useDispatch } from 'react-redux'
+import { Link } from 'react-router-dom'
 const { Search } = Input;
 
 const Header = () => {
   const dispatch = useDispatch()
 
 
-const menu = (
-  <Menu>
-    <Menu.Item key="0">Profile</Menu.Item>
-    <Menu.Item key="1"onClick={() => dispatch(logOut())}>Log Out</Menu.Item>
-
-  </Menu>
-);
+  const menu = (
+    <Menu>
+      <Menu.Item key="0">Profile</Menu.Item>
+      <Menu.Item key="1"onClick={() => dispatch(logOut())}>Log Out</Menu.Item>
+    </Menu>
+  );
 
   return (
     <div >
       <img src={logo} className="logo" alt="logo" />
       <Row type="flex" justify="end"  align="middle" className="row" >
-        <Col pull={1} className="col col-3" style={{display: "flex"}}>
+        <Col pull={1} className="col col-3">
           <Space size="large">
-            <Search className="search"/> 
-            <ShoppingCartOutlined className="icon" />
+            <Search className="search"/>
+            <Link to='/basket'>
+              <ShoppingCartOutlined className="icon" />
+            </Link> 
             <Dropdown overlay={menu} trigger={['click']}>
               <UserOutlined className="icon" style={{color: "white"}}/>
             </Dropdown>

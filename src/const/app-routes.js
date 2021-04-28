@@ -30,7 +30,11 @@ export const AppRoutes =
       view: 'ProductList',
       isPrivate: true,
       exact: false
+    },
+    basket: {
+      path: "basket",
+      view: "Basket",
+      isPrivate: true,
+      exact: true
     }
-
-
   }
