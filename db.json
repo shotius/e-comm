@@ -47,6 +47,14 @@
       "name": "sandro peikrishvili",
       "phone": "+995599120514",
       "id": 6
+    },
+    {
+      "email": "vano11@gmail.com",
+      "password": "$2a$10$zg4mzfltajqb14bLbcsPOuS6blKhmfxr43mt8ezYpKgUAT4FEi/Ya",
+      "username": "test",
+      "name": "test test",
+      "phone": "+995568989898",
+      "id": 7
     }
   ],
   "products": [
@@ -91,47 +99,69 @@
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Dell Latitute 5510",
+      "title": "Lenovo Latitute 5510",
       "price": 4000,
       "brand": "Dell",
       "category": "laptops",
       "userId": 1,
-      "id": 100,
+      "id": 8,
       "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Dell Latitute 5510",
+      "title": "HP Latitute 5510",
       "price": 4000,
       "brand": "Dell",
       "category": "laptops",
       "userId": 1,
-      "id": 100,
+      "id": 9,
       "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Dell Latitute 5510",
+      "title": "Acer Latitute 5510",
       "price": 4000,
       "brand": "Dell",
       "category": "laptops",
       "userId": 1,
-      "id": 100,
+      "id": 10,
       "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     },
     {
-      "title": "Dell Latitute 5510",
+      "title": "Pavilion Latitute 5510",
       "price": 4000,
       "brand": "Dell",
       "category": "smartphones",
       "userId": 1,
-      "id": 100,
+      "id": 11,
       "description": "Work faster with the world's smallest 15-inch mainstream business laptop.* Our most scalable laptops are now the most intelligent with the built-in AI of Dell Optimizer.",
       "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
     }
   ],
-  "basket":[
-
+  "basket": [
+    {
+      "productId": 100,
+      "id": 1
+    },
+    {
+      "productId": 11,
+      "id": 2
+    },
+    {
+      "userId": "1",
+      "productId": 11,
+      "id": 3
+    },
+    {
+      "userId": "7",
+      "productId": 100,
+      "id": 4
+    },
+    {
+      "userId": 7,
+      "productId": 100,
+      "id": 5
+    }
   ]
 }

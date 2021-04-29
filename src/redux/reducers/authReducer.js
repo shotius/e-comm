@@ -9,12 +9,12 @@ import {
   LOG_OUT,
   LOGIN_ERROR_CLEAR
 } from "../constants";
-
+import jwt from "jsonwebtoken"
 
 const initState = {
   isLoggedIn: !!localStorage.token,
   loginError: false,
-  user: null,
+  user: localStorage.token ? jwt.decode(localStorage.token) : null,
   token: localStorage.token,
   expirationDate: localStorage.expirationDate,
   userRegisterLoading: false,

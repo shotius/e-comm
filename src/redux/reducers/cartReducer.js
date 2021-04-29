@@ -22,6 +22,7 @@ export default function cartReducer(state=initState, action) {
       return {
         ...state,
         addToCartError: null,
+        addToCartLoading: false,
         inCart: action.data
       }
     case ADD_TO_CART_FAIL:

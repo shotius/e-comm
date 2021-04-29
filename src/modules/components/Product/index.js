@@ -6,12 +6,19 @@ import {ArrowLeftOutlined} from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 
 import "./index.css"
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../../../redux/actions/cartActions";
 
 const Product = ({id}) => {
 
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const history = useHistory();
+  const dispatch = useDispatch();
+
+  const addToCartLoading = useSelector(state => state.cartReducer.addToCartLoading);
+  const user = useSelector(state => state.authReducer.user)
+  console.log(user)
 
   useEffect(() => {
     setIsLoading(true);
@@ -27,8 +34,12 @@ const Product = ({id}) => {
       })
   }, [id])
 
-  const addToCart = () => {
-    console.log('clicked addToCart')
+  const handleAddToCart = () => {
+   dispatch(addToCart({
+     userId: +user.sub,
+     productId: product.id
+   }))
+
   }
 
   return <div className="product-detailed container">
@@ -43,7 +54,7 @@ const Product = ({id}) => {
           <p className="product-price">${product?.price}</p>
           <Divider />
           <p className="product-description">{product?.description}</p>
-        <Button type={"primary"} className="product-btn" onClick={addToCart}>Add to Cart</Button>
+        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={handleAddToCart}>Add to Cart</Button>
         </div>
 
       </Col>
