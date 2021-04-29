@@ -3,3 +3,4 @@ export * from "./Auth/Register";
 export * from "./Basket"
 export * from "./Home";
 export * from "./ProductList";
+export * from "./ProductDetailed";

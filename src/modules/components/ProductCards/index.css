@@ -1,0 +1,16 @@
+.product-item {
+    box-shadow: 0 3px 15px rgba(0,0,0,.2);
+}
+
+.ant-card-body {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.product-item img {
+    object-fit: cover;
+    max-width: 100%;
+    height: auto;
+    max-height: 250px;
+}

@@ -10,16 +10,17 @@ import {
   LOGIN_USER_FAIL,
   LOG_OUT, LOGIN_ERROR_CLEAR,
 } from "../constants";
+import jwt from "jsonwebtoken";
 
 
-const base_url = "http://localhost:3001";
+// const base_url = "http://localhost:3001";
 let expirationTimeout = null;
 
 export const registerUser = (user, callback) => {
   return (dispatch) => {
     dispatch(userRegisterStart());
     return axios
-      .post(`http://localhost:3001/register`, user)
+      .post(`${process.env.REACT_APP_BASE_URL}/register`, user)
       .then(() => {
         dispatch(registerUserSuccess());
         callback();
@@ -34,9 +35,10 @@ export const loginUser = (user, callback) => {
   return (dispatch) => {
     dispatch(userLoginStart());
     axios
-      .post(`${base_url}/login`, user)
-      .then(({ data }) => {
-        dispatch(userLoginSuccess(data.accessToken));
+      .post(`${process.env.REACT_APP_BASE_URL}/login`, user)
+      .then((response) => {
+        const user = jwt.decode(response.data.accessToken);
+        dispatch(userLoginSuccess(response.data.accessToken, user));
         // callback()
       })
       .catch((error) => {
@@ -59,7 +61,7 @@ const userLoginStart = () => ({
   type: LOGIN_USER_START,
 });
 
-const userLoginSuccess = (token) => {
+const userLoginSuccess = (token, user) => {
   return (dispatch) => {
     const expirationTime = 1000 * 60 * 60; // one hour
     const expirationDate = moment().valueOf() + expirationTime;
@@ -78,6 +80,7 @@ const userLoginSuccess = (token) => {
       type: LOGIN_USER_SUCCESS,
       token: token,
       expirationDate: expirationDate,
+      user
     });
   };
 };
