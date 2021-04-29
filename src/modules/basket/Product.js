@@ -17,7 +17,7 @@ const Product = ({item}) => {
             <Col span={24}>
                 <h2>{item.title}</h2></Col>
             <Col xs={8} sm={8} md={6} lg={5} className="col1">
-                <img src={item.image} className="image"/>
+                <img src={item.image} className="image" alt="product pic"/>
             </Col>
             <Col xs={24} sm={14} md={12} lg={12}>
                 <p><strong>Brand:</strong> {item.brand}</p>

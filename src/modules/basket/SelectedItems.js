@@ -1,10 +1,14 @@
 import React from 'react'
 import { Card } from 'antd'
 import './index.css'
-
+import { useSelector } from 'react-redux'
 import Product from './Product'
 
  export const SelectedItems = () => {
+    //  const dispatch = useSelector(state => state.)
+
+     
+
     const data = [
         {
             "title": "Iphone pro max 12",
@@ -43,7 +47,7 @@ import Product from './Product'
             "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
           },
     ]
-        
+
     return (
             <Card bordered={true} title={`Cart (${data.length} items)`} className="cart-list"> 
                 {data.map((item, index) => (

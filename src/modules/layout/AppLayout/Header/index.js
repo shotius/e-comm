@@ -1,6 +1,6 @@
 import React from "react";
-import {Col, Row, Button, Input, Space, Dropdown, Menu} from "antd";
-import {ShoppingCartOutlined, UserOutlined} from '@ant-design/icons';
+import {Col, Row,Input, Space, Dropdown, Menu} from "antd";
+import {ShoppingCartOutlined, MenuOutlined} from '@ant-design/icons';
 import logo from '../../../../assets/logo.png'
 import './index.css';
 
@@ -35,7 +35,7 @@ const Header = () => {
               <ShoppingCartOutlined className="icon"/>
             </Link>
             <Dropdown overlay={menu} trigger={['click']}>
-              <UserOutlined className="icon" style={{color: "white"}}/>
+              <MenuOutlined className="icon" style={{color: "white"}}/>
             </Dropdown>
           </Space>
         </Col>
