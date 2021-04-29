@@ -52,7 +52,7 @@
 
 @media only screen and (min-width: 800px) {
     .image {
-      max-width: 300px;
+      max-width: 110px;
       max-height: 300px;
     }
   }

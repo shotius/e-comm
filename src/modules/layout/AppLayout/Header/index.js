@@ -23,13 +23,11 @@ const Header = () => {
 
 
   return (
-
     <div >
       <Link to="/">
         <img src={logo} className="logo" alt="logo" />
       </Link>
       <Row type="flex" justify="end"  align="middle" className="row" >
-
         <Col pull={1} className="col col-3">
           <Space size="large">
             <Search className="search"/>

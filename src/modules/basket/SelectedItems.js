@@ -1,12 +1,10 @@
-import React, { useState } from 'react'
-import { Button, Card, Col, Row } from 'antd'
+import React from 'react'
+import { Card } from 'antd'
 import './index.css'
-import Layout from 'antd/lib/layout/layout'
-import { HeartOutlined, HeartFilled,MinusOutlined,PlusOutlined} from '@ant-design/icons'
+
+import Product from './Product'
 
  export const SelectedItems = () => {
-    const [quantity, setQuantity] = useState(0)
-    const isSelected = false
     const data = [
         {
             "title": "Iphone pro max 12",
@@ -45,31 +43,13 @@ import { HeartOutlined, HeartFilled,MinusOutlined,PlusOutlined} from '@ant-desig
             "image": "https://images.samsung.com/is/image/samsung/assets/africa_pt/galaxy-s21/pcd/HOME_T_O_KV_Main_Animated_KV_720X1080.jpg"
           },
     ]
+        
     return (
             <Card bordered={true} title={`Cart (${data.length} items)`} className="cart-list"> 
-                {data.map(item => (
-                    <div>
-                    <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
-                        <Col xs={8} sm={24} md={6} lg={5} className="col1 col" style={{padding: 0}}>
-                            <img src={item.image} className="image"/>
-                        </Col>
-                        <Col xs={24} sm={24} md={12} lg={13}>
-                            <h2>{item.title}</h2>
-                            <p>brand: {item.brand}</p>
-                            <p>description: {item.description}</p>
-                            <div>move to wish list {isSelected ?<HeartOutlined />: <HeartFilled />}</div>
-                        </Col>
-                        <Col xs={24} md={6} className="col3" >
-                            <div className="quant">
-                                <Button onClick={() => setQuantity(quantity+1)}><MinusOutlined /></Button>
-                                <span className="quantity" >{quantity}</span>
-                                <Button onClick={() => setQuantity(quantity+1)}><PlusOutlined /></Button>
-                            </div>
-            
-                            <h2 className="price">${item.price}</h2>
-                        </Col>
-                    </Row>
-                    <hr className="line"/>
+                {data.map((item, index) => (
+                    <div key={index}>
+                        <Product item={item}/>
+                        <hr className="line"/>
                     </div>
                 ))}
             </Card> 
