@@ -6,11 +6,16 @@ import {
 import axios from "axios";
 
 
-export const addToCart = (item) => {
+export const addToCart = (product, user) => {
+  const {userId, id, category, ...rest} = product;
+
   return dispatch => {
     dispatch(addToCartStart());
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/basket`, item)
+      .post(`${process.env.REACT_APP_BASE_URL}/basket`, {
+        userId: user.id,
+        product: rest
+      })
       .then(response => {
         console.log(response, 'ddddd')
         dispatch(addToCartSuccess())

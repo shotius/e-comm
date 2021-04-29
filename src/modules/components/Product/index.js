@@ -18,7 +18,6 @@ const Product = ({id}) => {
 
   const addToCartLoading = useSelector(state => state.cartReducer.addToCartLoading);
   const user = useSelector(state => state.authReducer.user)
-  console.log(user)
 
   useEffect(() => {
     setIsLoading(true);
@@ -34,13 +33,10 @@ const Product = ({id}) => {
       })
   }, [id])
 
-  const handleAddToCart = () => {
-   dispatch(addToCart({
-     userId: +user.sub,
-     productId: product.id
-   }))
-
-  }
+  // const handleAddToCart = () => {
+  //
+  //
+  // }
 
   return <div className="product-detailed container">
     {isLoading ? <Spinner /> : <Row className="product-detail">
@@ -54,7 +50,7 @@ const Product = ({id}) => {
           <p className="product-price">${product?.price}</p>
           <Divider />
           <p className="product-description">{product?.description}</p>
-        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={handleAddToCart}>Add to Cart</Button>
+        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => dispatch(addToCart(product, user))}>Add to Cart</Button>
         </div>
 
       </Col>

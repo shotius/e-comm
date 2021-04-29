@@ -4,6 +4,7 @@ import {useSelector} from "react-redux";
 import {fetchProducts} from "../../../redux/actions/productsAction";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
+import {addToCart} from "../../../redux/actions/cartActions";
 
 import "./index.css"
 import Spinner from "../Spinner";
@@ -12,6 +13,7 @@ const {Meta} = Card;
 
 const Products = ({category}) => {
   const dispatch = useDispatch();
+  const user = useSelector(state => state.authReducer.user);
 
   useEffect(() => {
     dispatch(fetchProducts(category));
@@ -32,8 +34,7 @@ const Products = ({category}) => {
           description={`Price: ${product.price}`}
           style={{width: "100%"}}
           />
-          <Button type="primary" style={{marginTop: "15px"}}>Add to Cart</Button>
-          {console.log(product.category, product.id, 'gela')}
+          <Button type="primary" style={{marginTop: "15px"}} onClick={() => dispatch(addToCart(product, user))}>Add to Cart</Button>
         </Card>
       </Col>)
     )}</Row>
