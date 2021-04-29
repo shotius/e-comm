@@ -26,6 +26,7 @@
     font-size: 20px;
     color: #474545;
     word-spacing: 3px;
+    margin-top: 60px;
 }
 
 .product-price {
@@ -38,4 +39,26 @@
     color: #333;
     font-size: 15px;
     letter-spacing: 1.1px;
+}
+
+.btn-back {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding-bottom: 11px;
+    transition: all .1s linear;
+}
+
+.btn-back > * {
+    font-size: 25px;
+    color: #333;
+}
+
+.btn-back:hover {
+    transform: translateX(3px);
+}
+
+.btn-back:active {
+    transform: translateX(0);
 }
