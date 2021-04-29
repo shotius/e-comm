@@ -1,6 +1,7 @@
 import authReducer from "./reducers/authReducer";
 import productsReducer from "./reducers/productsReducer";
 import cartReducer from "./reducers/cartReducer";
+import addProductReducer from "./reducers/addProductReducer";
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk"
 import { composeWithDevTools } from 'redux-devtools-extension'
@@ -8,7 +9,8 @@ import { composeWithDevTools } from 'redux-devtools-extension'
 const rootReducer = combineReducers({
   authReducer,
   productsReducer,
-  cartReducer
+  cartReducer,
+  addProductReducer
 })
 
 const enhancer = applyMiddleware(thunk)
