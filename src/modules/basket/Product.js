@@ -4,14 +4,20 @@ import { MinusOutlined,PlusOutlined} from '@ant-design/icons'
 import './index.css'
 
 const Product = ({item}) => {
-    const [quantity, setQuantity] = useState(0)
-    const [isDescription, setIsDescription] = useState(false)
+    const [quantity, setQuantity] = useState(1)
+    const [descriptionShown, setDescriptionShown] = useState(false)
     
-    // if items quantity more then zero
-    const Minus = () => quantity ?  setQuantity(quantity-1) : {} 
+    // if items quantity equals to one remove the item else substruct from items list
+    const Minus = () => {
+        quantity === 1 ?  removeItemFrombasket() : setQuantity(quantity-1) 
+    }
 
-    // need to check if item is a stock
+    // need to check if item is the stock
     const Plus = () => setQuantity(quantity + 1)
+
+    const removeItemFrombasket = () => {
+        console.log(item)
+    }
     
     return (
         <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
@@ -24,8 +30,8 @@ const Product = ({item}) => {
                 <Col xs={24} sm={14} md={12} lg={12}>
                     <p><strong>Brand:</strong> {item.brand}</p>
                     <h3>description</h3>
-                    <div onClick={() => setIsDescription(!isDescription)}>
-                        { isDescription 
+                    <div onClick={() => setDescriptionShown(!descriptionShown)}>
+                        { descriptionShown 
                             ? <div>{item.description}</div>
                             : <div>{item.description.substr(0,100)}<b>...</b></div>
                         }

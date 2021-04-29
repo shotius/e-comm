@@ -1,14 +1,18 @@
-import authReducer from "./reducers/authReducer";
-import productsReducer from "./reducers/productsReducer";
-import cartReducer from "./reducers/cartReducer";
+
 import {applyMiddleware, combineReducers, createStore} from "redux";
 import thunk from "redux-thunk"
 import { composeWithDevTools } from 'redux-devtools-extension'
+// reducers
+import authReducer from "./reducers/authReducer";
+import productsReducer from "./reducers/productsReducer";
+import cartReducer from "./reducers/cartReducer";
+import basketReducer from './reducers/basketReducer'
 
 const rootReducer = combineReducers({
   authReducer,
   productsReducer,
-  cartReducer
+  cartReducer,
+  basketReducer
 })
 
 const enhancer = applyMiddleware(thunk)
