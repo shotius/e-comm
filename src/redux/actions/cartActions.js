@@ -27,6 +27,7 @@ export const addToCart = (product, user) => {
   }
 }
 
+
 const addToCartStart = () => ({
   type: ADD_TO_CART_START
 })

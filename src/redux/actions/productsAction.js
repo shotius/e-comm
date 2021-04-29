@@ -17,12 +17,10 @@ export const fetchProducts = (category = "") => {
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
-        console.log(response)
         dispatch(fetchProductsSuccess(response.data))
         // dispatch(setCurrentCategory(category));
       })
       .catch(error => {
-        console.log(error)
         dispatch(fetchProductsError(error));
       })
   }

@@ -1,6 +1,11 @@
 .header {
-    font-size: 3em;
     margin: 5px auto;
+    font-size: 3em;
+    display: flex;
+}
+
+.arrow-left {
+    left: 0;
 }
 
 .cart-list {
@@ -32,7 +37,7 @@
 }
 
 .line {
-    margin: 30px 0px;
+    margin: 20px 0px;
 }
 
 .price-container {
@@ -46,8 +51,5 @@
 
 .image {
   max-width: 130px;
-  max-height: 120px;
+  max-height: 140px;
 }
-
-@media only screen and (min-width: 800px) {
-  }
