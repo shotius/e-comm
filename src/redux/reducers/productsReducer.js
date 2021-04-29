@@ -2,7 +2,7 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_FAIL,
-  PRODUCTS_SET_CATEGORY,
+  PRODUCTS_SET_CATEGORY
 } from "../constants";
 
 const initState = {
