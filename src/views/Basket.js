@@ -6,13 +6,13 @@ import Header from '../modules/basket/Header'
 
 export const Basket = () => {
     return (
-        <Layout > 
+        <Layout className="list-container"> 
             <Header /> 
             <Row justify="space-around" >
-                <Col xs={24} md={17}>
+                <Col xs={24} md={24} lg={16}>
                     <SelectedItems /> 
                 </Col>
-                <Col xs={24} md={6}>
+                <Col xs={24} md={7}>
                     <CheckOutCard />
                 </Col>
             </Row>

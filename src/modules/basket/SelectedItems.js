@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { Card, Col, Row } from 'antd'
+import { Button, Card, Col, Row } from 'antd'
 import './index.css'
 import Layout from 'antd/lib/layout/layout'
-import { HeartOutlined, HeartFilled} from '@ant-design/icons'
+import { HeartOutlined, HeartFilled,MinusOutlined,PlusOutlined} from '@ant-design/icons'
 
  export const SelectedItems = () => {
     const [quantity, setQuantity] = useState(0)
@@ -49,26 +49,27 @@ import { HeartOutlined, HeartFilled} from '@ant-design/icons'
             <Card bordered={true} title={`Cart (${data.length} items)`} className="cart-list"> 
                 {data.map(item => (
                     <div>
-                    <Row className="cart-content"  gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: 50}} >
-                        <Col xs={24} sm={8} md={8} lg={5}>
+                    <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
+                        <Col xs={24} sm={24} md={6} lg={8} className="col1 col" style={{padding: 0}}>
                             <img src={item.image} className="image"/>
                         </Col>
-                        <Col xs={24} sm={10} md={12}>
+                        <Col xs={24} sm={24} md={12} lg={10}>
                             <h2>{item.title}</h2>
                             <p>brand: {item.brand}</p>
                             <p>description: {item.description}</p>
                             <div>move to wish list {isSelected ?<HeartOutlined />: <HeartFilled />}</div>
                         </Col>
-                        <Col >
-                            <div>
-                                <button onClick={() => setQuantity(quantity+1)}>-</button>
+                        <Col xs={24} md={6} className="col3" >
+                            <div className="quant">
+                                <Button onClick={() => setQuantity(quantity+1)}><MinusOutlined /></Button>
                                 <span className="quantity" >{quantity}</span>
-                                <button onClick={() => setQuantity(quantity+1)}>+</button>
+                                <Button onClick={() => setQuantity(quantity+1)}><PlusOutlined /></Button>
                             </div>
-                            <div className="price"><h2>${item.price}</h2></div>
+            
+                            <h2 className="price">${item.price}</h2>
                         </Col>
                     </Row>
-                    <hr />
+                    <hr className="line"/>
                     </div>
                 ))}
             </Card> 
