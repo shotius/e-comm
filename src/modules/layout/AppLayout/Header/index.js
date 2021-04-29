@@ -16,7 +16,7 @@ const Header = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="0">Profile</Menu.Item>
+      <Menu.Item key="0">Add</Menu.Item>
       <Menu.Item key="1" onClick={() => dispatch(logOut())}>Log Out</Menu.Item>
     </Menu>
   );
@@ -24,7 +24,7 @@ const Header = () => {
 
   return (
 
-    <div >
+    <div style={{position:"relative"}} >
       <Link to="/">
         <img src={logo} className="logo" alt="logo" />
       </Link>

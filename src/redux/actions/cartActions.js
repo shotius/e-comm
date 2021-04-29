@@ -4,6 +4,7 @@ import {
   ADD_TO_CART_FAIL
 } from "../constants"
 import axios from "axios";
+import {notification} from "antd";
 
 
 export const addToCart = (product, user) => {
@@ -17,12 +18,16 @@ export const addToCart = (product, user) => {
         product: rest
       })
       .then(response => {
-        console.log(response, 'ddddd')
         dispatch(addToCartSuccess())
+        notification.success({
+          message: "Added to cart"
+        })
       })
       .catch(error => {
-        console.log(error)
         dispatch(addToCartFail(error))
+        notification.error({
+          message: 'Please try again later'
+        })
       })
   }
 }

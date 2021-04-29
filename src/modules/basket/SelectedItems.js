@@ -48,7 +48,7 @@ import { HeartOutlined, HeartFilled,MinusOutlined,PlusOutlined} from '@ant-desig
     return (
             <Card bordered={true} title={`Cart (${data.length} items)`} className="cart-list"> 
                 {data.map(item => (
-                    <div>
+                    <div key={item.id}>
                     <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
                         <Col xs={8} sm={24} md={6} lg={5} className="col1 col" style={{padding: 0}}>
                             <img src={item.image} className="image"/>
