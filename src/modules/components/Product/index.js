@@ -27,6 +27,10 @@ const Product = ({id}) => {
       })
   }, [id])
 
+  const addToCart = () => {
+    console.log('clicked addToCart')
+  }
+
   return <div className="product-detailed container">
     {isLoading ? <Spinner /> : <Row className="product-detail">
       <Col sm={24} md={10}>
@@ -39,7 +43,7 @@ const Product = ({id}) => {
           <p className="product-price">${product?.price}</p>
           <Divider />
           <p className="product-description">{product?.description}</p>
-        <Button type={"primary"} className="product-btn">Add to Cart</Button>
+        <Button type={"primary"} className="product-btn" onClick={addToCart}>Add to Cart</Button>
         </div>
 
       </Col>

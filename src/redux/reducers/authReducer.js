@@ -40,7 +40,8 @@ export default function authReducer(state = initState, action) {
         userLoginError: null,
         token: action.token,
         expirationDate: action.expirationDate,
-        isLoggedIn: true
+        isLoggedIn: true,
+        user: action.user
       }
     case LOGIN_USER_FAIL:
       return {
@@ -54,7 +55,8 @@ export default function authReducer(state = initState, action) {
       return {
         ...state,
         isLoggedIn: false,
-        token: ""
+        token: "",
+        user: null
       }
     case LOGIN_ERROR_CLEAR:
       return {
