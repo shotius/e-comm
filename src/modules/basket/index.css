@@ -39,20 +39,15 @@
     margin: auto !important;
 }
 
-.col3 {
-    /* display: flex !important; */
-    /* justify-content: flex-end; */
-}
-
 .quant,
 .price {
     margin-top: 20px;
 }
 
+.image {
+  max-width: 130px;
+  max-height: 120px;
+}
 
 @media only screen and (min-width: 800px) {
-    .image {
-      max-width: 110px;
-      max-height: 300px;
-    }
   }

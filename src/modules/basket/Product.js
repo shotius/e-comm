@@ -29,7 +29,7 @@ const Product = ({item}) => {
                     }
                 </div>
             </Col>
-            <Col xs={24} md={6} lg={7} className="col3">
+            <Col xs={24} md={6} lg={7} className="col3" >
                 <div className="quant">
                     <Button onClick={Minus}><MinusOutlined /></Button>
                     <span className="quantity" >{quantity}</span>
