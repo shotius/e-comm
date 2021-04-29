@@ -1,3 +1,8 @@
+.header {
+    font-size: 3em;
+    margin: auto;
+}
+
 .cart-list {
     padding: 7px;
 }
@@ -20,9 +25,14 @@
     color: red
 }
 
+.line-price, .line {
+    height: 1px;
+    background-color: #ccc;
+    border: none;
+}
+
 .line {
     margin: 30px 0px;
-    padding: 0px 20px;
 }
 
 .price-container {
@@ -39,9 +49,10 @@
     margin-top: 20px;
 }
 
+
 @media only screen and (min-width: 800px) {
     .image {
       max-width: 300px;
-      /* max-height: 500px; */
+      max-height: 300px;
     }
   }

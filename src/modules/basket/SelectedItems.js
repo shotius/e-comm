@@ -50,10 +50,10 @@ import { HeartOutlined, HeartFilled,MinusOutlined,PlusOutlined} from '@ant-desig
                 {data.map(item => (
                     <div>
                     <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
-                        <Col xs={24} sm={24} md={6} lg={8} className="col1 col" style={{padding: 0}}>
+                        <Col xs={8} sm={24} md={6} lg={5} className="col1 col" style={{padding: 0}}>
                             <img src={item.image} className="image"/>
                         </Col>
-                        <Col xs={24} sm={24} md={12} lg={10}>
+                        <Col xs={24} sm={24} md={12} lg={13}>
                             <h2>{item.title}</h2>
                             <p>brand: {item.brand}</p>
                             <p>description: {item.description}</p>
