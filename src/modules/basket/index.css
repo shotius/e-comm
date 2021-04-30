@@ -1,6 +1,11 @@
 .header {
+    margin: 5px auto;
     font-size: 3em;
-    margin: auto;
+    display: flex;
+}
+
+.arrow-left {
+    left: 0;
 }
 
 .cart-list {
@@ -32,16 +37,11 @@
 }
 
 .line {
-    margin: 30px 0px;
+    margin: 20px 0px;
 }
 
 .price-container {
     margin: auto !important;
-}
-
-.col3 {
-    /* display: flex !important; */
-    /* justify-content: flex-end; */
 }
 
 .quant,
@@ -49,10 +49,7 @@
     margin-top: 20px;
 }
 
-
-@media only screen and (min-width: 800px) {
-    .image {
-      max-width: 300px;
-      max-height: 300px;
-    }
-  }
+.image {
+  max-width: 130px;
+  max-height: 140px;
+}

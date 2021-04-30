@@ -8,11 +8,11 @@ export const Basket = () => {
     return (
         <Layout className="list-container"> 
             <Header /> 
-            <Row justify="space-around" >
+            <Row justify="space-around" gutter={[1,8]}>
                 <Col xs={24} md={24} lg={16}>
                     <SelectedItems /> 
                 </Col>
-                <Col xs={24} md={7}>
+                <Col xs={24} md={24} lg={6}>
                     <CheckOutCard />
                 </Col>
             </Row>

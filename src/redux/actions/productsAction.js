@@ -2,7 +2,7 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_FAIL,
-  PRODUCTS_SET_CATEGORY
+  PRODUCTS_SET_CATEGORY,
 } from "../constants";
 import axios from "axios";
 
@@ -17,12 +17,10 @@ export const fetchProducts = (category = "") => {
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
-        console.log(response)
         dispatch(fetchProductsSuccess(response.data))
         // dispatch(setCurrentCategory(category));
       })
       .catch(error => {
-        console.log(error)
         dispatch(fetchProductsError(error));
       })
   }
