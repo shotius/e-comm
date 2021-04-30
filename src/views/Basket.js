@@ -1,8 +1,8 @@
 import React from 'react'
 import { Row, Col, Layout} from 'antd'
-import SelectedItems from '../modules/basket/SelectedItems'
-import CheckOutCard from '../modules/basket/CheckOutCard'
-import Header from '../modules/basket/Header'
+import SelectedItems from '../modules/components/basket/SelectedItems'
+import CheckOutCard from '../modules/components/basket/CheckOutCard'
+import Header from '../modules/components/basket/Header'
 
 export const Basket = () => {
     return (
