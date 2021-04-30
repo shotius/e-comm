@@ -11,6 +11,7 @@ import "./index.css";
 import { logOut } from "../../../../redux/actions/authActions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { openAddProductModal } from "../../../../redux/actions/addProductActions";
 const { Search } = Input;
 
 const Header = () => {
@@ -19,8 +20,14 @@ const Header = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="0" onClick={() => setMenuIsSmall(true)}>
-        Profile
+      <Menu.Item
+        key="0"
+        onClick={() => {
+          setMenuIsSmall(true);
+          dispatch(openAddProductModal());
+        }}
+      >
+        Add a New Product
       </Menu.Item>
       <Menu.Item key="1" onClick={() => dispatch(logOut())}>
         Log Out
