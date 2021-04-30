@@ -8,7 +8,7 @@ import {notification} from "antd";
 
 
 export const addToCart = (product, user) => {
-  const {userId, id, category, ...rest} = product;
+  const {userId, category, ...rest} = product;
 
   return dispatch => {
     dispatch(addToCartStart());
