@@ -36,16 +36,19 @@ const Header = () => {
               <Button className="search-buton" style={{border: 'none'}}><SearchOutlined/></Button>
             </div>
             {/* links */}
-            <Link to='/basket'>
-              <ShoppingCartOutlined className="icon"/>
-            </Link>
-            <Dropdown overlay={menu} trigger={['click']}>
-              <MenuOutlined 
-                className={`icon ${menuIsSmall ? 'small' : 'large'}`} 
-                onClick={() => setMenuIsSmall(!menuIsSmall)}
-                // onMouseOut={() => setMenuIsSmall(true)}
+            <div className="icon-container">
+              <Link to='/basket'>
+                <ShoppingCartOutlined className="icon-basket icon"/>
+              </Link>
+            </div>
+            <div className="icon-container">
+              <Dropdown overlay={menu} trigger={['click']}>
+                <MenuOutlined 
+                  className={`icon-menu icon ${menuIsSmall ? 'small' : 'large'}`} 
+                  onClick={() => setMenuIsSmall(!menuIsSmall)}
                 />
-            </Dropdown>
+              </Dropdown>
+            </div>
           </Space>
         </Col>
       </Row>

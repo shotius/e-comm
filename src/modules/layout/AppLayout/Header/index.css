@@ -19,7 +19,6 @@
     opacity: 0.9;
 }
 
-
 .col   {
     display: flex;
     align-items: center;
@@ -37,8 +36,24 @@
 .search-button {
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 6px;
+    padding-top: 6px !important;
+    padding: 6px 10px 0px 10px !important;
     border: none !important;
+}
+
+.icon-container {
+    height: 50px;
+    width: 40px;
+    /* background-color: red; */
+    text-align: center;
+}
+
+.icon-basket {
+    padding-top: 17%;
+}
+
+.icon-menu {
+    padding-top: 23%;
 }
 
 .icon {
@@ -46,8 +61,14 @@
     color: white !important
 }
 
-.icon:hover {
-    font-size: 2.7em;
+.icon-basket:hover {
+    font-size: 2.8em;
+    padding-top: 9%;
+    transition: all 200ms ease-in-out;
+}
+.icon-menu:hover {
+    font-size: 2.8em;
+    padding-top: 5%;
     transition: all 200ms ease-in-out;
 }
 
