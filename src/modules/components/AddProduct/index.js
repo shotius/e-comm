@@ -2,7 +2,7 @@ import React, {useState} from "react"
 import {useSelector} from "react-redux";
 import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
 import {useDispatch} from "react-redux";
-import {closeAddProductModal} from "../../../redux/actions/addProductActions";
+import {addProduct, closeAddProductModal} from "../../../redux/actions/addProductActions";
 import {Link} from "react-router-dom";
 import {CloudUploadOutlined} from "@ant-design/icons";
 import "./index.css"
@@ -25,13 +25,14 @@ const AddProduct = () => {
 
   const dispatch = useDispatch();
   const {isModalOpen, addProductLoading} = useSelector(state => state.addProductReducer);
+  const userId = useSelector(state => state.authReducer.user.sub);
 
   const handleSubmit = () => {
     form
       .validateFields()
       .then(values => {
-        const pic = selectedImg[0].thumbUrl;
-
+        const image = selectedImg[0].thumbUrl;
+        dispatch(addProduct({...values, image, userId,}));
       })
       .catch(error => {
         console.log(error, 'failed')
@@ -44,9 +45,9 @@ const AddProduct = () => {
   }
 
   const handleImgChange = (info) => {
-      let fileList = [...info.fileList]
-      fileList = fileList.slice(-1)
-      setSelectedImg(fileList);
+    let fileList = [...info.fileList]
+    fileList = fileList.slice(-1)
+    setSelectedImg(fileList);
   }
 
   const beforeImgUpload = (file) => {
@@ -78,6 +79,19 @@ const AddProduct = () => {
           {
             required: true,
             message: 'Please input product title!',
+          },
+        ]}
+      >
+        <Input/>
+      </Form.Item>
+
+      <Form.Item
+        label="Brand"
+        name="brand"
+        rules={[
+          {
+            required: true,
+            message: 'Please input product brand!',
           },
         ]}
       >
@@ -145,7 +159,7 @@ const AddProduct = () => {
           onChange={handleImgChange}
           fileList={[...selectedImg]}
         >
-          <Button icon={<CloudUploadOutlined />}>Upload Image</Button>
+          <Button icon={<CloudUploadOutlined/>}>Upload Image</Button>
         </Upload>
       </Form.Item>
 

@@ -6,10 +6,16 @@ import {
 } from "../constants";
 import axios from "axios";
 
-const addProduct = (productInfo) => {
+export const addProduct = (productInfo) => {
   return dispatch => {
-    // dispatch(addProductStart());
-    console.log('addProductAction')
+    axios
+      .post(`${process.env.REACT_APP_BASE_URL}/products`, productInfo)
+      .then(response => {
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 }
 
