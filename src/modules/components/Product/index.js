@@ -24,7 +24,6 @@ const Product = ({id}) => {
     axios.get(`${process.env.REACT_APP_BASE_URL}/products?id=${id}`)
       .then(response => {
         setProduct(response.data[0]);
-        console.log(response)
         setIsLoading(false);
       })
       .catch(error => {

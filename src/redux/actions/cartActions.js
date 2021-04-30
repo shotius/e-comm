@@ -8,14 +8,14 @@ import {notification} from "antd";
 
 
 export const addToCart = (product, user) => {
-  const {userId, category, ...rest} = product;
-
+  const {category, ...rest} = product;
+  console.log(user.sub, 'user in actions')
   return dispatch => {
     dispatch(addToCartStart());
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/basket`, {
-        userId: user.id,
-        product: rest
+        userId: Number(user.sub),
+        ...rest
       })
       .then(response => {
         dispatch(addToCartSuccess())
