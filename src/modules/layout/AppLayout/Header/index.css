@@ -7,10 +7,10 @@
 .logo {
     height: 40px;
     position: absolute;
-    top: 50%;
+    top: 35px;
     transform: translateY(-50%);
     margin-top: 4px;
-    left: 3%;
+    left: 10px;
     z-index: 99;
     opacity: 1;
 }
