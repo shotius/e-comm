@@ -1,9 +1,9 @@
-import React, { useState,  useEffect } from 'react'
-import { Card } from 'antd'
-import './index.css'
-import { useDispatch, useSelector } from 'react-redux'
-import Product from './Product'
-import { fetchBasketProducts } from '../../../redux/actions/basketActions'
+import React, { useState, useEffect } from "react";
+import { Card } from "antd";
+import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import Product from "./Product";
+import { fetchBasketProducts } from "../../../redux/actions/basketActions";
 
 export const SelectedItems = () => {
   const dispatch = useDispatch();
@@ -14,13 +14,6 @@ export const SelectedItems = () => {
   useEffect(() => {
     dispatch(fetchBasketProducts());
   }, [dispatch]);
-
-<<<<<<< HEAD:src/modules/basket/SelectedItems.js
-  // save products from db in local variable
-  useEffect(() => {
-    const data = basketItems.map((item) => item.product);
-    setItemsInBasket(data);
-  }, [basketItems]);
 
   return (
     <Card
@@ -38,17 +31,3 @@ export const SelectedItems = () => {
   );
 };
 export default SelectedItems;
-=======
-    return (
-        <Card bordered={true} title={`Cart (${itemsInBasket.length} items)`} className="cart-list"> 
-            {itemsInBasket.map((item, index) => (
-                <div key={index}>
-                    <Product item={item}/>
-                    <hr className="line"/>
-                </div>
-            ))}
-        </Card> 
-    )
-}
-export default SelectedItems
->>>>>>> a7a058b98776b739fe33b5f80222b88981333150:src/modules/components/basket/SelectedItems.js
