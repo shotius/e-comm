@@ -25,9 +25,38 @@
     align-items: center;
 }
 
+.search-container {
+    display: flex
+}
+
+.search-field {
+    margin-right: -5px !important;
+    border: none !important;
+}
+
+.search-button {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 6px;
+    border: none !important;
+}
+
 .icon {
     font-size: 30px;
     color: white !important
+}
+
+.icon:hover {
+    font-size: 2.7em;
+    transition: all 200ms ease-in-out;
+}
+
+.small {
+    font-size: 2em;
+}
+
+.large {
+    font-size: 2.7em;
 }
 
 @media screen and (max-width: 576px) {
