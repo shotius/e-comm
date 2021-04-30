@@ -26,7 +26,7 @@ export const addToCart = (product, user) => {
       .catch(error => {
         dispatch(addToCartFail(error))
         notification.error({
-          message: 'Please try again later'
+          message: 'Product has already been added to the cart!'
         })
       })
   }
