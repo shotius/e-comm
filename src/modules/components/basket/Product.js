@@ -1,11 +1,21 @@
 import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteBasketItem, deleteProduct } from '../../../redux/actions/basketActions'
 import { Button, Col, Row, Card } from 'antd'
 import { MinusOutlined,PlusOutlined} from '@ant-design/icons'
 import './index.css'
 
+// this component renders single product cart in the basket
 const Product = ({item}) => {
+    const dispatch = useDispatch()
+
     const [quantity, setQuantity] = useState(1)
     const [descriptionShown, setDescriptionShown] = useState(false)
+    
+    console.log(item.id, 'item id')
+    const removeItemFrombasket = () => {
+        dispatch(deleteBasketItem(item))
+    }
     
     // if items quantity equals to one remove the item else substruct from items list
     const Minus = () => {
@@ -15,9 +25,6 @@ const Product = ({item}) => {
     // need to check if item is the stock
     const Plus = () => setQuantity(quantity + 1)
 
-    const removeItemFrombasket = () => {
-        console.log(item)
-    }
     
     return (
         <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
