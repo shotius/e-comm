@@ -109,9 +109,10 @@ const AddProduct = () => {
         ]}
       >
         <Select style={{width: "100%"}}>
-          <Option value="jack">Jack</Option>
-          <Option value="lucy">Lucy</Option>
-          <Option value="Yiminghe">yiminghe</Option>
+          <Option value="laptops">Laptop</Option>
+          <Option value="smartphones">Smartphone</Option>
+          <Option value="home-appliances">Home Appliances</Option>
+          <Option value="kitchen-appliances">Kitchen Appliance</Option>
         </Select>
       </Form.Item>
 
