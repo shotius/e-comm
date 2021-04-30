@@ -43,41 +43,40 @@
 
 .icon-container {
     height: 50px;
-    width: 40px;
+    width: 50px;
     /* background-color: red; */
     text-align: center;
 }
 
 .icon-basket {
-    padding-top: 17%;
+    padding-top: 18%;
+    font-size: 35px;
 }
 
 .icon-menu {
-    padding-top: 23%;
+    padding-top: 27%;
+    font-size: 30px;
 }
 
 .icon {
-    font-size: 30px;
     color: white !important
 }
 
 .icon-basket:hover {
-    font-size: 2.8em;
-    padding-top: 9%;
-    transition: all 200ms ease-in-out;
-}
-.icon-menu:hover {
-    font-size: 2.8em;
-    padding-top: 5%;
+    font-size: 45px;
+    padding-top: 10%;
     transition: all 200ms ease-in-out;
 }
 
-.small {
-    font-size: 2em;
+.icon-menu:hover {
+    font-size: 40px;
+    padding-top: 21%;
+    transition: all 200ms ease-in-out;
 }
 
 .large {
-    font-size: 2.7em;
+    font-size: 40px;
+    padding-top: 21%;
 }
 
 @media screen and (max-width: 576px) {

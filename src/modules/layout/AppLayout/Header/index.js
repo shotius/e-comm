@@ -16,11 +16,10 @@ const Header = () => {
 
   const menu = (
     <Menu>
-      <Menu.Item key="0">Profile</Menu.Item>
+      <Menu.Item key="0" onClick={() => setMenuIsSmall(true)}>Profile</Menu.Item>
       <Menu.Item key="1" onClick={() => dispatch(logOut())}>Log Out</Menu.Item>
     </Menu>
   );
-
 
   return (
     <div >
@@ -29,7 +28,7 @@ const Header = () => {
       </Link>
       <Row type="flex" justify="end"  align="middle" className="row" >
         <Col pull={1} className="col col-3">
-          <Space size="large">
+          <Space size="middle">
             {/* search field */}
             <div className="search-container">
               <Input className="search-field" />
@@ -44,7 +43,7 @@ const Header = () => {
             <div className="icon-container">
               <Dropdown overlay={menu} trigger={['click']}>
                 <MenuOutlined 
-                  className={`icon-menu icon ${menuIsSmall ? 'small' : 'large'}`} 
+                  className={`icon-menu icon ${menuIsSmall ? '' : 'large'}`} 
                   onClick={() => setMenuIsSmall(!menuIsSmall)}
                 />
               </Dropdown>
