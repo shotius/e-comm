@@ -16,7 +16,7 @@ const Header = () => {
   const menu = (
     <Menu>
       <Menu.Item key="0" onClick={() => dispatch(openAddProductModal())}>
-        Add
+        Add a new product
       </Menu.Item>
       <Menu.Item key="1" onClick={() => dispatch(logOut())}>
         Log Out
