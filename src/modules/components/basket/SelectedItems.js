@@ -3,7 +3,7 @@ import { Card } from "antd";
 import "./index.css";
 import { useDispatch, useSelector } from "react-redux";
 import Product from "./Product";
-import { fetchBasketProducts } from "../../redux/actions/basketActions";
+import { fetchBasketProducts } from "../../../redux/actions/basketActions";
 
 export const SelectedItems = () => {
   const dispatch = useDispatch();
@@ -14,12 +14,6 @@ export const SelectedItems = () => {
   useEffect(() => {
     dispatch(fetchBasketProducts());
   }, [dispatch]);
-
-  // save products from db in local variable
-  useEffect(() => {
-    const data = basketItems.map((item) => item.product);
-    setItemsInBasket(data);
-  }, [basketItems]);
 
   return (
     <Card
