@@ -1,17 +1,25 @@
-import React from "react"
+import React, {useState} from "react"
 import {useSelector} from "react-redux";
-import {Button, Form, Input, InputNumber, Modal, Select} from "antd";
+import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
 import {useDispatch} from "react-redux";
 import {closeAddProductModal} from "../../../redux/actions/addProductActions";
 import {Link} from "react-router-dom";
 import {CloudUploadOutlined} from "@ant-design/icons";
 import "./index.css"
 import {Upload} from "antd";
+import {beforeImageUpload, encodeImg} from "../../../utils/Shared/imgUpload";
 
 const {TextArea} = Input;
 const {Option} = Select;
 
 const AddProduct = () => {
+  const [selectedImg, setSelectedImg] = useState([{
+    uid: "-1",
+    name: "no-img.png",
+    status: "done",
+    url: "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png",
+    thumbUrl: "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png"
+  }]);
   const [form] = Form.useForm();
 
 
@@ -22,7 +30,8 @@ const AddProduct = () => {
     form
       .validateFields()
       .then(values => {
-        console.log(values, 'success')
+        const pic = selectedImg[0].thumbUrl;
+
       })
       .catch(error => {
         console.log(error, 'failed')
@@ -34,8 +43,17 @@ const AddProduct = () => {
     dispatch(closeAddProductModal())
   }
 
-  const handlePictureChange = (info) => {
-    console.log(...info.fileList)
+  const handleImgChange = (info) => {
+      let fileList = [...info.fileList]
+      fileList = fileList.slice(-1)
+      setSelectedImg(fileList);
+  }
+
+  const beforeImgUpload = (file) => {
+    const [status, errors] = beforeImageUpload(file);
+    errors.forEach(err => {
+      message.error(err)
+    })
   }
 
   return <Modal
@@ -112,7 +130,6 @@ const AddProduct = () => {
 
       <Form.Item
         label="Picture"
-        name="picture"
         rules={[
           {
             required: true,
@@ -120,8 +137,15 @@ const AddProduct = () => {
           },
         ]}
       >
-        <Upload accept="image/png, image/jpeg, image/jpg" onChange={handlePictureChange}>
-          <Button icon={<CloudUploadOutlined/>}>Upload</Button>
+        <Upload
+          name="picture"
+          listType="picture"
+          showUploadList={true}
+          beforeUpload={beforeImgUpload}
+          onChange={handleImgChange}
+          fileList={[...selectedImg]}
+        >
+          <Button icon={<CloudUploadOutlined />}>Upload Image</Button>
         </Upload>
       </Form.Item>
 
