@@ -22,14 +22,14 @@ import { fetchBasketProducts } from '../../../redux/actions/basketActions'
     }, [basketItems])
 
     return (
-            <Card bordered={true} title={`Cart (${itemsInBasket.length} items)`} className="cart-list"> 
-                {itemsInBasket.map((item, index) => (
-                    <div key={index}>
-                        <Product item={item}/>
-                        <hr className="line"/>
-                    </div>
-                ))}
-            </Card> 
+        <Card bordered={true} title={`Cart (${itemsInBasket.length} items)`} className="cart-list"> 
+            {itemsInBasket.map((item, index) => (
+                <div key={index}>
+                    <Product item={item}/>
+                    <hr className="line"/>
+                </div>
+            ))}
+        </Card> 
     )
 }
 export default SelectedItems
