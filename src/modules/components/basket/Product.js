@@ -10,7 +10,7 @@ const Product = ({item}) => {
     const dispatch = useDispatch()
 
     const [quantity, setQuantity] = useState(1)
-    const [descriptionShown, setDescriptionShown] = useState(true)
+    const [descriptionShown, setDescriptionShown] = useState(false)
     
     const removeItemFrombasket = () => {
         dispatch(deleteBasketItem(item))
@@ -24,6 +24,12 @@ const Product = ({item}) => {
     // need to check if item is the stock
     const Plus = () => setQuantity(quantity + 1)
 
+    console.log(String(item.description))
+    console.log((item.description))
+
+    const data = () => {
+        
+    }
     
     return (
         <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
@@ -36,12 +42,18 @@ const Product = ({item}) => {
                 <Col xs={24} sm={14} md={12} lg={12}>
                     <p><strong>Brand:</strong> {item.brand}</p>
                     <h3>Description</h3>
-                    <div onClick={() => setDescriptionShown(!descriptionShown)}>
+                    {/* <div onClick={() => setDescriptionShown(!descriptionShown)}>
                         { descriptionShown 
-                            ? <div>{item.description}</div>
-                            : <div dangerouslySetInnerHTML={{__html: item.description.substr(0,10)}} />
+                            ? <div dangerouslySetInnerHTML={{__html: item.description}} />
+                            : <div dangerouslySetInnerHTML={{__html: String(item.description).substr(0,10)}} />
                         }
+                    </div> */}
+                    <div className={`${descriptionShown ? '': 'description'}`}>
+                        <div dangerouslySetInnerHTML={{__html: item.description}}/>
                     </div>
+                        <Button onClick={() => setDescriptionShown(!descriptionShown)}>
+                            {descriptionShown ? 'click for less' : 'click for more'}
+                        </Button>
                 </Col>
                 <Col xs={24} md={6} lg={7} className="col3" >
                     <div className="quant">
