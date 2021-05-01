@@ -48,7 +48,10 @@ const Product = ({id}) => {
           <h2 className="product-title">{product?.title}</h2>
           <p className="product-price">${product?.price}</p>
           <Divider />
-          <p className="product-description">{product?.description}</p>
+          {/*<p className="product-description">{product?.description}</p>*/}
+          <p className="product-description" dangerouslySetInnerHTML={{
+            __html: product?.description
+          }}/>
         <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
           const {userId, ...pr} = product;
           dispatch(addToCart(pr, user))

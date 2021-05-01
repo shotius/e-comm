@@ -7,7 +7,9 @@ import {Link} from "react-router-dom";
 import {CloudUploadOutlined} from "@ant-design/icons";
 import "./index.css"
 import {Upload} from "antd";
-import {beforeImageUpload, encodeImg} from "../../../utils/Shared/imgUpload";
+import {beforeImageUpload} from "../../../utils/Shared/imgUpload";
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
 
 const {TextArea} = Input;
 const {Option} = Select;
@@ -31,6 +33,7 @@ const AddProduct = () => {
     form
       .validateFields()
       .then(values => {
+        console.log(values, 'valueees');
         const image = selectedImg[0].thumbUrl;
         dispatch(addProduct({...values, image, userId,}));
         form.resetFields();
@@ -141,7 +144,7 @@ const AddProduct = () => {
           },
         ]}
       >
-        <TextArea rows={7}/>
+        <ReactQuill theme="snow" />
       </Form.Item>
 
       <Form.Item
