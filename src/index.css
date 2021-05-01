@@ -20,4 +20,5 @@ code {
   max-width: 1300px;
   background: white;
   margin: 0 auto;
+  min-height: 150px;
 }
