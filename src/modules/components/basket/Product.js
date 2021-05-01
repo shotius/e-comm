@@ -30,13 +30,13 @@ const Product = ({item}) => {
         <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
             <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
                 <Col span={24}>
-                    <h2>{item.title}</h2></Col>
+                    <h2 style={{textTransform:"capitalize"}}>{item.title}</h2></Col>
                 <Col xs={16} sm={8} md={6} lg={5} className="col1">
                     <img src={item.image} className="image" alt="product pic"/>
                 </Col>
                 <Col xs={24} sm={14} md={12} lg={12}>
                     <p><strong>Brand:</strong> {item.brand}</p>
-                    <h3>description</h3>
+                    <h3>Description</h3>
                     <div onClick={() => setDescriptionShown(!descriptionShown)}>
                         { descriptionShown 
                             ? <div>{item.description}</div>
