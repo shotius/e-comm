@@ -9,10 +9,11 @@ import axios from "axios";
 // const base_url = "http://localhost:3001/products"
 
 export const fetchProducts = (category = "") => {
-  let url = `${process.env.REACT_APP_BASE_URL}/products`;
+  let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc&`;
   if (category) {
-    url += `?category=${category}`;
+    url += `category=${category}`;
   }
+
   return (dispatch) => {
     dispatch(fetchProductsStart())
     axios.get(url)
