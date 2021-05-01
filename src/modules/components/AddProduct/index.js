@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useEffect, useState} from "react"
 import {useSelector} from "react-redux";
 import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
 import {useDispatch} from "react-redux";
@@ -33,11 +33,12 @@ const AddProduct = () => {
       .then(values => {
         const image = selectedImg[0].thumbUrl;
         dispatch(addProduct({...values, image, userId,}));
+        form.resetFields();
+        dispatch(closeAddProductModal())
       })
       .catch(error => {
         console.log(error, 'failed')
       })
-    console.log('Submit button clicked')
   }
 
   const handleCancel = () => {

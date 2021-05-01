@@ -20,9 +20,13 @@ const Products = ({category}) => {
   }, [])
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
-  return productsFetchLoading ? <Spinner/> :
-    <Row gutter={[12, 12]} style={{padding: "13px"}}>{products.map((product, i) => (
-      <Col xs={24} sm={12} md={8} lg={6} key={i}>
+
+  if (productsFetchLoading) {
+    return <Spinner />
+  }
+
+  return <Row gutter={[12, 12]} style={{padding: "13px"}}>{products.map((product, i) => {
+     return <Col xs={24} sm={12} md={8} lg={6} key={i}>
         <Card className="product-item" cover={
           <img
             alt="product picture"
@@ -41,8 +45,10 @@ const Products = ({category}) => {
           </div>
 
         </Card>
-      </Col>)
+      </Col>
+  }
     )}</Row>
+
 }
 
 export default Products;
