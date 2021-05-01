@@ -28,7 +28,7 @@
     transform: translateY(0);
 }
 
-.product-title {
+.product-item .product-title {
     color: #333;
     margin-top: 10px !important;
     text-transform: capitalize;
