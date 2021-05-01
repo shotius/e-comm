@@ -18,6 +18,7 @@ export const fetchProducts = (category = "") => {
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
+        console.log(response, 'response')
         dispatch(fetchProductsSuccess(response.data))
         // dispatch(setCurrentCategory(category));
       })

@@ -9,7 +9,6 @@ import "./index.css"
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
 
-
 const Product = ({id}) => {
 
   const [product, setProduct] = useState(null);
