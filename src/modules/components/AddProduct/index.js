@@ -17,14 +17,18 @@ const sanitizer = dompurify.sanitize;
 const {TextArea} = Input;
 const {Option} = Select;
 
-const AddProduct = () => {
-  const [selectedImg, setSelectedImg] = useState([{
+
+const initialImg = {
     uid: "-1",
     name: "no-img.png",
     status: "done",
     url: "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png",
     thumbUrl: "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png"
-  }]);
+  }
+
+const AddProduct = () => {
+  const [selectedImg, setSelectedImg] = useState([initialImg]);
+
   const [form] = Form.useForm();
 
 
@@ -41,6 +45,7 @@ const AddProduct = () => {
         form.resetFields();
         dispatch(fetchProducts());
         dispatch(closeAddProductModal());
+        setSelectedImg([initialImg])
       })
       .catch(error => {
         console.log(error, 'failed')
@@ -78,7 +83,12 @@ const AddProduct = () => {
     <Form
       className="add-product-form"
       form={form}
-      name="login">
+      name="login"
+    initialValues={{
+
+      description: "",
+      picture: selectedImg
+    }}>
       <Form.Item
         label="Title"
         name="title"
