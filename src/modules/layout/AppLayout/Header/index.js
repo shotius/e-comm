@@ -4,6 +4,8 @@ import {
   ShoppingCartOutlined,
   MenuOutlined,
   SearchOutlined,
+  PlusCircleOutlined,
+  LogoutOutlined
 } from "@ant-design/icons";
 import logo from "../../../../assets/logo.png";
 import "./index.css";
@@ -12,6 +14,7 @@ import { logOut } from "../../../../redux/actions/authActions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { openAddProductModal } from "../../../../redux/actions/addProductActions";
+
 const { Search } = Input;
 
 const Header = () => {
@@ -27,10 +30,10 @@ const Header = () => {
           dispatch(openAddProductModal());
         }}
       >
-        Add a New Product
+        <PlusCircleOutlined style={{fontSize: "16px"}}/> Add a New Product
       </Menu.Item>
       <Menu.Item key="1" onClick={() => dispatch(logOut())}>
-        Log Out
+        <LogoutOutlined style={{fontSize: "16px"}}/> Log Out
       </Menu.Item>
     </Menu>
   );
