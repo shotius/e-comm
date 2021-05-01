@@ -49,7 +49,11 @@ const Product = ({id}) => {
           <p className="product-price">${product?.price}</p>
           <Divider />
           <p className="product-description">{product?.description}</p>
-        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => dispatch(addToCart(product, user))}>Add to Cart</Button>
+        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
+          const {userId, ...pr} = product;
+          dispatch(addToCart(pr, user))
+        }
+        }>Add to Cart</Button>
         </div>
 
       </Col>

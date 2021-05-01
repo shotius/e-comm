@@ -15,6 +15,14 @@
       "name": "shota",
       "phone": "+995123123123",
       "id": 2
+    },
+    {
+      "email": "testing@gmail.com",
+      "password": "$2a$10$3kjElnP5T9vcYsOtRqlbueUL238UBXoyx2pA7BRKTjlximDO8xoDe",
+      "username": "testing",
+      "name": "testing",
+      "phone": "+995565656565",
+      "id": 3
     }
   ],
   "products": [
@@ -61,18 +69,18 @@
   ],
   "basket": [
     {
-      "shipping": "7.92",
-      "userId": "1",
+      "shipping": "8.01",
+      "userId": 3,
       "title": "Dell latitude 5510",
       "brand": "Dell",
       "price": 3000,
       "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
-      "image": "https://i0.wp.com/laptopmedia.com/wp-content/uploads/2020/09/delllatitude155510featured.jpg?ssl=1",
+      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 1
     },
     {
       "shipping": "8.92",
-      "userId": "1",
+      "userId": 1,
       "title": "lenovo thinkpad",
       "brand": "lenovo",
       "price": 3000,
@@ -81,24 +89,24 @@
       "id": 2
     },
     {
-      "shipping": "2.2",
-      "userId": "1",
-      "title": "Dell latitude 5510",
-      "brand": "Dell",
-      "price": 3000,
-      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
-      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
-      "id": 3
-    },
-    {
       "shipping": "7.92",
-      "userId": "1",
+      "userId": 1,
       "title": "Dell latitude 5510",
       "brand": "Dell",
       "price": 3000,
       "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
       "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 4
+    },
+    {
+      "shipping": "2.2",
+      "userId": 1,
+      "title": "Dell latitude 5510",
+      "brand": "Dell",
+      "price": 3000,
+      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
+      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
+      "id": 3
     }
   ]
 }

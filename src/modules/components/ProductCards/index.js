@@ -34,7 +34,11 @@ const Products = ({category}) => {
           description={`Price: ${product.price}`}
           style={{width: "100%"}}
           />
-          <Button type="primary" style={{marginTop: "15px"}} onClick={() => dispatch(addToCart(product, user))}>Add to Cart</Button>
+          <Button type="primary" style={{marginTop: "15px"}} onClick={() => {
+            const {userId, ...pr} = product;
+            dispatch(addToCart(pr, user))
+          }
+          }>Add to Cart</Button>
         </Card>
       </Col>)
     )}</Row>

@@ -9,7 +9,6 @@ import {notification} from "antd";
 
 export const addToCart = (product, user) => {
   const {category, ...rest} = product;
-  console.log(user.sub, 'user in actions')
   return dispatch => {
     dispatch(addToCartStart());
     axios
