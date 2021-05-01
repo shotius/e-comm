@@ -1,32 +1,31 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import { Card } from "antd";
-import "./index.css";
-import { useDispatch, useSelector } from "react-redux";
 import Product from "./Product";
-import { fetchBasketProducts } from "../../../redux/actions/basketActions";
+import Spinner from '../Spinner'
+import "./index.css";
 
-export const SelectedItems = () => {
-  const dispatch = useDispatch();
-  const basketItems = useSelector((state) => state.basketReducer.products);
-  const [itemsInBasket, setItemsInBasket] = useState([]);
-
-  // to get products on the basket page we need to fetch it from db
-  useEffect(() => {
-    dispatch(fetchBasketProducts());
-  }, [dispatch]);
-
+export const SelectedItems = ({ basketProducts }) => {
+  const isLoading = useSelector((state) => state.basketReducer.basketItemsFetchLoading)
+  
   return (
     <Card
       bordered={true}
-      title={`Cart (${itemsInBasket.length} items)`}
+      title={`Cart (${basketProducts.length} items)`}
       className="cart-list"
     >
-      {itemsInBasket.map((item, index) => (
-        <div key={index}>
-          <Product item={item} />
-          <hr className="line" />
-        </div>
-      ))}
+      { // when products are fetching spinner will appear
+          isLoading 
+            ? <Spinner />
+            : (
+              basketProducts.map((item, index) => (
+                    <div key={index}>
+                      <Product item={item} />
+                      <hr className="line" />
+                    </div>
+                  ))
+            )
+      }
     </Card>
   );
 };

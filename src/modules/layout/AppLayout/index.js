@@ -2,9 +2,8 @@ import React from "react";
 import { Layout } from "antd";
 import Header from "./Header";
 import AddProduct from "../../components/AddProduct";
-import Footer from "./Footer";
 
-const { Content } = Layout;
+const { Content, Footer} = Layout;
 
 const AppLayout = ({ children }) => {
   return (
@@ -12,7 +11,7 @@ const AppLayout = ({ children }) => {
       <Header />
       <Content className="content-holder">{children}</Content>
       <AddProduct />
-      <Footer />
+      <Footer >Footer</Footer>
     </Layout>
   );
 };
