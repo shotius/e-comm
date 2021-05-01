@@ -11,7 +11,7 @@ import axios from "axios";
 export const fetchBasketProducts = (userId) => {
   return dispatch => {
     dispatch(fetchBasketItemsStart())
-    axios.get(`${process.env.REACT_APP_BASE_URL}/basket?userId=${userId}`)
+    axios.get(`${process.env.REACT_APP_BASE_URL}/basket?userId=${+userId}`)
       .then(({ data }) => dispatch(fetchBasketItemsSuccess(data)))
       .catch(error => dispatch(fetchBasketItemsError(error)))
   }

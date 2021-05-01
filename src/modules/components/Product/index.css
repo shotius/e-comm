@@ -6,9 +6,11 @@
     width: 100%;
     height: auto;
     max-height: 500px;
+    max-width: 500px;
     object-fit: cover;
     border-radius: 3px;
     border: 1px solid #eee;
+    padding: 3px;
 }
 
 .product-content-holder {
@@ -38,7 +40,10 @@
 .product-description {
     color: #333;
     font-size: 15px;
-    letter-spacing: 1.1px;
+}
+
+p:has(br) {
+    display: none;
 }
 
 .btn-back {

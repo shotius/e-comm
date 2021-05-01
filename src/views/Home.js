@@ -9,9 +9,10 @@ export const Home = () => {
   return <>
     {/*{!currentCategory && <Slider />}*/}
     <Slider />
-    <div className="container">
-      {/*<ProductsFilter />*/}
+
       <Categories />
+    <div className="container" style={{border: "2px solid #eee"}}>
+      {/*<ProductsFilter />*/}
       <Products category="" />
     </div>
   </>
