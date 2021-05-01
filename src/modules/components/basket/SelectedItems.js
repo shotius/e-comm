@@ -5,20 +5,20 @@ import Product from "./Product";
 import Spinner from '../Spinner'
 import "./index.css";
 
-export const SelectedItems = ({ productsInBasket }) => {
+export const SelectedItems = ({ basketProducts }) => {
   const isLoading = useSelector((state) => state.basketReducer.basketItemsFetchLoading)
   
   return (
     <Card
       bordered={true}
-      title={`Cart (${productsInBasket.length} items)`}
+      title={`Cart (${basketProducts.length} items)`}
       className="cart-list"
     >
       { // when products are fetching spinner will appear
           isLoading 
             ? <Spinner />
             : (
-                productsInBasket.map((item, index) => (
+              basketProducts.map((item, index) => (
                     <div key={index}>
                       <Product item={item} />
                       <hr className="line" />

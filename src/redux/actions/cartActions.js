@@ -14,6 +14,7 @@ export const addToCart = (product, user) => {
     dispatch(addToCartStart());
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/basket`, {
+        shipping: (Math.random() * 10).toFixed(2),
         userId: Number(user.sub),
         ...rest
       })

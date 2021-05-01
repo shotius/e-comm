@@ -52,6 +52,9 @@ const Product = ({item}) => {
                     </div>
 
                     <h2 className="price">${item.price}</h2>
+                    <p>
+                        <b>shipping:</b> {item.shipping}
+                    </p>
                 </Col>
             </Row>
         </Card>

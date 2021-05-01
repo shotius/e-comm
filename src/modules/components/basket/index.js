@@ -7,7 +7,7 @@ import { fetchBasketProducts } from "../../../redux/actions/basketActions";
 
 
 const Basket = () => {
-    const productsInBasket = useSelector((state) => state.basketReducer.products);
+    const basketProducts = useSelector((state) => state.basketReducer.products);
     const userId = useSelector((state) => state.authReducer.user.sub)
     const dispatch = useDispatch();
 
@@ -19,10 +19,10 @@ const Basket = () => {
     return (
         <>
             <Col xs={24} md={24} lg={16}>
-                <SelectedItems productsInBasket={productsInBasket}/>
+                <SelectedItems basketProducts={basketProducts} />
             </Col>
             <Col xs={24} md={24} lg={6}>
-                <CheckOutCard />
+                <CheckOutCard basketProducts={basketProducts}/>
             </Col>
         </>
     )
