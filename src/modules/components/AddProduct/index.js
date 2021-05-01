@@ -11,6 +11,7 @@ import {beforeImageUpload} from "../../../utils/Shared/imgUpload";
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import dompurify from "dompurify";
+import {fetchProducts} from "../../../redux/actions/productsAction";
 
 const sanitizer = dompurify.sanitize;
 const {TextArea} = Input;
@@ -38,7 +39,8 @@ const AddProduct = () => {
         const image = selectedImg[0].thumbUrl;
         dispatch(addProduct({...values, description: sanitizer(values.description), image, userId,}));
         form.resetFields();
-        dispatch(closeAddProductModal())
+        dispatch(fetchProducts());
+        dispatch(closeAddProductModal());
       })
       .catch(error => {
         console.log(error, 'failed')
@@ -145,7 +147,7 @@ const AddProduct = () => {
           },
         ]}
       >
-        <ReactQuill theme="snow" />
+        <ReactQuill theme="snow"/>
       </Form.Item>
 
       <Form.Item
