@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Col, Row, Input, Space, Dropdown, Menu, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { Link, Redirect, useHistory } from "react-router-dom";
+
 import {
   ShoppingCartOutlined,
   MenuOutlined,
@@ -9,14 +12,13 @@ import logo from "../../../../assets/logo.png";
 import "./index.css";
 
 import { logOut } from "../../../../redux/actions/authActions";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { openAddProductModal } from "../../../../redux/actions/addProductActions";
-const { Search } = Input;
 
 const Header = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
+  const searchValue = useRef()
 
   const menu = (
     <Menu>
@@ -35,6 +37,10 @@ const Header = () => {
     </Menu>
   );
 
+  const searchProduct = () => <Redirect to={`search/${searchValue.current.state.value}`} />
+     
+    // history.push(`search/${searchValue.current.state.value}`)
+  
   return (
     <div style={{ position: "relative" }}>
       <Link to="/">
@@ -45,8 +51,14 @@ const Header = () => {
           <Space size="middle">
             {/* search field */}
             <div className="search-container">
-              <Input className="search-field" />
-              <Button className="search-buton" style={{ border: "none" }}>
+              <Input 
+                ref={searchValue}
+                className="search-field"
+                />
+              <Button 
+                className="search-buton" 
+                onClick={searchProduct}  
+                >
                 <SearchOutlined />
               </Button>
             </div>

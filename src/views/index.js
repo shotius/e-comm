@@ -4,3 +4,4 @@ export * from "./Basket"
 export * from "./Home";
 export * from "./ProductList";
 export * from "./ProductDetailed";
+export * from './SearchPage'

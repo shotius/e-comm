@@ -34,7 +34,7 @@
       "title": "lenovo thinkpad",
       "brand": "lenovo",
       "price": 3000,
-      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
+      "description": "სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურ ",
       "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 2
     },
@@ -54,20 +54,20 @@
       "title": "Dell latitude 5510",
       "brand": "Dell",
       "price": 3000,
-      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
+      "description": "სულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასად",
       "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 4
     }
   ],
   "basket": [
     {
-      "shipping": "7.92",
+      "shipping": "2.46",
       "userId": "1",
       "title": "Dell latitude 5510",
       "brand": "Dell",
       "price": 3000,
       "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
-      "image": "https://i0.wp.com/laptopmedia.com/wp-content/uploads/2020/09/delllatitude155510featured.jpg?ssl=1",
+      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 1
     },
     {
@@ -76,29 +76,9 @@
       "title": "lenovo thinkpad",
       "brand": "lenovo",
       "price": 3000,
-      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
+      "description": "სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურ ",
       "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 2
-    },
-    {
-      "shipping": "2.2",
-      "userId": "1",
-      "title": "Dell latitude 5510",
-      "brand": "Dell",
-      "price": 3000,
-      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
-      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
-      "id": 3
-    },
-    {
-      "shipping": "7.92",
-      "userId": "1",
-      "title": "Dell latitude 5510",
-      "brand": "Dell",
-      "price": 3000,
-      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
-      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
-      "id": 4
     }
   ]
 }

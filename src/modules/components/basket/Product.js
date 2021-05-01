@@ -10,9 +10,8 @@ const Product = ({item}) => {
     const dispatch = useDispatch()
 
     const [quantity, setQuantity] = useState(1)
-    const [descriptionShown, setDescriptionShown] = useState(false)
+    const [descriptionShown, setDescriptionShown] = useState(true)
     
-    console.log(item.id, 'item id')
     const removeItemFrombasket = () => {
         dispatch(deleteBasketItem(item))
     }
@@ -40,7 +39,7 @@ const Product = ({item}) => {
                     <div onClick={() => setDescriptionShown(!descriptionShown)}>
                         { descriptionShown 
                             ? <div>{item.description}</div>
-                            : <div>{item.description.substr(0,100)}<b>...</b></div>
+                            : <div dangerouslySetInnerHTML={{__html: item.description.substr(0,10)}} />
                         }
                     </div>
                 </Col>
