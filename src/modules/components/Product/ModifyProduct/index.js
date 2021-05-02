@@ -1,7 +1,7 @@
 import React from "react";
 import {Button} from "antd";
 import {useDispatch} from "react-redux";
-import {openAddProductModal} from "../../../../redux/actions/itemActions";
+import {openAddProductModal, setNowEditing} from "../../../../redux/actions/itemActions";
 
 
 
@@ -9,6 +9,7 @@ const ModifyProduct = ({confirmDeleteModal, product}) => {
   const dispatch = useDispatch()
 
   const handleClick = (product) => {
+    dispatch(setNowEditing(product));
     dispatch(openAddProductModal());
   }
 

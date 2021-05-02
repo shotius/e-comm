@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {useSelector} from "react-redux";
 import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
 import {useDispatch} from "react-redux";
-import {addProduct, closeAddProductModal} from "../../../redux/actions/itemActions";
+import {addProduct, closeAddProductModal, setNowEditing} from "../../../redux/actions/itemActions";
 import {Link} from "react-router-dom";
 import {CloudUploadOutlined} from "@ant-design/icons";
 import "./index.css"
@@ -27,15 +27,17 @@ const initialImg = {
     thumbUrl: "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png"
   }
 
-const AddProduct = ({data}) => {
+const AddProduct = () => {
   const [selectedImg, setSelectedImg] = useState([initialImg]);
 
   const [form] = Form.useForm();
 
 
   const dispatch = useDispatch();
-  const {isModalOpen, addProductLoading} = useSelector(state => state.addProductReducer);
+  const {isModalOpen, addProductLoading} = useSelector(state => state.itemReducer);
   const userId = useSelector(state => state.authReducer.user.sub);
+
+
 
   const handleSubmit = () => {
     form
@@ -55,6 +57,7 @@ const AddProduct = ({data}) => {
 
   const handleCancel = () => {
     dispatch(closeAddProductModal())
+    dispatch(setNowEditing(null))
   }
 
   const handleImgChange = (info) => {
@@ -69,10 +72,6 @@ const AddProduct = ({data}) => {
       message.error(err)
     })
   }
-
-  useEffect(() => {
-    console.log(data)
-  }, [data])
 
   return <Modal
     title="Add a New Product"

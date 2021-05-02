@@ -1,16 +1,34 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Button, Form, Input, InputNumber, Select, Upload} from "antd";
 import ReactQuill from "react-quill";
 import {CloudUploadOutlined} from "@ant-design/icons";
+import {useSelector} from "react-redux";
 
 const {Option} = Select;
 
 
 const ProductForm = (props) => {
+  const nowEditing = useSelector(state => state.itemReducer.nowEditing);
+  console.log(nowEditing, 'gelas')
+
+  useEffect(() => {
+    props.form.setFieldsValue({
+      title: nowEditing ? nowEditing.title : null,
+      brand: nowEditing ? nowEditing.brand : null,
+      category: nowEditing ? nowEditing.category : null,
+      price: nowEditing ? nowEditing.price : null,
+      description: nowEditing ? nowEditing.description : null,
+      picture: nowEditing ? nowEditing.picture : props.selectedImg
+    })
+    if (!nowEditing) {
+      props.form.resetFields();
+    }
+  }, [props.selectedImg, props.form, nowEditing])
+
   return <Form
     className="add-product-form"
     form={props.form}
-    name="login"
+    name="product-form"
     initialValues={{
 
       description: "",
