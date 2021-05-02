@@ -40,8 +40,9 @@ const Header = () => {
   );
 
   const redirectToResult = () => {
-    searchValue.current.blur()
+    searchValue.current.blur() // remove focus
     history.push(`/search/${searchValue.current.state.value}`)
+    searchValue.current.state.value = '' // clear input field
   }
   return (
     <div>
