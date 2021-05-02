@@ -32,6 +32,7 @@
       "shipping": "8.92",
       "userId": "1",
       "title": "lenovo thinkpad",
+      "category": "laptops",
       "brand": "lenovo",
       "price": 3000,
       "description": "სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურ ",
@@ -42,6 +43,7 @@
       "shipping": "2.2",
       "userId": "1",
       "title": "Dell latitude 5510",
+      "category": "laptops",
       "brand": "Dell",
       "price": 3000,
       "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
@@ -52,6 +54,7 @@
       "shipping": "7.92",
       "userId": "1",
       "title": "Dell latitude 5510",
+      "category": "smartphone",
       "brand": "Dell",
       "price": 3000,
       "description": "სულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასადსულ ახალი ლეპტოპი იდეალურ ფასად",
@@ -79,6 +82,16 @@
       "description": "სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალი ლეპტოპი იდეალურ სულ ახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურსულახალილეპტოპიიდეალურ ",
       "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
       "id": 2
+    },
+    {
+      "shipping": "2.2",
+      "userId": "1",
+      "title": "Dell latitude 5510",
+      "brand": "Dell",
+      "price": 3000,
+      "description": "სულ ახალი ლეპტოპი იდეალურ ფასად",
+      "image": "http://cdn.mos.cms.futurecdn.net/6t8Zh249QiFmVnkQdCCtHK.jpg",
+      "id": 3
     }
   ]
 }
