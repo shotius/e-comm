@@ -9,7 +9,8 @@ import {
   DELETE_PRODUCT_FAIL,
   EDIT_PRODUCT_START,
   EDIT_PRODUCT_SUCCESS,
-  EDIT_PRODUCT_FAIL
+  EDIT_PRODUCT_FAIL,
+  SET_NOW_EDITING
 } from "../constants";
 
 
@@ -19,11 +20,16 @@ const initState = {
   addProductError: null,
   editProductLoading: false,
   editProductError: null,
-  editingProduct: null,
+  nowEditing: null,
 }
 
 export default function itemReducer(state = initState, action) {
   switch (action.type) {
+    case SET_NOW_EDITING:
+      return {
+        ...state,
+        nowEditing: action.product
+      }
     case EDIT_PRODUCT_START:
       return {
         ...state,
@@ -34,13 +40,15 @@ export default function itemReducer(state = initState, action) {
       return {
         ...state,
         editProductLoading: false,
-        editProductError: null
+        editProductError: null,
+        nowEditing: null
       }
     case EDIT_PRODUCT_FAIL:
       return {
         ...state,
         editProductLoading: false,
-        editProductError: action.error
+        editProductError: action.error,
+        nowEditing: null
       }
     case DELETE_PRODUCT_START:
       return {

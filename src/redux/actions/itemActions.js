@@ -6,10 +6,32 @@ import {
   CLOSE_ADD_PRODUCT_MODAL,
   DELETE_PRODUCT_START,
   DELETE_PRODUCT_FAIL,
-  DELETE_PRODUCT_SUCCESS
+  DELETE_PRODUCT_SUCCESS,
+  EDIT_PRODUCT_START,
+  EDIT_PRODUCT_SUCCESS,
+  EDIT_PRODUCT_FAIL,
+  SET_NOW_EDITING
 } from "../constants";
 import axios from "axios";
 import {notification} from "antd";
+
+export const setNowEditing = (product) => ({
+  type: SET_NOW_EDITING,
+  product
+})
+
+const editProductStart = () => ({
+  type: EDIT_PRODUCT_START
+})
+
+const editProductSuccess = () => ({
+  type: EDIT_PRODUCT_SUCCESS
+})
+
+const editProductError = (error) => ({
+  type: EDIT_PRODUCT_FAIL,
+  error
+})
 
 export const deleteProduct = (id) => {
   return dispatch => {
