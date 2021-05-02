@@ -13,7 +13,7 @@ import "./index.css";
 import { logOut } from "../../../../redux/actions/authActions";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { openAddProductModal } from "../../../../redux/actions/addProductActions";
+import { openAddProductModal } from "../../../../redux/actions/itemActions";
 
 const { Search } = Input;
 

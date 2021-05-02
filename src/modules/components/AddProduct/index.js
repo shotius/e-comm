@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {useSelector} from "react-redux";
 import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
 import {useDispatch} from "react-redux";
-import {addProduct, closeAddProductModal} from "../../../redux/actions/addProductActions";
+import {addProduct, closeAddProductModal} from "../../../redux/actions/itemActions";
 import {Link} from "react-router-dom";
 import {CloudUploadOutlined} from "@ant-design/icons";
 import "./index.css"

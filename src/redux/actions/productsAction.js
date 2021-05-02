@@ -12,39 +12,6 @@ import {notification} from "antd";
 
 // const base_url = "http://localhost:3001/products"
 
-export const deleteProduct = (id) => {
-  return dispatch => {
-    dispatch(deleteProductStart())
-    axios
-      .delete(`${process.env.REACT_APP_BASE_URL}/products/${id}`)
-      .then(response => {
-        dispatch(deleteProductSuccess())
-        notification.success({
-          message: 'The product was deleted'
-        })
-      })
-      .catch(error =>{
-        dispatch(deleteProductError(error))
-        notification.error({
-          message: 'Unable to delete product, please try again later!'
-        })
-      })
-  }
-}
-
-const deleteProductStart = () => ({
-  type: DELETE_PRODUCT_START
-})
-
-const deleteProductError = (error) => ({
-  type: DELETE_PRODUCT_FAIL,
-  error
-})
-
-const deleteProductSuccess = () => ({
-  type: DELETE_PRODUCT_SUCCESS
-})
-
 export const fetchProducts = (category = "") => {
   let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc&`;
   if (category) {

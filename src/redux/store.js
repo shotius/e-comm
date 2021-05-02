@@ -6,13 +6,13 @@ import authReducer from "./reducers/authReducer";
 import productsReducer from "./reducers/productsReducer";
 import cartReducer from "./reducers/cartReducer";
 import basketReducer from "./reducers/basketReducer";
-import addProductReducer from "./reducers/addProductReducer";
+import itemReducer from "./reducers/itemReducer";
 
 const rootReducer = combineReducers({
   authReducer,
   productsReducer,
   cartReducer,
-  addProductReducer,
+  addProductReducer: itemReducer,
   basketReducer,
 });
 

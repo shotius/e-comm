@@ -19,24 +19,6 @@ const initState = {
 
 export default function productsReducer(state = initState, action) {
   switch (action.type) {
-    case DELETE_PRODUCT_START:
-      return {
-        ...state,
-        deleteProductStart: true,
-        deleteProductError: null
-      }
-    case DELETE_PRODUCT_SUCCESS:
-      return {
-        ...state,
-        deleteProductStart: false,
-        deleteProductError: null
-      }
-    case DELETE_PRODUCT_FAIL:
-      return {
-        ...state,
-        deleteProductStart: false,
-        deleteProductError: action.error
-      }
     case PRODUCTS_SET_CATEGORY:
       return {
         ...state,
