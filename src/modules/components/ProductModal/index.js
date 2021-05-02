@@ -27,7 +27,7 @@ const initialImg = {
     thumbUrl: "https://artsmidnorthcoast.com/wp-content/uploads/2014/05/no-image-available-icon-6.png"
   }
 
-const AddProduct = () => {
+const AddProduct = ({data}) => {
   const [selectedImg, setSelectedImg] = useState([initialImg]);
 
   const [form] = Form.useForm();
@@ -70,6 +70,10 @@ const AddProduct = () => {
     })
   }
 
+  useEffect(() => {
+    console.log(data)
+  }, [data])
+
   return <Modal
     title="Add a New Product"
     visible={isModalOpen}
@@ -86,7 +90,6 @@ const AddProduct = () => {
     selectedImg={selectedImg}
     beforeImgUpload={beforeImgUpload}
     handleImgChange={handleImgChange}
-
   />
   </Modal>
 }

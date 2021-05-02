@@ -60,7 +60,7 @@ const Product = ({id}) => {
         <img src={product.image} alt="picture of product"/>
       </Col>
       <Col sm={24} md={14}>
-        {user.sub === product.userId ? <ModifyProduct confirmDeleteModal={confirmDeleteModal} id={product.id}/> : null}
+        {user.sub === product.userId ? <ModifyProduct confirmDeleteModal={confirmDeleteModal} product={product}/> : null}
         <div className="product-content-holder">
           <h2 className="product-title">{product.title}</h2>
           <p className="product-price">${product.price}</p>

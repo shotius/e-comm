@@ -1,10 +1,20 @@
 import React from "react";
 import {Button} from "antd";
+import {useDispatch} from "react-redux";
+import {openAddProductModal} from "../../../../redux/actions/itemActions";
 
-const ModifyProduct = ({confirmDeleteModal, id}) => {
+
+
+const ModifyProduct = ({confirmDeleteModal, product}) => {
+  const dispatch = useDispatch()
+
+  const handleClick = (product) => {
+    dispatch(openAddProductModal());
+  }
+
   return <div className="product-modify">
-    <Button>Edit</Button>
-    <Button danger onClick={() => confirmDeleteModal(id)}>Delete</Button>
+    <Button onClick={() => handleClick(product)}>Edit</Button>
+    <Button danger onClick={() => confirmDeleteModal(product.id)}>Delete</Button>
   </div>
 }
 
