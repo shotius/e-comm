@@ -37,8 +37,6 @@ const AddProduct = () => {
   const {isModalOpen, addProductLoading} = useSelector(state => state.itemReducer);
   const userId = useSelector(state => state.authReducer.user.sub);
 
-
-
   const handleSubmit = () => {
     form
       .validateFields()

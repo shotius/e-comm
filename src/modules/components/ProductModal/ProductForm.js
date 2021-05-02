@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Form, Input, InputNumber, Select, Upload} from "antd";
 import ReactQuill from "react-quill";
 import {CloudUploadOutlined} from "@ant-design/icons";
@@ -9,7 +9,7 @@ const {Option} = Select;
 
 const ProductForm = (props) => {
   const nowEditing = useSelector(state => state.itemReducer.nowEditing);
-  console.log(nowEditing, 'gelas')
+  const [pic, setPic] = useState([props.selectedImg]);
 
   useEffect(() => {
     props.form.setFieldsValue({
@@ -18,7 +18,19 @@ const ProductForm = (props) => {
       category: nowEditing ? nowEditing.category : null,
       price: nowEditing ? nowEditing.price : null,
       description: nowEditing ? nowEditing.description : null,
-      picture: nowEditing ? nowEditing.picture : props.selectedImg
+    })
+    setPic(() => {
+      if (nowEditing) {
+        return [{
+          uid: "-1",
+          name: "picture.png",
+          status: "done",
+          url: nowEditing.image,
+          thumbUrl: nowEditing.image
+        }]
+      } else {
+        return [props.selectedImg];
+      }
     })
     if (!nowEditing) {
       props.form.resetFields();
@@ -120,7 +132,7 @@ const ProductForm = (props) => {
         showUploadList={true}
         beforeUpload={props.beforeImgUpload}
         onChange={props.handleImgChange}
-        fileList={[...props.selectedImg]}
+        fileList={[...pic]}
       >
         <Button icon={<CloudUploadOutlined/>}>Upload Image</Button>
       </Upload>
