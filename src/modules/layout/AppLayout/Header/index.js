@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import { Col, Row, Input, Space, Dropdown, Menu, Button } from "antd";
 import { useDispatch } from "react-redux";
-import { Link, Redirect, useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 
 import {
   ShoppingCartOutlined,
@@ -39,12 +39,12 @@ const Header = () => {
     </Menu>
   );
 
-  const searchProduct = () => <Redirect to={`search/${searchValue.current.state.value}`} />
-     
-    // history.push(`search/${searchValue.current.state.value}`)
-  
+  const redirectToResult = () => {
+    searchValue.current.blur()
+    history.push(`/search/${searchValue.current.state.value}`)
+  }
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       <Link to="/">
         <img src={logo} className="logo" alt="logo" />
       </Link>
@@ -56,10 +56,11 @@ const Header = () => {
               <Input 
                 ref={searchValue}
                 className="search-field"
+                onPressEnter={redirectToResult}
                 />
               <Button 
                 className="search-buton" 
-                onClick={searchProduct}  
+                onClick={redirectToResult}  
                 >
                 <SearchOutlined />
               </Button>
