@@ -10,7 +10,7 @@ const Product = ({item}) => {
     const dispatch = useDispatch()
 
     const [quantity, setQuantity] = useState(1)
-    const [descriptionShown, setDescriptionShown] = useState(true)
+    const [descriptionShown, setDescriptionShown] = useState(false)
     
     const removeItemFrombasket = () => {
         dispatch(deleteBasketItem(item))
@@ -24,24 +24,36 @@ const Product = ({item}) => {
     // need to check if item is the stock
     const Plus = () => setQuantity(quantity + 1)
 
+    console.log(String(item.description))
+    console.log((item.description))
+
+    const data = () => {
+        
+    }
     
     return (
         <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
             <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
                 <Col span={24}>
-                    <h2>{item.title}</h2></Col>
+                    <h2 style={{textTransform:"capitalize"}}>{item.title}</h2></Col>
                 <Col xs={16} sm={8} md={6} lg={5} className="col1">
                     <img src={item.image} className="image" alt="product pic"/>
                 </Col>
                 <Col xs={24} sm={14} md={12} lg={12}>
                     <p><strong>Brand:</strong> {item.brand}</p>
-                    <h3>description</h3>
-                    <div onClick={() => setDescriptionShown(!descriptionShown)}>
+                    <h3>Description</h3>
+                    {/* <div onClick={() => setDescriptionShown(!descriptionShown)}>
                         { descriptionShown 
-                            ? <div>{item.description}</div>
-                            : <div dangerouslySetInnerHTML={{__html: item.description.substr(0,10)}} />
+                            ? <div dangerouslySetInnerHTML={{__html: item.description}} />
+                            : <div dangerouslySetInnerHTML={{__html: String(item.description).substr(0,10)}} />
                         }
+                    </div> */}
+                    <div className={`${descriptionShown ? '': 'description'}`}>
+                        <div dangerouslySetInnerHTML={{__html: item.description}}/>
                     </div>
+                        <Button onClick={() => setDescriptionShown(!descriptionShown)}>
+                            {descriptionShown ? 'click for less' : 'click for more'}
+                        </Button>
                 </Col>
                 <Col xs={24} md={6} lg={7} className="col3" >
                     <div className="quant">
