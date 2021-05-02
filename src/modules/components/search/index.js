@@ -13,17 +13,10 @@ const SearchResult = () => {
         dispatch(fetchProducts())
     }, [])
 
-    // fill go through all products 
-    // and search if it includes search keyword
-    // in the whole prodduct object 
+   // search if product name includes keyword
     const search = (products) => {
-        // keys from all products to iterate through each object in an array
-        const keys = products[0] && Object.keys(products[0])
-        // filter product checking all values by keys.some function
         return products.filter((product) => (
-            keys.some(
-                (key) => product[key].toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1
-            )
+                product['title'].toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1
         ))
     }
 

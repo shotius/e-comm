@@ -10,29 +10,37 @@ const ProductsList = ({ products }) => {
     const user = useSelector(state => state.authReducer.user);
     
     return (
-        <Row gutter={[8, 8]} style={{padding: "13px"}}>
+       <>
             {
-                products.map((product, i) => (
-                    <Col xs={12} sm={8} md={6} lg={4} key={i}>
-                        <Card 
-                            className="product-item" 
-                            cover={
-                                <img 
-                                    alt="product picture" 
-                                    src={product.image}
-                                    />
-                            }
-                            >
-                            <Meta
-                                title=<Link to={`/products/${product.category}/${product.id}`}>{product.title}</Link>
-                                description={`Price: ${product.price}`}
-                                style={{width: "100%"}}
-                                />
-                            <Button type="primary" style={{marginTop: "15px"}} onClick={() => dispatch(addToCart(product, user))}>Add to Cart</Button>
-                        </Card>
-                    </Col>)
-          )}
-        </Row>
+                products.length === 0
+                    ? <h2>No results found</h2>
+                    : (
+                        <Row gutter={[8, 8]} style={{padding: "13px"}}>
+                        {
+                            products.map((product, i) => (
+                                <Col xs={12} sm={8} md={6} lg={4} key={i}>
+                                    <Card 
+                                        className="product-item" 
+                                        cover={
+                                            <img 
+                                                alt="product picture" 
+                                                src={product.image}
+                                                />
+                                        }
+                                        >
+                                        <Meta
+                                            title=<Link to={`/products/${product.category}/${product.id}`}>{product.title}</Link>
+                                            description={`Price: ${product.price}`}
+                                            style={{width: "100%"}}
+                                            />
+                                        <Button type="primary" style={{marginTop: "15px"}} onClick={() => dispatch(addToCart(product, user))}>Add to Cart</Button>
+                                    </Card>
+                                </Col>)
+                      )}
+                    </Row>
+                    )
+            }
+       </>
     )
 }
 export default ProductsList

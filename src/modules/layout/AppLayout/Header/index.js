@@ -37,8 +37,10 @@ const Header = () => {
     </Menu>
   );
 
-  const redirectToResult = () => history.push(`/search/${searchValue.current.state.value}`)
-
+  const redirectToResult = () => {
+    searchValue.current.blur()
+    history.push(`/search/${searchValue.current.state.value}`)
+  }
   return (
     <div>
       <Link to="/">
@@ -52,6 +54,7 @@ const Header = () => {
               <Input 
                 ref={searchValue}
                 className="search-field"
+                onPressEnter={redirectToResult}
                 />
               <Button 
                 className="search-buton" 
