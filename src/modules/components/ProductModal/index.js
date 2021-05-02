@@ -12,7 +12,7 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import dompurify from "dompurify";
 import {fetchProducts} from "../../../redux/actions/productsAction";
-import ProductAddingForm from "./ProductAddingForm";
+import ProductForm from "./ProductForm";
 
 const sanitizer = dompurify.sanitize;
 const {TextArea} = Input;
@@ -81,7 +81,7 @@ const AddProduct = () => {
     width={"auto"}
     style={{maxWidth: "800px"}}
   >
-  <ProductAddingForm
+  <ProductForm
     form={form}
     selectedImg={selectedImg}
     beforeImgUpload={beforeImgUpload}

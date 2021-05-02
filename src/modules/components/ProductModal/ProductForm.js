@@ -6,7 +6,7 @@ import {CloudUploadOutlined} from "@ant-design/icons";
 const {Option} = Select;
 
 
-const ProductAddingForm = (props) => {
+const ProductForm = (props) => {
   return <Form
     className="add-product-form"
     form={props.form}
@@ -111,4 +111,4 @@ const ProductAddingForm = (props) => {
   </Form>
 }
 
-export default ProductAddingForm;
+export default ProductForm;

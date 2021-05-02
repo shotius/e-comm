@@ -10,7 +10,7 @@ import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
 import {deleteProduct} from "../../../redux/actions/itemActions";
 import ModifyProduct from "./ModifyProduct";
-// import DeleteModal froom "./DeleteModal"
+
 const {confirm} = Modal;
 const Product = ({id}) => {
 
