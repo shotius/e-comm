@@ -1,14 +1,16 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Spinner from "../Spinner";
-import {Button, Col, Divider, Row} from "antd";
-import {ArrowLeftOutlined} from "@ant-design/icons";
+import {Button, Col, Divider, Modal, Row} from "antd";
+import {ArrowLeftOutlined, ExclamationCircleOutlined} from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 
 import "./index.css"
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
-
+import {deleteProduct} from "../../../redux/actions/productsAction";
+// import DeleteModal froom "./DeleteModal"
+const {confirm} = Modal;
 const Product = ({id}) => {
 
   const [product, setProduct] = useState(null);
@@ -37,26 +39,43 @@ const Product = ({id}) => {
   //
   // }
 
+  function showPromiseConfirm(id) {
+    confirm({
+      title: "Do you want to delete this item?",
+      icon: <ExclamationCircleOutlined/>,
+      onOk() {
+        dispatch(deleteProduct(id))
+        history.goBack()
+      },
+      onCancel() {
+        console.log('cancel')
+      }
+    });
+  }
+
   return <div className="product-detailed container">
-    {isLoading ? <Spinner /> : <Row className="product-detail">
+    {isLoading ? <Spinner/> : <Row className="product-detail">
       <Col sm={24} md={10}>
-      <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined /></button>
+        <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined/></button>
         <img src={product?.image} alt="picture of product"/>
       </Col>
       <Col sm={24} md={14}>
+        <div className="product-modify">
+          <Button primary>Edit</Button>
+          <Button type="primary" danger onClick={() => showPromiseConfirm(product.id)}>Delete</Button>
+        </div>
         <div className="product-content-holder">
           <h2 className="product-title">{product?.title}</h2>
           <p className="product-price">${product?.price}</p>
-          <Divider />
-          {/*<p className="product-description">{product?.description}</p>*/}
+          <Divider/>
           <p className="product-description" dangerouslySetInnerHTML={{
             __html: product?.description
           }}/>
-        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
-          const {userId, ...pr} = product;
-          dispatch(addToCart(pr, user))
-        }
-        }>Add to Cart</Button>
+          <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
+            const {userId, ...pr} = product;
+            dispatch(addToCart(pr, user))
+          }
+          }>Add to Cart</Button>
         </div>
 
       </Col>
