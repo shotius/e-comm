@@ -9,12 +9,13 @@ import "./index.css"
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
 import {deleteProduct} from "../../../redux/actions/productsAction";
+import ModifyProduct from "./ModifyProduct";
 // import DeleteModal froom "./DeleteModal"
 const {confirm} = Modal;
 const Product = ({id}) => {
 
   const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -33,13 +34,9 @@ const Product = ({id}) => {
         setIsLoading(false);
       })
   }, [id])
+  
 
-  // const handleAddToCart = () => {
-  //
-  //
-  // }
-
-  function showPromiseConfirm(id) {
+  function confirmDeleteModal(id) {
     confirm({
       title: "Do you want to delete this item?",
       icon: <ExclamationCircleOutlined/>,
@@ -52,24 +49,25 @@ const Product = ({id}) => {
       }
     });
   }
+  
+  console.log(user)
+  console.log(product);
+  
 
   return <div className="product-detailed container">
     {isLoading ? <Spinner/> : <Row className="product-detail">
       <Col sm={24} md={10}>
         <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined/></button>
-        <img src={product?.image} alt="picture of product"/>
+        <img src={product.image} alt="picture of product"/>
       </Col>
       <Col sm={24} md={14}>
-        <div className="product-modify">
-          <Button primary>Edit</Button>
-          <Button type="primary" danger onClick={() => showPromiseConfirm(product.id)}>Delete</Button>
-        </div>
+        {user.sub === product.userId ? <ModifyProduct confirmDeleteModal={confirmDeleteModal} id={product.id} /> : null}
         <div className="product-content-holder">
-          <h2 className="product-title">{product?.title}</h2>
-          <p className="product-price">${product?.price}</p>
+          <h2 className="product-title">{product.title}</h2>
+          <p className="product-price">${product.price}</p>
           <Divider/>
           <p className="product-description" dangerouslySetInnerHTML={{
-            __html: product?.description
+            __html: product.description
           }}/>
           <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
             const {userId, ...pr} = product;

@@ -20,12 +20,14 @@ export const deleteProduct = (id) => {
       .then(response => {
         dispatch(deleteProductSuccess())
         notification.success({
-          message: 'Product deleted successfully'
+          message: 'The product was deleted'
         })
       })
       .catch(error =>{
-        console.log(error)
         dispatch(deleteProductError(error))
+        notification.error({
+          message: 'Unable to delete product, please try again later!'
+        })
       })
   }
 }
