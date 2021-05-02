@@ -34,7 +34,7 @@ const Product = ({id}) => {
         setIsLoading(false);
       })
   }, [id])
-  
+
 
   function confirmDeleteModal(id) {
     confirm({
@@ -45,23 +45,22 @@ const Product = ({id}) => {
         history.goBack()
       },
       onCancel() {
-        console.log('cancel')
       }
     });
   }
-  
+
   console.log(user)
   console.log(product);
-  
+
 
   return <div className="product-detailed container">
     {isLoading ? <Spinner/> : <Row className="product-detail">
-      <Col sm={24} md={10}>
+      <Col sm={24} md={10} className="product-col-1">
         <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined/></button>
         <img src={product.image} alt="picture of product"/>
       </Col>
       <Col sm={24} md={14}>
-        {user.sub === product.userId ? <ModifyProduct confirmDeleteModal={confirmDeleteModal} id={product.id} /> : null}
+        {user.sub === product.userId ? <ModifyProduct confirmDeleteModal={confirmDeleteModal} id={product.id}/> : null}
         <div className="product-content-holder">
           <h2 className="product-title">{product.title}</h2>
           <p className="product-price">${product.price}</p>

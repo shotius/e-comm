@@ -51,6 +51,27 @@
     margin: 5px;
 }
 
+@media screen and (max-width: 768px) {
+    .product-modify {
+        justify-content: center;
+    }
+
+    .product-modify button {
+        margin-top: 18px;
+    }
+
+    .product-detail img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product-col-1 {
+        width: 100%;
+    }
+}
+
 .btn-back {
     display: block;
     background: none;
