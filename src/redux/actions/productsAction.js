@@ -7,10 +7,13 @@ import {
 import axios from "axios";
 
 
-export const fetchProducts = (category = "") => {
-  let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc&`;
+export const fetchProducts = (category = "", filters=null) => {
+  let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc`;
   if (category) {
-    url += `category=${category}`;
+    url += `&category=${category}`;
+  }
+  if (filters) {
+    url += `&price_gte=${filters.price[0]}&price_lte=${filters.price[1]}`
   }
 
   return (dispatch) => {

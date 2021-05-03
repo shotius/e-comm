@@ -6,3 +6,11 @@
 /*    padding: 4px;*/
 /*}*/
 
+.filter-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter-buttons > button {
+    margin: 5px;
+}
