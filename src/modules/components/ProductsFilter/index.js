@@ -13,13 +13,13 @@ const initialFilters = {
 }
 
 const ProductsFilter = () => {
-  const [price, setPrice] = useState(initialFilters.price);
+  const [price, setPrice] = useState([...initialFilters.price]);
   const dispatch = useDispatch();
   const {category} = useParams();
 
 
   const onPriceChange = (value) => {
-
+    setPrice(value);
   }
 
   const handleApplyClick = () => {
@@ -27,8 +27,8 @@ const ProductsFilter = () => {
   }
 
   const clearFields = () => {
-    console.log('clicked')
-    setPrice(initialFilters.price);
+    console.log('clearFields')
+    // setPrice(initialFilters.price);
   }
 
   return <Collapse>
