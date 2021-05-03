@@ -4,7 +4,7 @@ import ProductsFilter from '../modules/components/ProductsFilter'
 import SearchResult from '../modules/components/search'
 
 export const SearchPage = () => (
-    <Layout>
+    <Layout className="container">
         <Content>
             <ProductsFilter />
             <SearchResult />

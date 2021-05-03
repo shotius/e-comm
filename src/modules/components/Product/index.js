@@ -32,11 +32,6 @@ const Product = ({id}) => {
       })
   }, [id])
 
-  // const handleAddToCart = () => {
-  //
-  //
-  // }
-
   return <div className="product-detailed container">
     {isLoading ? <Spinner /> : <Row className="product-detail">
       <Col sm={24} md={10}>

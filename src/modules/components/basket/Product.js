@@ -24,13 +24,6 @@ const Product = ({item}) => {
     // need to check if item is the stock
     const Plus = () => setQuantity(quantity + 1)
 
-    console.log(String(item.description))
-    console.log((item.description))
-
-    const data = () => {
-        
-    }
-    
     return (
         <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
             <Row className="cart-content" gutter={{ xs: 8, sm: 16, md: 24, lg: 32 }} style={{marginBottom: "10px"}} >
