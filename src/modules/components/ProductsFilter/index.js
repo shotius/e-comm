@@ -1,7 +1,6 @@
 import React, {useState} from "react";
-import {Button, Col, Collapse, Row, Slider} from "antd";
+import {Button, Collapse, Slider} from "antd";
 import "./index.css"
-import DropdownMenu from "./DropdownMenu";
 import {FilterOutlined} from "@ant-design/icons";
 import {useDispatch} from "react-redux";
 import {fetchProducts} from "../../../redux/actions/productsAction";
@@ -9,18 +8,27 @@ import {useParams} from "react-router-dom";
 
 const {Panel} = Collapse;
 
+const initialFilters = {
+  price: [0, 5000]
+}
+
 const ProductsFilter = () => {
-  const [price, setPrice] = useState([0, 5000]);
+  const [price, setPrice] = useState(initialFilters.price);
   const dispatch = useDispatch();
   const {category} = useParams();
 
 
   const onPriceChange = (value) => {
-    setPrice(value);
+
   }
 
   const handleApplyClick = () => {
     dispatch(fetchProducts(category, {price}))
+  }
+
+  const clearFields = () => {
+    console.log('clicked')
+    setPrice(initialFilters.price);
   }
 
   return <Collapse>
@@ -40,7 +48,7 @@ const ProductsFilter = () => {
         />
       </div>
       <div className="filter-buttons">
-        <Button type={"default"}>
+        <Button type={"default"} onClick={clearFields}>
           Clear
         </Button>
         <Button type={"primary"} onClick={handleApplyClick}>

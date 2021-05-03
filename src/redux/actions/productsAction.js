@@ -12,6 +12,7 @@ export const fetchProducts = (category = "", filters=null) => {
   if (category) {
     url += `&category=${category}`;
   }
+  // hardcoded, should be dynamic
   if (filters) {
     url += `&price_gte=${filters.price[0]}&price_lte=${filters.price[1]}`
   }
