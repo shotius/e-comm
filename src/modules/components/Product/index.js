@@ -65,7 +65,7 @@ const Product = ({ id }) => {
             <button onClick={history.goBack} className="btn-back">
               <ArrowLeftOutlined />
             </button>
-            <img src={product.image} alt="picture of product" />
+            <img src={product?.image} alt="picture of product" />
           </Col>
           <Col sm={24} md={14}>
             {user.sub === product.userId ? (

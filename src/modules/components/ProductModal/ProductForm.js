@@ -129,6 +129,7 @@ const ProductForm = (props) => {
     >
       <Upload
         name="picture"
+        maxCount={1}
         listType="picture"
         showUploadList={true}
         beforeUpload={props.beforeImgUpload}

@@ -15,6 +15,23 @@ import {
 import axios from "axios";
 import {notification} from "antd";
 
+export const editProduct = (id, newInfo) => {
+  return (dispatch) => {
+    dispatch(editProductStart())
+    console.log(newInfo)
+    axios
+      .put(`${process.env.REACT_APP_BASE_URL}/products/${id}`, newInfo)
+      .then(response => {
+        console.log(response)
+        dispatch(editProductSuccess())
+      })
+      .catch(error => {
+        dispatch(editProductError())
+        console.log(error)
+      })
+  }
+}
+
 export const setNowEditing = (product) => ({
   type: SET_NOW_EDITING,
   product

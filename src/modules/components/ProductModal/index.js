@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react"
 import {useSelector} from "react-redux";
 import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
 import {useDispatch} from "react-redux";
-import {addProduct, closeAddProductModal, setNowEditing} from "../../../redux/actions/itemActions";
+import {addProduct, closeAddProductModal, editProduct, setNowEditing} from "../../../redux/actions/itemActions";
 import {Link} from "react-router-dom";
 import {CloudUploadOutlined} from "@ant-design/icons";
 import "./index.css"
@@ -34,7 +34,7 @@ const AddProduct = () => {
 
 
   const dispatch = useDispatch();
-  const {isModalOpen, addProductLoading} = useSelector(state => state.itemReducer);
+  const {isModalOpen, addProductLoading, nowEditing} = useSelector(state => state.itemReducer);
   const userId = useSelector(state => state.authReducer.user.sub);
 
   const handleSubmit = () => {
@@ -42,8 +42,11 @@ const AddProduct = () => {
       .validateFields()
       .then(values => {
         const image = selectedImg[0].thumbUrl;
-        console.log(selectedImg);
-        dispatch(addProduct({...values, description: sanitizer(values.description), image, userId,}));
+        const productInfo = {...values, description: sanitizer(values.description), image, userId,}
+        if (nowEditing) {
+          dispatch(editProduct(nowEditing.id, productInfo));
+        }
+        dispatch(addProduct(productInfo));
         form.resetFields();
         dispatch(fetchProducts());
         dispatch(closeAddProductModal());
@@ -60,9 +63,8 @@ const AddProduct = () => {
   }
 
   const handleImgChange = (info) => {
-    console.log(info)
     let fileList = [...info.fileList]
-    fileList = fileList.slice(-1)
+    console.log(fileList);
     setSelectedImg(fileList);
   }
 
@@ -74,10 +76,10 @@ const AddProduct = () => {
   }
 
   return <Modal
-    title="Add a New Product"
+    title={nowEditing ? "Update product" : "Add a New Product"}
     visible={isModalOpen}
     onOk={handleSubmit}
-    okText="Add"
+    okText={nowEditing ? "Update" : "Add"}
     cancelText="Cancel"
     confirmLoading={addProductLoading}
     onCancel={handleCancel}
