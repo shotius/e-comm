@@ -20,7 +20,7 @@ const Slider = () => {
             textAlign: 'center',
             marginBottom: "0",
             background: `url("${slider.background}") no-repeat center center/cover`
-          }}/>></Link>
+          }}/></Link>
         </div>
       )}
     </Carousel>

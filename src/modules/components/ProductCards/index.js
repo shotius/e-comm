@@ -1,7 +1,7 @@
 import React, {useEffect} from "react"
 import {Button, Card, Col, Row} from "antd";
 import {useSelector} from "react-redux";
-import {fetchProducts} from "../../../redux/actions/productsAction";
+import {fetchProducts, setCurrentCategory} from "../../../redux/actions/productsAction";
 import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 import {addToCart} from "../../../redux/actions/cartActions";
