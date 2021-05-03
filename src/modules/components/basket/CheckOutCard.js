@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Card, Col, Row } from 'antd'
+import { Button, Card, Col, Row, Divider } from 'antd'
 
  export const CheckOutCard = ({ basketProducts }) => {
      const productPriceTotal = basketProducts.reduce((acc, cur) => acc + Number(cur.price), 0)
@@ -17,7 +17,7 @@ import { Button, Card, Col, Row } from 'antd'
                 <Col span={20}><b>Total Shipping: </b></Col>
                 <Col span={4}><div>${shippingTotal}</div></Col>
             </Row>
-            <hr className="line"/>
+            <Divider />
             <Row>
                 <Col span={20}>
                     <b>The Total Amount (inlcuding shipping)</b>
