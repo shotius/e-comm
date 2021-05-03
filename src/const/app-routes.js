@@ -37,11 +37,16 @@ export const AppRoutes =
       isPrivate: true,
       exact: true
     },
-
+    search : {
+      path: 'search/:keyword',
+      view: "SearchPage",
+      isPrivate: true,
+      exact: true,
+    },
     basket: {
       path: "basket",
       view: "Basket",
       isPrivate: true,
       exact: true
-    }
+    },
   }

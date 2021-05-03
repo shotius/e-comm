@@ -79,6 +79,10 @@
     padding-top: 21%;
 }
 
+.search-buton {
+    border: none !important;
+}
+
 @media screen and (max-width: 576px) {
     .logo {
       display: none;
