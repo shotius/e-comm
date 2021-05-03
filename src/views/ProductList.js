@@ -1,6 +1,6 @@
 import React from "react";
 import {useParams} from "react-router-dom";
-import {Layout, Row} from "antd";
+import {Layout} from "antd";
 import Products from "../modules/components/ProductCards";
 import ProductsFilter from "../modules/components/ProductsFilter";
 const {Content} = Layout;

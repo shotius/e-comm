@@ -2,15 +2,10 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_FAIL,
-  PRODUCTS_SET_CATEGORY,
-  DELETE_PRODUCT_START,
-  DELETE_PRODUCT_SUCCESS,
-  DELETE_PRODUCT_FAIL
+  PRODUCTS_SET_CATEGORY
 } from "../constants";
 import axios from "axios";
-import {notification} from "antd";
 
-// const base_url = "http://localhost:3001/products"
 
 export const fetchProducts = (category = "") => {
   let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc&`;

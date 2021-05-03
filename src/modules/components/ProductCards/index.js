@@ -9,7 +9,6 @@ import {addToCart} from "../../../redux/actions/cartActions";
 import "./index.css"
 import Spinner from "../Spinner";
 
-const {Meta} = Card;
 
 const Products = ({category}) => {
   const dispatch = useDispatch();

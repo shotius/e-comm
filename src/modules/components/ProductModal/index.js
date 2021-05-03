@@ -1,23 +1,17 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import {useSelector} from "react-redux";
-import {message, Form, Input, InputNumber, Modal, Select, Button} from "antd";
+import {message, Form, Modal} from "antd";
 import {useDispatch} from "react-redux";
 import {addProduct, closeAddProductModal, editProduct, setNowEditing} from "../../../redux/actions/itemActions";
-import {Link, useHistory} from "react-router-dom";
-import {CloudUploadOutlined} from "@ant-design/icons";
+import {useHistory} from "react-router-dom";
 import "./index.css"
-import {Upload} from "antd";
-import {beforeImageUpload, getBase64} from "../../../utils/Shared/imgUpload";
-import ReactQuill from 'react-quill';
+import {beforeImageUpload} from "../../../utils/Shared/imgUpload";
 import 'react-quill/dist/quill.snow.css';
 import dompurify from "dompurify";
 import {fetchProducts} from "../../../redux/actions/productsAction";
 import ProductForm from "./ProductForm";
-import axios from "axios";
 
 const sanitizer = dompurify.sanitize;
-const {TextArea} = Input;
-const {Option} = Select;
 
 
 const initialImg = {
