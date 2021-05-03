@@ -3,7 +3,8 @@ import { Button, Card, Col, Row } from 'antd'
 
  export const CheckOutCard = ({ basketProducts }) => {
      const productPriceTotal = basketProducts.reduce((acc, cur) => acc + Number(cur.price), 0)
-     const shippingTotal = basketProducts.reduce((acc, cur) => acc + Number(cur.shipping), 0)
+     let shippingTotal = basketProducts.reduce((acc, cur) => acc + Number(cur.shipping), 0)
+     shippingTotal = Math.floor(shippingTotal * 100)/100
      const totalPrice = productPriceTotal + shippingTotal
 
     return (
