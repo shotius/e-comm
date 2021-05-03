@@ -14,7 +14,7 @@ import logo from "../../../../assets/logo.png";
 import "./index.css";
 
 import { logOut } from "../../../../redux/actions/authActions";
-import { openAddProductModal } from "../../../../redux/actions/addProductActions";
+import { openAddProductModal } from "../../../../redux/actions/itemActions";
 
 const Header = () => {
   const dispatch = useDispatch();
