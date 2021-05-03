@@ -1,25 +1,26 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import { Col, Row, Input, Space, Dropdown, Menu, Button } from "antd";
+import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
+
 import {
   ShoppingCartOutlined,
   MenuOutlined,
   SearchOutlined,
   PlusCircleOutlined,
-  LogoutOutlined
+  LogoutOutlined,
 } from "@ant-design/icons";
 import logo from "../../../../assets/logo.png";
 import "./index.css";
 
 import { logOut } from "../../../../redux/actions/authActions";
-import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { openAddProductModal } from "../../../../redux/actions/itemActions";
-
-const { Search } = Input;
+import { openAddProductModal } from "../../../../redux/actions/addProductActions";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
+  const searchValue = useRef();
 
   const menu = (
     <Menu>
@@ -30,16 +31,21 @@ const Header = () => {
           dispatch(openAddProductModal());
         }}
       >
-        <PlusCircleOutlined style={{fontSize: "16px"}}/> Add a New Product
+        <PlusCircleOutlined style={{ fontSize: "16px" }} /> Add a New Product
       </Menu.Item>
       <Menu.Item key="1" onClick={() => dispatch(logOut())}>
-        <LogoutOutlined style={{fontSize: "16px"}}/> Log Out
+        <LogoutOutlined style={{ fontSize: "16px" }} /> Log Out
       </Menu.Item>
     </Menu>
   );
 
+  const redirectToResult = () => {
+    searchValue.current.blur(); // remove focus
+    history.push(`/search/${searchValue.current.state.value}`);
+    searchValue.current.state.value = ""; // clear input field
+  };
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       <Link to="/">
         <img src={logo} className="logo" alt="logo" />
       </Link>
@@ -48,8 +54,12 @@ const Header = () => {
           <Space size="middle">
             {/* search field */}
             <div className="search-container">
-              <Input className="search-field" />
-              <Button className="search-buton" style={{ border: "none" }}>
+              <Input
+                ref={searchValue}
+                className="search-field"
+                onPressEnter={redirectToResult}
+              />
+              <Button className="search-buton" onClick={redirectToResult}>
                 <SearchOutlined />
               </Button>
             </div>
