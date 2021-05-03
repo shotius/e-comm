@@ -42,6 +42,7 @@ const AddProduct = () => {
       .validateFields()
       .then(values => {
         const image = selectedImg[0].thumbUrl;
+        console.log(selectedImg);
         dispatch(addProduct({...values, description: sanitizer(values.description), image, userId,}));
         form.resetFields();
         dispatch(fetchProducts());
@@ -59,6 +60,7 @@ const AddProduct = () => {
   }
 
   const handleImgChange = (info) => {
+    console.log(info)
     let fileList = [...info.fileList]
     fileList = fileList.slice(-1)
     setSelectedImg(fileList);
