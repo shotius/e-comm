@@ -7,14 +7,25 @@ import {
 import axios from "axios";
 
 
-export const fetchProducts = (category = "", filters=null) => {
-  let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc`;
+export const fetchProducts = (category = "", filters=null, sort_by=null) => {
+  let url = `${process.env.REACT_APP_BASE_URL}/products?`;
   if (category) {
     url += `&category=${category}`;
   }
   // hardcoded, should be dynamic
   if (filters) {
     url += `&price_gte=${filters.price[0]}&price_lte=${filters.price[1]}`
+  }
+
+  switch (sort_by){
+    case 'price':
+      url += `&_sort=${sort_by}`
+      break;
+    case 'relevance':
+      url += `&_sort=id&_order=desc`;
+      break;
+    default:
+      url += `&_sort=id&_order=desc`;
   }
 
   return (dispatch) => {

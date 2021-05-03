@@ -8,7 +8,7 @@ import {addToCart} from "../../../redux/actions/cartActions";
 
 import "./index.css"
 import Spinner from "../Spinner";
-import SortProducts from "../../../SortProducts";
+import SortProducts from "../SortProducts";
 
 
 const Products = ({category}) => {
