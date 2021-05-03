@@ -8,8 +8,8 @@ const {Option} = Select;
 
 
 const ProductForm = (props) => {
+  console.log('form renderred')
   const nowEditing = useSelector(state => state.itemReducer.nowEditing);
-  const [pic, setPic] = useState([props.selectedImg]);
 
   useEffect(() => {
     props.form.setFieldsValue({
@@ -19,23 +19,24 @@ const ProductForm = (props) => {
       price: nowEditing ? nowEditing.price : null,
       description: nowEditing ? nowEditing.description : null,
     })
-    setPic(() => {
-      if (nowEditing) {
-        return [{
-          uid: "-1",
-          name: "picture.png",
-          status: "done",
-          url: nowEditing.image,
-          thumbUrl: nowEditing.image
-        }]
-      } else {
-        return [props.selectedImg];
-      }
-    })
     if (!nowEditing) {
       props.form.resetFields();
     }
-  }, [props.selectedImg, props.form, nowEditing])
+  }, [nowEditing])
+
+  let pic = [...props.selectedImg];
+
+  if (nowEditing) {
+    pic = [
+      {
+        uid: "-1",
+        name: "image.png",
+        status: "done",
+        url: nowEditing.image,
+        thumbUrl: nowEditing.image
+      }
+    ]
+  }
 
   return <Form
     className="add-product-form"
