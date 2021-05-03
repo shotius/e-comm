@@ -22,7 +22,6 @@ export const editProduct = (id, newInfo) => {
     axios
       .put(`${process.env.REACT_APP_BASE_URL}/products/${id}`, newInfo)
       .then(response => {
-        console.log(response)
         dispatch(editProductSuccess())
       })
       .catch(error => {

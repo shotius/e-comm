@@ -52,9 +52,6 @@ const Product = ({ id }) => {
     });
   }
 
-  console.log(user);
-  console.log(product);
-
   return (
     <div className="product-detailed container">
       {isLoading ? (

@@ -135,6 +135,7 @@ const ProductForm = (props) => {
         beforeUpload={props.beforeImgUpload}
         onChange={props.handleImgChange}
         fileList={[...pic]}
+        disabled={nowEditing}
       >
         <Button icon={<CloudUploadOutlined/>}>Upload Image</Button>
       </Upload>
