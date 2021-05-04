@@ -1,9 +1,11 @@
 import React from "react";
 import { Layout } from "antd";
 import Header from "./Header";
-import AddProduct from "../../components/AddProduct";
+
 import Footer from './Footer'
 import './index.css'
+import AddProduct from "../../components/ProductModal";
+
 
 const { Content } = Layout;
 

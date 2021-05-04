@@ -1,62 +1,103 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Spinner from "../Spinner";
-import {Button, Col, Divider, Row} from "antd";
-import {ArrowLeftOutlined} from "@ant-design/icons";
-import {useHistory} from "react-router-dom";
+import { Button, Col, Divider, Modal, Row } from "antd";
+import {
+  ArrowLeftOutlined,
+  ExclamationCircleOutlined,
+} from "@ant-design/icons";
+import { useHistory } from "react-router-dom";
 
-import "./index.css"
-import {useDispatch, useSelector} from "react-redux";
-import {addToCart} from "../../../redux/actions/cartActions";
+import "./index.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../../redux/actions/cartActions";
+import { deleteProduct } from "../../../redux/actions/itemActions";
+import ModifyProduct from "./ModifyProduct";
 
-const Product = ({id}) => {
-
+const { confirm } = Modal;
+const Product = ({ id }) => {
   const [product, setProduct] = useState(null);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const addToCartLoading = useSelector(state => state.cartReducer.addToCartLoading);
-  const user = useSelector(state => state.authReducer.user)
+  const addToCartLoading = useSelector(
+    (state) => state.cartReducer.addToCartLoading
+  );
+  const user = useSelector((state) => state.authReducer.user);
 
   useEffect(() => {
     setIsLoading(true);
-    axios.get(`${process.env.REACT_APP_BASE_URL}/products?id=${id}`)
-      .then(response => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/products?id=${id}`)
+      .then((response) => {
         setProduct(response.data[0]);
         setIsLoading(false);
       })
-      .catch(error => {
-        console.log(error)
+      .catch((error) => {
+        console.log(error);
         setIsLoading(false);
-      })
-  }, [id])
+      });
+  }, [id]);
 
-  return <div className="product-detailed container">
-    {isLoading ? <Spinner /> : <Row className="product-detail">
-      <Col sm={24} md={10}>
-      <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined /></button>
-        <img src={product?.image} alt="picture of product"/>
-      </Col>
-      <Col sm={24} md={14}>
-        <div className="product-content-holder">
-          <h2 className="product-title">{product?.title}</h2>
-          <p className="product-price">${product?.price}</p>
-          <Divider />
-          {/*<p className="product-description">{product?.description}</p>*/}
-          <p className="product-description" dangerouslySetInnerHTML={{
-            __html: product?.description
-          }}/>
-        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
-          const {userId, ...pr} = product;
-          dispatch(addToCart(pr, user))
-        }
-        }>Add to Cart</Button>
-        </div>
+  function confirmDeleteModal(id) {
+    confirm({
+      title: "Do you want to delete this item?",
+      icon: <ExclamationCircleOutlined />,
+      onOk() {
+        dispatch(deleteProduct(id));
+        history.goBack();
+      },
+      onCancel() {},
+    });
+  }
 
-      </Col>
-    </Row>}
-  </div>
-}
+  return (
+    <div className="product-detailed container">
+      {isLoading ? (
+        <Spinner />
+      ) : (
+        <Row className="product-detail">
+          <Col sm={24} md={10} className="product-col-1">
+            <button onClick={history.goBack} className="btn-back">
+              <ArrowLeftOutlined />
+            </button>
+            <img src={product?.image} alt="product" />
+          </Col>
+          <Col sm={24} md={14}>
+            {user.sub === product.userId ? (
+              <ModifyProduct
+                confirmDeleteModal={confirmDeleteModal}
+                product={product}
+              />
+            ) : null}
+            <div className="product-content-holder">
+              <h2 className="product-title">{product.title}</h2>
+              <p className="product-price">${product.price}</p>
+              <Divider />
+              <p
+                className="product-description"
+                dangerouslySetInnerHTML={{
+                  __html: product.description,
+                }}
+              />
+              <Button
+                type={"primary"}
+                loading={addToCartLoading}
+                className="product-btn"
+                onClick={() => {
+                  const { userId, ...pr } = product;
+                  dispatch(addToCart(pr, user));
+                }}
+              >
+                Add to Cart
+              </Button>
+            </div>
+          </Col>
+        </Row>
+      )}
+    </div>
+  );
+};
 
 export default Product;

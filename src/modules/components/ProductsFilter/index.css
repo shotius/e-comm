@@ -1,7 +1,16 @@
-.products-filter {
-    padding: 11px;
+/*.products-filter {*/
+/*    padding: 11px;*/
+/*}*/
+
+/*.products-filter > * {*/
+/*    padding: 4px;*/
+/*}*/
+
+.filter-buttons {
+    display: flex;
+    justify-content: flex-end;
 }
 
-.products-filter > * {
-    padding: 4px;
+.filter-buttons > button {
+    margin: 5px;
 }

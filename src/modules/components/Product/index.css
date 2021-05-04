@@ -42,8 +42,34 @@
     font-size: 15px;
 }
 
-p:has(br) {
-    display: none;
+.product-modify {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.product-modify button {
+    margin: 5px;
+}
+
+@media screen and (max-width: 768px) {
+    .product-modify {
+        justify-content: center;
+    }
+
+    .product-modify button {
+        margin-top: 18px;
+    }
+
+    .product-detail img {
+        display: block;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .product-col-1 {
+        width: 100%;
+    }
 }
 
 .btn-back {

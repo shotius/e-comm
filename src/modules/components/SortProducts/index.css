@@ -1,0 +1,15 @@
+.sort-by {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 8px;
+}
+
+.sort-by h3 {
+    color: #333333;
+    font-family: 'Lato', sans-serif;
+    font-size: 15px;
+    vertical-align: middle;
+    margin: 0;
+    padding-right: 8px;
+}
