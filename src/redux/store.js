@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
   cartReducer,
   itemReducer,
   basketReducer,
+  reviewsReducer
 });
 
 const enhancer = applyMiddleware(thunk);
