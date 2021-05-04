@@ -6,7 +6,7 @@ import './index.css'
 
 const Footer = () => {
     return (
-        <>
+        <div className="footer-container">
                 <Row className="footer-questions" align="center" justify='center'>
                     <Space size='middle'>
                         <Col>
@@ -60,7 +60,7 @@ const Footer = () => {
                     <small>&#169;Copyright. Shota and Vaniko are contributors, 2021. All Rights reserved.</small>
                     </Col>
                 </Row>
-        </>
+        </div>
     )
 }
 export default Footer

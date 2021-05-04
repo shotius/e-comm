@@ -3,14 +3,15 @@ import { Layout } from "antd";
 import Header from "./Header";
 import AddProduct from "../../components/AddProduct";
 import Footer from './Footer'
+import './index.css'
 
 const { Content } = Layout;
 
 const AppLayout = ({ children }) => {
   return (
-    <Layout className="site-layout">
+    <Layout className='app-layout'>
       <Header />
-      <Content className="content-holder">{children}</Content>
+      <Content>{children}</Content>
       <AddProduct />
       <Footer />
     </Layout>
