@@ -14,7 +14,7 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
 
     return (
         <>
-            <Card title="Review"> 
+            <Card title="Reviews"> 
                 {
                     reviews.map((review) => (
                         <Review review={review} user={user} key={review.id}/>

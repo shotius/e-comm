@@ -13,6 +13,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addToCart } from "../../../redux/actions/cartActions";
 import { deleteProduct } from "../../../redux/actions/itemActions";
 import ModifyProduct from "./ModifyProduct";
+import ReviewList from './Reviews/ReviewList'
 
 const { confirm } = Modal;
 const Product = ({ id }) => {
@@ -57,6 +58,7 @@ const Product = ({ id }) => {
       {isLoading ? (
         <Spinner />
       ) : (
+        <>
         <Row className="product-detail">
           <Col sm={24} md={10} className="product-col-1">
             <button onClick={history.goBack} className="btn-back">
@@ -95,6 +97,18 @@ const Product = ({ id }) => {
             </div>
           </Col>
         </Row>
+         {/* REVIEWS */}
+         {
+          product // when product exists
+          && 
+          <ReviewList 
+            dispatch={dispatch}
+            useSelector={useSelector}
+            user={user}
+            product={product}
+            />
+        } 
+        </>
       )}
     </div>
   );
