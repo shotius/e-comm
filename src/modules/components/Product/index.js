@@ -17,7 +17,9 @@ import ModifyProduct from "./ModifyProduct";
 const { confirm } = Modal;
 const Product = ({ id }) => {
   const [product, setProduct] = useState(null);
+  ///////////////////////////////////////////////////////////
   const [isLoading, setIsLoading] = useState(true);
+  ///////////////////////////////////////////////////////////
   const history = useHistory();
   const dispatch = useDispatch();
 
