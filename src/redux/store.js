@@ -7,6 +7,7 @@ import productsReducer from "./reducers/productsReducer";
 import cartReducer from "./reducers/cartReducer";
 import basketReducer from "./reducers/basketReducer";
 import itemReducer from "./reducers/itemReducer";
+import reviewsReducer from './reducers/reviewsReducer'
 
 const rootReducer = combineReducers({
   authReducer,
