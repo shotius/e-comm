@@ -5,7 +5,7 @@ import {Button, Col, Row, Card} from 'antd'
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
 import './index.css'
 
-// this component renders single product cart in the basket
+// this component renders single product cart in the Basket
 const Product = ({item}) => {
   const dispatch = useDispatch()
 

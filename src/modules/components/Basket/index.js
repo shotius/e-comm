@@ -11,7 +11,7 @@ const Basket = () => {
     const userId = useSelector((state) => state.authReducer.user.sub)
     const dispatch = useDispatch();
 
-    // to get products on the basket page we need to fetch it from db
+    // to get products on the Basket page we need to fetch it from db
     useEffect(() => {
         dispatch(fetchBasketProducts(userId));
     }, [dispatch]);

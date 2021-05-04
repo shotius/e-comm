@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
-import Spinner from "../Spinner";
+import Spinner from "../Shared/Spinner";
 import {Button, Col, Divider, Modal, Row} from "antd";
 import {
   ArrowLeftOutlined,

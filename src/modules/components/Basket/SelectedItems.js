@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import { Card } from "antd";
 import Product from "./Product";
-import Spinner from '../Spinner'
+import Spinner from '../Shared/Spinner'
 import "./index.css";
 
 export const SelectedItems = ({ basketProducts }) => {
