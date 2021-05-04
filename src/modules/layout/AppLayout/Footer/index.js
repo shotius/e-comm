@@ -42,6 +42,12 @@ const Footer = () => {
                             28 Ilia Chavchavadze Avenue, T'bilisi
                         </a>
                     </div>
+                    <div style={{textAlign: "center"}}>
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2978.5448463674365!2d44.76989491543026!3d41.70876047923591!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40440ccd36240bfd%3A0x9471edcd648eb2c3!2s28%20Ilia%20Chavchavadze%20Avenue%2C%20T&#39;bilisi!5e0!3m2!1sen!2sge!4v1620120220883!5m2!1sen!2sge" 
+                            className="google-maps" >
+                        </iframe>
+                    </div>
                 </Col>
                 <Col span={24} >
                   <small className="footer-info">&#169;Copyright. Shota and Vaniko are contributors, 2021. All Rights reserved.</small>
