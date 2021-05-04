@@ -1,5 +1,5 @@
 import React, {useEffect} from "react"
-import {Row} from "antd";
+import {Pagination, Row} from "antd";
 import {useSelector} from "react-redux";
 import {fetchProducts, setCurrentCategory} from "../../../redux/actions/productsAction";
 import {useDispatch} from "react-redux";
@@ -40,7 +40,6 @@ const Products = ({category}) => {
         ))
       }
         </Row>}
-
     </>
   )
 
