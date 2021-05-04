@@ -10,7 +10,7 @@ export const ProductList = () => {
   console.log('ProductList')
   const params = useParams();
   console.log(params)
-  return <Layout>
+  return <Layout className="container">
     <Content>
       <ProductsFilter />
 

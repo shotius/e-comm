@@ -1,17 +1,21 @@
 import React from "react";
 import { Layout } from "antd";
 import Header from "./Header";
+
+import Footer from './Footer'
+import './index.css'
 import AddProduct from "../../components/ProductModal";
 
-const { Content, Footer} = Layout;
+
+const { Content } = Layout;
 
 const AppLayout = ({ children }) => {
   return (
-    <Layout className="site-layout">
+    <Layout className='app-layout'>
       <Header />
-      <Content className="content-holder">{children}</Content>
+      <Content>{children}</Content>
       <AddProduct />
-      <Footer >Footer</Footer>
+      <Footer />
     </Layout>
   );
 };
