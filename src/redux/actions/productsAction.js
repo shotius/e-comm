@@ -2,16 +2,30 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_FAIL,
-  PRODUCTS_SET_CATEGORY,
+  PRODUCTS_SET_CATEGORY
 } from "../constants";
 import axios from "axios";
 
-// const base_url = "http://localhost:3001/products"
 
-export const fetchProducts = (category = "") => {
-  let url = `${process.env.REACT_APP_BASE_URL}/products?_sort=id&_order=desc&`;
+export const fetchProducts = (category = "", filters=null, sort_by=null) => {
+  let url = `${process.env.REACT_APP_BASE_URL}/products?`;
   if (category) {
-    url += `category=${category}`;
+    url += `&category=${category}`;
+  }
+  // hardcoded, should be dynamic
+  if (filters) {
+    url += `&price_gte=${filters.price[0]}&price_lte=${filters.price[1]}`
+  }
+
+  switch (sort_by){
+    case 'price':
+      url += `&_sort=${sort_by}`
+      break;
+    case 'relevance':
+      url += `&_sort=id&_order=desc`;
+      break;
+    default:
+      url += `&_sort=id&_order=desc`;
   }
 
   return (dispatch) => {

@@ -1,16 +1,47 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {Button, Form, Input, InputNumber, Select, Upload} from "antd";
 import ReactQuill from "react-quill";
 import {CloudUploadOutlined} from "@ant-design/icons";
+import {useSelector} from "react-redux";
 
 const {Option} = Select;
 
 
-const ProductAddingForm = (props) => {
+const ProductForm = (props) => {
+  console.log('form renderred')
+  const nowEditing = useSelector(state => state.itemReducer.nowEditing);
+
+  useEffect(() => {
+    props.form.setFieldsValue({
+      title: nowEditing ? nowEditing.title : null,
+      brand: nowEditing ? nowEditing.brand : null,
+      category: nowEditing ? nowEditing.category : null,
+      price: nowEditing ? nowEditing.price : null,
+      description: nowEditing ? nowEditing.description : null,
+    })
+    if (!nowEditing) {
+      props.form.resetFields();
+    }
+  }, [nowEditing])
+
+  let pic = [...props.selectedImg];
+
+  if (nowEditing) {
+    pic = [
+      {
+        uid: "-1",
+        name: "image.png",
+        status: "done",
+        url: nowEditing.image,
+        thumbUrl: nowEditing.image
+      }
+    ]
+  }
+
   return <Form
     className="add-product-form"
     form={props.form}
-    name="login"
+    name="product-form"
     initialValues={{
 
       description: "",
@@ -98,11 +129,13 @@ const ProductAddingForm = (props) => {
     >
       <Upload
         name="picture"
+        maxCount={1}
         listType="picture"
         showUploadList={true}
         beforeUpload={props.beforeImgUpload}
         onChange={props.handleImgChange}
-        fileList={[...props.selectedImg]}
+        fileList={[...pic]}
+        disabled={nowEditing}
       >
         <Button icon={<CloudUploadOutlined/>}>Upload Image</Button>
       </Upload>
@@ -111,4 +144,4 @@ const ProductAddingForm = (props) => {
   </Form>
 }
 
-export default ProductAddingForm;
+export default ProductForm;

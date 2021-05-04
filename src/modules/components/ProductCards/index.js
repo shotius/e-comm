@@ -1,13 +1,14 @@
 import React, {useEffect} from "react"
 import { Row } from "antd";
 import {useSelector} from "react-redux";
-import {fetchProducts} from "../../../redux/actions/productsAction";
+import {fetchProducts, setCurrentCategory} from "../../../redux/actions/productsAction";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
 import ProductCard from '../Shared/ProductCard'
 
 import "./index.css"
 import Spinner from "../Spinner";
+import SortProducts from "../SortProducts";
 
 const Products = ({category}) => {
   const dispatch = useDispatch();
@@ -20,10 +21,12 @@ const Products = ({category}) => {
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
 
   if (productsFetchLoading) {
-    return <Spinner />
+    return <Spinner/>
   }
 
   return (
+<>
+    <SortProducts />
     <Row gutter={[12, 12]} style={{padding: "13px"}}>
       {
         products.map((product, i) => (
@@ -37,6 +40,7 @@ const Products = ({category}) => {
         ))
       }
     </Row>
+  </>
   )
 
 }
