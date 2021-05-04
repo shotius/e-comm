@@ -1,4 +1,4 @@
 .app-layout {
-    position: relative;
-    min-height: 100vh
+    position: relative !important;
+    min-height: 100vh !important;
 }
