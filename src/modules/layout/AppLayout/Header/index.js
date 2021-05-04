@@ -52,7 +52,7 @@ const Header = () => {
       <Row type="flex" justify="end" align="middle" className="row">
         <Col pull={1} className="col col-3">
           <Space size="middle">
-            {/* search field */}
+            {/* Search field */}
             <div className="search-container">
               <Input
                 ref={searchValue}
