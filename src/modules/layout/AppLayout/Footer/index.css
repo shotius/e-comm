@@ -1,0 +1,54 @@
+.footer-container {
+    color: white
+}
+
+.footer-questions {
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+    border: 1px solid;
+    margin-top: 30px;
+}
+
+.btn-question {
+    border-radius: 50px;
+}
+
+.footer-info {
+    height: 200px;
+    background-color: rgb(42 42 42);
+    text-align: center;
+}
+
+.footer-heading {
+    color: white;
+    font-size: large;
+    margin-top: 30px;
+    font-weight: 300;
+}
+
+.footer-info {
+    color: white;
+    line-height: 2em;
+    font-weight: 100;
+    font-size: 1em;
+    height: auto;
+    padding-bottom: 10px;
+}
+
+.line {
+    /* Set the hr color */
+    background-color: grey; /* Modern Browsers */
+    margin: 10px;
+}
+
+@media screen and (max-width: 576px) {
+    .footer-questions {
+      font-size: 1.5em;
+    }
+    .btn-question {
+        height: 30px;
+        font-size: 10px;
+        margin: 10px;
+    }
+  }
