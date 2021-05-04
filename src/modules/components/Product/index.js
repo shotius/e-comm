@@ -14,6 +14,7 @@ import {addToCart} from "../../../redux/actions/cartActions";
 import {deleteProduct} from "../../../redux/actions/itemActions";
 import ModifyProduct from "./ModifyProduct";
 import ExtraImages from "../ExtraImages";
+import {extraImages} from "../../../const/productExtraImages";
 
 const {confirm} = Modal;
 const Product = ({id}) => {
@@ -67,7 +68,8 @@ const Product = ({id}) => {
               <ArrowLeftOutlined/>
             </button>
             <img src={product?.image} alt="product"/>
-            <ExtraImages />
+            {/*Should be dynamic*/}
+            <ExtraImages sliderData={extraImages}/>
           </Col>
           <Col sm={24} md={14}>
             {user.sub === product.userId ? (
