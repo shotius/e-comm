@@ -7,16 +7,7 @@ import './index.css'
 const Footer = () => {
     return (
         <div className="footer-container">
-                <Row className="footer-questions" align="center" justify='center'>
-                    <Space size='middle'>
-                        <Col>
-                        Have some questions about out work?
-                        </Col>
-                        <Col style={{display: "flex"}}>
-                        <Button type="primary" className="btn-question" >Click Here</Button>
-                        </Col>
-                    </Space>
-                </Row>
+
                 <Row className="footer-info" justify='space-around'>
                     <Col span={6}>
                         <div className="footer-heading">COMPANY</div>

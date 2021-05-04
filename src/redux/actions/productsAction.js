@@ -32,7 +32,7 @@ export const fetchProducts = (category = "", filters=null, sort_by=null) => {
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
-        console.log(response, 'response')
+        // console.log(response, 'response')
         dispatch(fetchProductsSuccess(response.data))
         // dispatch(setCurrentCategory(category));
       })
