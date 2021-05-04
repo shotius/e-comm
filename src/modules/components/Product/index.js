@@ -8,6 +8,7 @@ import {useHistory} from "react-router-dom";
 import "./index.css"
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
+import ReviewList from './Reviews/ReviewList'
 
 const Product = ({id}) => {
 
@@ -32,31 +33,55 @@ const Product = ({id}) => {
       })
   }, [id])
 
-  return <div className="product-detailed container">
-    {isLoading ? <Spinner /> : <Row className="product-detail">
-      <Col sm={24} md={10}>
-      <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined /></button>
-        <img src={product?.image} alt="picture of product"/>
-      </Col>
-      <Col sm={24} md={14}>
-        <div className="product-content-holder">
-          <h2 className="product-title">{product?.title}</h2>
-          <p className="product-price">${product?.price}</p>
-          <Divider />
-          {/*<p className="product-description">{product?.description}</p>*/}
-          <p className="product-description" dangerouslySetInnerHTML={{
-            __html: product?.description
-          }}/>
-        <Button type={"primary"} loading={addToCartLoading} className="product-btn" onClick={() => {
-          const {userId, ...pr} = product;
-          dispatch(addToCart(pr, user))
-        }
-        }>Add to Cart</Button>
-        </div>
-
-      </Col>
-    </Row>}
+  return (
+    <div className="product-detailed container">
+    {
+      isLoading 
+        ? <Spinner /> 
+        : (<>
+              <Row className="product-detail">
+                <Col sm={24} md={10}>
+                <button onClick={history.goBack} className="btn-back"><ArrowLeftOutlined /></button>
+                  <img src={product?.image} alt="picture of product"/>
+                </Col>
+                <Col sm={24} md={14}>
+                  <div className="product-content-holder">
+                    <h2 className="product-title">{product?.title}</h2>
+                    <p className="product-price">${product?.price}</p>
+                    <Divider />
+                    <p 
+                      className="product-description" 
+                      dangerouslySetInnerHTML={{__html: product?.description}}
+                      />
+                  <Button 
+                    type={"primary"} 
+                    loading={addToCartLoading} 
+                    className="product-btn" 
+                    onClick={() => {
+                      const {userId, ...pr} = product;
+                      dispatch(addToCart(pr, user))
+                    }}
+                    >Add to Cart
+                  </Button>
+                  </div>
+                </Col>
+              </Row>
+              {/* REVIEWS */}
+              {
+                product // when product exists
+                && 
+                <ReviewList 
+                  dispatch={dispatch}
+                  useSelector={useSelector}
+                  user={user}
+                  product={product}
+                  />
+              } 
+            </>
+        )
+    }
   </div>
+  )
 }
 
 export default Product;
