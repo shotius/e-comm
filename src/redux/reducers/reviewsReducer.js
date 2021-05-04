@@ -1,7 +1,10 @@
 import {
     FETCH_REVIEW_START,
     FETCH_REVIEW_SUCCESS,
-    FETCH_REVIEW_FAIL
+    FETCH_REVIEW_FAIL,
+    ADD_REVIEW_START,
+    ADD_REVIEW_SUCCESS,
+    ADD_REVIEW_FAIL,
 } from '../constants'
 
 const initState = {
@@ -30,6 +33,12 @@ export default function reviewsReducer(state=initState, action) {
                 ...state,
                 fetchReviewsError: action.error,
                 fetchReviewsLoading: false
+            }
+        case ADD_REVIEW_SUCCESS:
+            // console.log(action.review, 'action review')
+            return {
+                ...state,
+                reviews: state.reviews.concat(action.review)
             }
         default:
             return state

@@ -2,20 +2,26 @@
 import { Form } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
 import React, { useState } from 'react'
+import { addReview } from '../../../../redux/actions/reviewsActions'
 
-const ReviewForm = () => {
+const ReviewForm = ({ dispatch, userId, prodId }) => {
     const [stars, setStars] = useState(0)
     const [form] = Form.useForm();
     const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
 
     const onFinish = (values) => {
         form.resetFields()
-        console.log("values", values)
+        const review = {
+            ...values,
+            userId,
+            prodId,
+        }
+        dispatch(addReview(review))
     }
 
     return (
         <>
-            <h3>write a review</h3>
+        <h2>write a review</h2>
         <Form 
             form={form}
             onFinish={onFinish}
@@ -27,7 +33,7 @@ const ReviewForm = () => {
                     </Form.Item>
                 </Col>
                 <Col span={14}>
-                    <Form.Item name="review-text">
+                    <Form.Item name="review">
                         <Input.TextArea  style={{borderRadius: "20px", padding: "10px", fontSize: "1em"}} autoSize={true}/>
                     </Form.Item>
                 </Col>

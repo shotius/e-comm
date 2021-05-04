@@ -21,7 +21,11 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
                     ))
                 }
             </Card>
-            <ReviewForm />
+            <ReviewForm 
+                dispatch={dispatch}
+                prodId={product.id}
+                userId={user.sub}
+            />
         </>
     )
 }
