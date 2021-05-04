@@ -1,5 +1,5 @@
 import React from 'react'
-import { Button, Col, Divider, Row, Space } from 'antd'
+import { Button, Col, Row, Space } from 'antd'
 import { FacebookOutlined, GithubOutlined, TwitterOutlined, MailOutlined } from '@ant-design/icons'
 import './index.css'
 
@@ -13,7 +13,7 @@ const Footer = () => {
                         Have some questions about out work?
                         </Col>
                         <Col style={{display: "flex"}}>
-                        <Button className="btn-question" >Click Here</Button>
+                        <Button type="primary" className="btn-question" >Click Here</Button>
                         </Col>
                     </Space>
                 </Row>
