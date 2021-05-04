@@ -13,11 +13,10 @@ export default function SortProducts() {
   const dispatch = useDispatch();
 
   const handleSelect = (value) => {
-    console.log(value,'value');
     setSortBy(value);
     dispatch(fetchProducts(category, null, value));
   }
-  console.log(sortBy, 'sortBy');
+
   return (
     <div className="sort-by">
       <h3>Sort By</h3>

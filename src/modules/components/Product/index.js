@@ -1,25 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Spinner from "../Spinner";
-import { Button, Col, Divider, Modal, Row } from "antd";
+import {Button, Col, Divider, Modal, Row} from "antd";
 import {
   ArrowLeftOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
-import { useHistory } from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 import "./index.css";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../../redux/actions/cartActions";
-import { deleteProduct } from "../../../redux/actions/itemActions";
+import {useDispatch, useSelector} from "react-redux";
+import {addToCart} from "../../../redux/actions/cartActions";
+import {deleteProduct} from "../../../redux/actions/itemActions";
 import ModifyProduct from "./ModifyProduct";
+import ExtraImages from "../ExtraImages";
 
-const { confirm } = Modal;
-const Product = ({ id }) => {
+const {confirm} = Modal;
+const Product = ({id}) => {
   const [product, setProduct] = useState(null);
-  ///////////////////////////////////////////////////////////
   const [isLoading, setIsLoading] = useState(true);
-  ///////////////////////////////////////////////////////////
+
   const history = useHistory();
   const dispatch = useDispatch();
 
@@ -45,26 +45,29 @@ const Product = ({ id }) => {
   function confirmDeleteModal(id) {
     confirm({
       title: "Do you want to delete this item?",
-      icon: <ExclamationCircleOutlined />,
+      icon: <ExclamationCircleOutlined/>,
       onOk() {
         dispatch(deleteProduct(id));
         history.goBack();
       },
-      onCancel() {},
+      onCancel() {
+      },
     });
   }
 
   return (
     <div className="product-detailed container">
       {isLoading ? (
-        <Spinner />
+        <Spinner/>
       ) : (
+        <>
         <Row className="product-detail">
           <Col sm={24} md={10} className="product-col-1">
             <button onClick={history.goBack} className="btn-back">
-              <ArrowLeftOutlined />
+              <ArrowLeftOutlined/>
             </button>
-            <img src={product?.image} alt="product" />
+            <img src={product?.image} alt="product"/>
+            <ExtraImages />
           </Col>
           <Col sm={24} md={14}>
             {user.sub === product.userId ? (
@@ -76,7 +79,7 @@ const Product = ({ id }) => {
             <div className="product-content-holder">
               <h2 className="product-title">{product.title}</h2>
               <p className="product-price">${product.price}</p>
-              <Divider />
+              <Divider/>
               <p
                 className="product-description"
                 dangerouslySetInnerHTML={{
@@ -88,7 +91,7 @@ const Product = ({ id }) => {
                 loading={addToCartLoading}
                 className="product-btn"
                 onClick={() => {
-                  const { userId, ...pr } = product;
+                  const {userId, ...pr} = product;
                   dispatch(addToCart(pr, user));
                 }}
               >
@@ -96,7 +99,11 @@ const Product = ({ id }) => {
               </Button>
             </div>
           </Col>
+
         </Row>
+
+          <br/><br/>
+        </>
       )}
     </div>
   );
