@@ -5,12 +5,24 @@ import {
     ADD_REVIEW_START,
     ADD_REVIEW_SUCCESS,
     ADD_REVIEW_FAIL,
+    UPDATE_REVIEW_START,
+    UPDATE_REVIEW_SUCCESS,
+    UPDATE_REVIEW_FAIL,
+    DELETE_REVIEW_START,
+    DELETE_REVIEW_SUCCESS,
+    DELETE_REVIEW_FAIL
 } from '../constants'
 
 const initState = {
     reviews: [],
     fetchReviewsLoading: false,
-    fetchReviewsError: null
+    addReviewLoading: false,
+    updateReviewLoading: false,
+    deleteReviewLoading: false,
+    fetchReviewsError: null,
+    addReviewError: null,
+    updateReviewError: null,
+    deleteReviewError: null
 }
 
 export default function reviewsReducer(state=initState, action) {
@@ -34,11 +46,60 @@ export default function reviewsReducer(state=initState, action) {
                 fetchReviewsError: action.error,
                 fetchReviewsLoading: false
             }
-        case ADD_REVIEW_SUCCESS:
-            // console.log(action.review, 'action review')
+        case ADD_REVIEW_START:
             return {
                 ...state,
-                reviews: state.reviews.concat(action.review)
+                addReviewLoading: true,
+                addReviewError: null
+            }
+        case ADD_REVIEW_SUCCESS:
+            return {
+                ...state,
+                reviews: state.reviews.concat(action.review),
+                addReviewLoading: false,
+                addReviewError: null
+            }
+        case ADD_REVIEW_FAIL:
+            return {
+                ...state,
+                addReviewError: action.error,
+                addReviewLoading: false
+            }
+        case UPDATE_REVIEW_START: 
+            return {
+                ...state,
+                updateReviewError: null,
+                updateReviewloading: true
+            }
+        case UPDATE_REVIEW_SUCCESS:
+            return {
+                ...state, 
+                updateReviewLoading: false,
+                updateReviewError: null
+            }
+        case UPDATE_REVIEW_FAIL:
+            return {
+                ...state,
+                updateReviewLoading: false,
+                updateReviewError: action.error
+            }
+        case DELETE_REVIEW_START:
+            return {
+                ...state,
+                deleteReviewLoading: true,
+                deleteReviewError: null
+            }
+        case DELETE_REVIEW_SUCCESS:
+            return {
+                ...state,
+                deleteReviewLoading: false,
+                deleteReviewError: null
+            }
+        case DELETE_REVIEW_FAIL:
+            return {
+                ...state,
+                deleteReviewLoading: false,
+                deleteReviewError: action.error
             }
         default:
             return state

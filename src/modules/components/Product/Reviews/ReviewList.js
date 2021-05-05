@@ -17,7 +17,11 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
             <Card title="Reviews"> 
                 {
                     reviews.map((review) => (
-                        <Review review={review} user={user} key={review.id}/>
+                        <Review 
+                            review={review} 
+                            dispatch={dispatch}
+                            user={user} 
+                            key={review.id}/>
                     ))
                 }
             </Card>
