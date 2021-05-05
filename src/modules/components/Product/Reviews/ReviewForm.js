@@ -15,6 +15,7 @@ const ReviewForm = ({ dispatch, userId, prodId }) => {
             ...values,
             userId,
             prodId,
+            isEditing: false
         }
         dispatch(addReview(review))
     }

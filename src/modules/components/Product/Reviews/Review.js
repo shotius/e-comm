@@ -1,30 +1,35 @@
 import { DeleteOutlined, EditOutlined, UserOutlined } from '@ant-design/icons'
 import { Card, Input, Rate, Button, Form } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
-import React, { useState } from 'react'
-import { deleteReview, updateReview } from '../../../../redux/actions/reviewsActions'
+import React, { useEffect, useState } from 'react'
+import { deleteReview, updateReview, toggleEditMode } from '../../../../redux/actions/reviewsActions'
 
 const Review = ({ review, user, dispatch }) => {
-    const [isEditing, setIsEditing] = useState(false)
 
+    const { isEditing } = review
+
+    // useEffect(() => {
+    //     setIsEditing(review.isEditing)
+    // }, [review])
+
+    console.log("editing", isEditing)
+    console.log("review", review)
     // toggles editable reviews mode
-    const handleEdit = () => 
-            setIsEditing(!isEditing)
+    const handleEdit = () => dispatch(toggleEditMode(review, isEditing))
 
     // removes review
     const handleRemove = () => {
         dispatch(deleteReview(review.id))
     }
 
-    // create new review and dispatch change
+    // udpate review and dispatch change
     const onFinish = (values) => {
         const newReview = {
             ...review,
-            ...values
+            ...values,
         }
-
-        setIsEditing(false)
         dispatch(updateReview(newReview))
+        dispatch(toggleEditMode(review, isEditing))
     }
 
     return (
@@ -58,12 +63,13 @@ const Review = ({ review, user, dispatch }) => {
                                 onFinish={onFinish}
                                 initialValues={
                                     {
-                                        "review": review.review
+                                        "review": review.review,
+                                        "stars":  review.stars
                                     }
                                 }
                             >
                                 <Form.Item name="stars">
-                                    <Rate defaultValue={review.stars || 0}/>
+                                    <Rate />
                                 </Form.Item>
                                 <Form.Item name="review">
                                     <Input.TextArea 
@@ -76,7 +82,8 @@ const Review = ({ review, user, dispatch }) => {
                         )
                         : (
                             <div>
-                                <Rate disabled defaultValue={review.stars || 0}/>
+                                {/* {console.log(review)} */}
+                                <Rate disabled defaultValue={review.stars}/>
                                 <div>{review.review}</div>
                             </div>
                         )

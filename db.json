@@ -123,122 +123,124 @@
       "id": 1,
       "prodId": 4,
       "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
-      "stars": 5
+      "stars": 5,
+      "isEditing": false
     },
     {
       "userId": 1,
       "id": 1,
       "prodId": 4,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს"
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
+      "isEditing": false
     },
     {
       "userId": 1,
       "id": 1,
       "stars": 3,
       "prodId": 4,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს"
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
+      "isEditing": false
     },
     {
       "userId": 1,
       "id": 1,
       "prodId": 4,
       "stars": 2,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს"
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
+      "isEditing": false
     },
     {
       "stars": 4,
       "review": "ტესტური ",
-      "id": 2
+      "id": 2,
+      "isEditing": false
     },
     {
       "review": "testutri",
       "stars": 4,
-      "id": 3
+      "id": 3,
+      "isEditing": false
     },
     {
       "review": "updated",
       "id": 4
     },
     {
-      "review": "რა გაგცვითააა დალოცვილო",
-      "stars": 1,
+      "review": "კლავიატურაზე ",
+      "stars": 4,
       "userId": "2",
       "prodId": 7,
-      "id": 13
-    },
-    {
-      "review": "კლავიატურაზე გადაუღე კაი ფოტო",
-      "stars": 2,
-      "userId": "2",
-      "prodId": 7,
-      "id": 14
+      "id": 14,
+      "isEditing": false
     },
     {
       "review": "გამოსახულება კაიააა",
       "userId": "2",
       "prodId": 3,
-      "id": 15
+      "id": 15,
+      "isEditing": false
     },
     {
       "review": "ბარო ბარო",
       "userId": "2",
       "prodId": 3,
-      "id": 16
+      "id": 16,
+      "isEditing": false
     },
     {
       "review": "გამო გამო",
       "userId": "2",
       "prodId": 3,
-      "id": 17
+      "id": 17,
+      "isEditing": false
     },
     {
       "review": "ენთერზე დავაწვე?",
       "userId": "2",
       "prodId": 3,
-      "id": 18
+      "id": 18,
+      "isEditing": false
     },
     {
       "review": "იყო ერთI ",
       "userId": "2",
       "prodId": 3,
-      "id": 20
+      "id": 20,
+      "isEditing": false
     },
     {
       "review": "მეხუთე",
       "userId": "2",
       "prodId": 2,
-      "id": 21
+      "id": 21,
+      "isEditing": false
     },
     {
       "review": "აწი აღარ უჭირს",
       "userId": "2",
       "prodId": 2,
-      "id": 22
+      "id": 22,
+      "isEditing": false
     },
     {
       "review": "გაიტანაა, ალბათ რედაქსის პრობლემა იყო ",
       "userId": "2",
       "prodId": 2,
-      "id": 23
+      "id": 23,
+      "isEditing": false
     },
     {
       "review": "ასდ",
       "stars": 5,
       "userId": "2",
       "prodId": 2,
-      "id": 24
+      "id": 24,
+      "isEditing": false
     },
     {
-      "review": "",
-      "userId": "2",
-      "prodId": 8,
-      "id": 25,
-      "stars": 5
+      "id": 25
     },
     {
-      "review": "დაგრეხილოო\n",
-      "userId": "2",
-      "prodId": 8,
       "id": 26
     },
     {
@@ -246,7 +248,16 @@
       "stars": 5,
       "userId": "2",
       "prodId": 4,
-      "id": 27
+      "id": 27,
+      "isEditing": false
+    },
+    {
+      "review": "post",
+      "userId": "2",
+      "prodId": 8,
+      "isEditing": false,
+      "id": 28,
+      "stars": 5
     }
   ]
 }
