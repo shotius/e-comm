@@ -84,7 +84,7 @@
     border: none !important;
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 500px) {
     .logo {
       display: none;
     }

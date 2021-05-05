@@ -18,7 +18,7 @@ import {notification} from "antd";
 export const editProduct = (id, newInfo) => {
   return (dispatch) => {
     dispatch(editProductStart())
-    console.log(newInfo)
+    // console.log(newInfo)
     axios
       .put(`${process.env.REACT_APP_BASE_URL}/products/${id}`, newInfo)
       .then(response => {

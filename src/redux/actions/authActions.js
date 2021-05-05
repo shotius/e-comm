@@ -9,6 +9,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOG_OUT, LOGIN_ERROR_CLEAR,
+  ADD_USER_ROLE
 } from "../constants";
 import jwt from "jsonwebtoken";
 
@@ -31,22 +32,22 @@ export const registerUser = (user, callback) => {
   };
 };
 
-export const loginUser = (user, callback) => {
-  return (dispatch) => {
+export const loginUser = (user) => {
+  return async (dispatch) => {
     dispatch(userLoginStart());
     axios
       .post(`${process.env.REACT_APP_BASE_URL}/login`, user)
       .then((response) => {
         const user = jwt.decode(response.data.accessToken);
+        dispatch(saveRoles(user.sub))
         dispatch(userLoginSuccess(response.data.accessToken, user));
-        // callback()
       })
       .catch((error) => {
         dispatch(userLoginFail(error));
-        // callback()
       });
   };
 };
+
 export const logOut = () => {
   return (dispatch) => {
     window.localStorage.clear();
@@ -55,6 +56,21 @@ export const logOut = () => {
     });
   };
 };
+
+const saveRoles = (id) => {
+  return dispatch => {
+    axios
+      .get(`${process.env.REACT_APP_BASE_URL}/users/${id}`)
+      .then(({data}) => {
+        // if an user has a role
+        if (data.role) {
+          localStorage.setItem('role', data.role)
+          dispatch(addUserRole(data.role))
+        }
+      })
+      .catch((error) => console.log(error))
+  }
+}
 
 
 const userLoginStart = () => ({
@@ -111,3 +127,8 @@ export const registerErrorClear = () => ({
   type: REGISTER_ERROR_CLEAR
 })
 
+// role
+const addUserRole = (role) => ({
+  type: ADD_USER_ROLE,
+  role
+})

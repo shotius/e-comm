@@ -17,7 +17,6 @@ const Products = ({category}) => {
   const {page} = useParams();
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
-  console.log('product cards');
 
   useEffect(() => {
     dispatch(fetchProducts(category, null, null, page));

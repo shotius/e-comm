@@ -1,36 +1,21 @@
 {
   "users": [
     {
-      "email": "vanikoakofa@yahoo.com",
-      "password": "$2a$10$Z.1FSGm/qosGhGqYka/v5eaaImtYpJxhNYh8SDbllYeTYO7D4Xyzy",
-      "username": "vano.akofa",
-      "name": "vaniko akopashvili",
-      "phone": "+995568769804",
+      "email": "test@gmail.com",
+      "password": "$2a$10$zL.jUKdGfBiKTqvw.mCPsub91Q1/IUkAP3NDQT23zB88u8vejAYre",
+      "role": "admin",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
       "id": 1
     },
     {
-      "email": "test@gmail.com",
-      "password": "$2a$10$7uWrBD8jfMT9hUOwUP7JBOnvGWYOugc3iqn/bvyVMqkBqa/MshZZW",
-      "username": "shota",
-      "name": "shota",
+      "email": "test1@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
       "phone": "+995123123123",
       "id": 2
-    },
-    {
-      "email": "testing@gmail.com",
-      "password": "$2a$10$3kjElnP5T9vcYsOtRqlbueUL238UBXoyx2pA7BRKTjlximDO8xoDe",
-      "username": "testing",
-      "name": "testing",
-      "phone": "+995565656565",
-      "id": 3
-    },
-    {
-      "email": "gvancanonia@gmail.com",
-      "password": "$2a$10$ONzDSaino2OHTtFRbgT/yeZd13gWNIOjVKM0A5tHw4uLipfIajrtO",
-      "username": "gvanca",
-      "name": "gvanca noniashvili",
-      "phone": "+995565656565",
-      "id": 4
     }
   ],
   "products": [
@@ -378,6 +363,22 @@
       "prodId": 7,
       "isEditing": false,
       "id": 29
+    },
+    {
+      "review": "nice screen bro\n",
+      "stars": 5,
+      "userId": "2",
+      "prodId": 400,
+      "isEditing": false,
+      "id": 30
+    },
+    {
+      "review": "hello",
+      "userId": "2",
+      "prodId": 3701,
+      "isEditing": false,
+      "id": 31,
+      "stars": 5
     }
   ]
 }

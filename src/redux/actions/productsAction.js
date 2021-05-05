@@ -30,7 +30,7 @@ export const fetchProducts = (category = "", filters=null, sort_by=null, page=1)
     default:
       url += `&_sort=id&_order=desc`;
   }
-  console.log(url);
+  // console.log(url);
   
   return (dispatch) => {
     dispatch(fetchProductsStart())

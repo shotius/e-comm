@@ -22,11 +22,11 @@ export default function SortProducts() {
 
   // when page changes set the sortBy default value('relevance')
   useEffect(() => {
-    console.log('yes changed');
+    // console.log('yes changed');
     setSortBy(defaultSortBy)
   }, [page])
   
-  console.log(sortBy, 'coconut');
+  // console.log(sortBy, 'coconut');
 
 
   return (
