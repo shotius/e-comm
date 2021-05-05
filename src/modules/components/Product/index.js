@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Spinner from "../Shared/Spinner";
-import {Button, Col, Divider, Modal, Row} from "antd";
+import {Button, Col, Divider, Image, Modal, Row} from "antd";
 import {
   ArrowLeftOutlined,
   ExclamationCircleOutlined,
@@ -71,7 +71,10 @@ const Product = ({id}) => {
                 <ArrowLeftOutlined/>
               </button>
               <div style={{display: "flex", justifyContent:"center"}}>
-                 <img src={product?.image} alt="product"/>
+                 {/*<img src={product?.image} alt="product"/>*/}
+                <Image
+                  src={product?.image}
+                />
               </div>
 
               {/*Should be dynamic*/}
