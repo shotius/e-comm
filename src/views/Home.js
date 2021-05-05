@@ -1,5 +1,5 @@
 import React from "react";
-import Slider from "../modules/components/Slider";
+import Slider from "../modules/components/Carousel";
 import Categories from "../modules/components/Categories";
 import Products from "../modules/components/ProductCards";
 import Pagination from "../modules/components/Pagination";
