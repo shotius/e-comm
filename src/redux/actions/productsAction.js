@@ -2,13 +2,16 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_FAIL,
-  PRODUCTS_SET_CATEGORY
+  PRODUCTS_SET_CATEGORY,
+  SET_TOTAL_COUNT
 } from "../constants";
 import axios from "axios";
 
+const per_page = 10;
+const limit = 10;
 
-export const fetchProducts = (category = "", filters=null, sort_by=null) => {
-  let url = `${process.env.REACT_APP_BASE_URL}/products?`;
+export const fetchProducts = (category = "", filters=null, sort_by=null, page=1) => {
+  let url = `${process.env.REACT_APP_BASE_URL}/products?_start=${(page - 1) * per_page}&_limit=${limit}`;
   if (category) {
     url += `&category=${category}`;
   }
@@ -32,15 +35,19 @@ export const fetchProducts = (category = "", filters=null, sort_by=null) => {
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
-        // console.log(response, 'response')
         dispatch(fetchProductsSuccess(response.data))
-        // dispatch(setCurrentCategory(category));
+        dispatch(setTotalCount(+response.headers["x-total-count"]));
       })
       .catch(error => {
         dispatch(fetchProductsError(error));
       })
   }
 }
+
+export const setTotalCount = (count) => ({
+  type: SET_TOTAL_COUNT,
+  count
+})
 
 export const setCurrentCategory = (category) => ({
   type: PRODUCTS_SET_CATEGORY,

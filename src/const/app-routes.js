@@ -18,9 +18,8 @@ export const AppRoutes =
       isPrivate: true,
       exact: true
     },
-
     products: {
-      path: 'products',
+      path: 'products/:page',
       view: 'Home',
       isPrivate: true,
       exact: true

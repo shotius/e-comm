@@ -49,7 +49,7 @@ const Product = ({id}) => {
       icon: <ExclamationCircleOutlined/>,
       onOk() {
         dispatch(deleteProduct(id));
-        history.goBack();
+        history.replace('/');
       },
       onCancel() {
       },
