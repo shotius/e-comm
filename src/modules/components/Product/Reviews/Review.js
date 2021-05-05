@@ -7,25 +7,23 @@ import {deleteReview, updateReview} from '../../../../redux/actions/reviewsActio
 const Review = ({review, user, dispatch}) => {
   const [isEditing, setIsEditing] = useState(false)
 
-  // toggles editable reviews mode
-  const handleEdit = () =>
-    setIsEditing(!isEditing)
+    // toggles editable reviews mode
+    const handleEdit = () => 
+        dispatch(toggleEditMode(review))
 
-  // removes review
-  const handleRemove = () => {
-    dispatch(deleteReview(review.id))
-  }
+    // removes review
+    const handleRemove = () => 
+        dispatch(deleteReview(review.id))
+    
 
-  // create new review and dispatch change
-  const onFinish = (values) => {
-    const newReview = {
-      ...review,
-      ...values
+    // udpate review and dispatch change
+    const onFinish = (values) => {
+        const newReview = {
+            ...review,
+            ...values,
+        }
+        dispatch(updateReview(newReview))
     }
-
-    setIsEditing(false)
-    dispatch(updateReview(newReview))
-  }
 
   return (
     <Card style={{marginBottom: 5}}>
@@ -59,7 +57,11 @@ const Review = ({review, user, dispatch}) => {
               initialValues={
                 {
 <<<<<<< HEAD
+<<<<<<< HEAD
                     isEditing 
+=======
+                    review.isEditing
+>>>>>>> star
                         ? (
                             <Form
                                 onFinish={onFinish}
