@@ -6,12 +6,12 @@ export default function PagePagination() {
 
   const onChange = (value) => {
     console.log(value);
+    setCurrent(value)
   }
 
-
   return <Pagination
+    defaultCurrent={1}
     current={current}
     onChange={onChange}
-    total={50}
   />
 }
