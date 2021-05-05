@@ -10,7 +10,9 @@ import {
     UPDATE_REVIEW_FAIL,
     DELETE_REVIEW_START,
     DELETE_REVIEW_SUCCESS,
-    DELETE_REVIEW_FAIL
+    DELETE_REVIEW_FAIL,
+    TOGGLE_EDIT_SUCCESS,
+    TOGGLE_EDIT_FAIL
 } from '../constants'
 
 const initState = {
@@ -22,7 +24,8 @@ const initState = {
     fetchReviewsError: null,
     addReviewError: null,
     updateReviewError: null,
-    deleteReviewError: null
+    deleteReviewError: null,
+    toggleEditModeError: null
 }
 
 export default function reviewsReducer(state=initState, action) {
@@ -72,6 +75,7 @@ export default function reviewsReducer(state=initState, action) {
                 updateReviewloading: true
             }
         case UPDATE_REVIEW_SUCCESS:
+            console.log("update red", action.newReview)
             return {
                 ...state, 
                 reviews: state.reviews.map(review => {
@@ -107,6 +111,22 @@ export default function reviewsReducer(state=initState, action) {
                 ...state,
                 deleteReviewLoading: false,
                 deleteReviewError: action.error
+            }
+        case TOGGLE_EDIT_SUCCESS:
+            return {
+                ...state,
+                reviews: state.reviews.map(review => {
+                    if (review.id === action.newReview.id) {
+                        return action.newReview
+                    } 
+                    return review
+                }),
+                toggleEditModeError: null
+            }
+        case TOGGLE_EDIT_FAIL:
+            return {
+                ...state,
+                toggleEditModeError: action.error
             }
         default:
             return state

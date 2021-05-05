@@ -11,7 +11,9 @@ import {
     UPDATE_REVIEW_FAIL,
     DELETE_REVIEW_START,
     DELETE_REVIEW_SUCCESS,
-    DELETE_REVIEW_FAIL
+    DELETE_REVIEW_FAIL,
+    TOGGLE_EDIT_SUCCESS,
+    TOGGLE_EDIT_FAIL
 } from '../constants'
 
 export const fetchReviews = (id) =>  {
@@ -43,7 +45,11 @@ export const updateReview = (newReview) => {
         dispatch(updateReviewStart())
         axios
             .put(`${process.env.REACT_APP_BASE_URL}/reviews/${newReview.id}`, newReview)
-            .then(() => dispatch(updateReviewSuccess(newReview)))
+            .then(() => {
+                console.log('updated')
+                dispatch(updateReviewSuccess(newReview))
+                dispatch(toggleEditMode(newReview))
+            })
             .catch(error => dispatch(updateReviewFail(error)))
     }
 }
@@ -57,6 +63,16 @@ export const deleteReview = (id) => {
             .catch(error => dispatch(deleteReviewError(error)))
     }
 } 
+
+export const toggleEditMode = (review) => {
+    const newReview = {...review, isEditing: !review.isEditing}
+    return dispatch => {
+        axios
+            .put(`${process.env.REACT_APP_BASE_URL}/reviews/${newReview.id}`, newReview)
+            .then(({ data }) => dispatch(toggleEditSuccess(data)))
+            .catch(error => toggleEditFail(error))
+    }
+}
 
 // fetch
 const fetchReviewsStart = () => ({
@@ -116,5 +132,15 @@ const deleteReviewSuccess = (reviewId) => ({
 
 const deleteReviewError = (error) => ({
     type: DELETE_REVIEW_FAIL,
+    error
+})
+
+// toggle editing mode
+const toggleEditSuccess = (newReview) => ({
+    type: TOGGLE_EDIT_SUCCESS,
+    newReview
+})
+const toggleEditFail = (error) => ({
+    type: TOGGLE_EDIT_FAIL,
     error
 })

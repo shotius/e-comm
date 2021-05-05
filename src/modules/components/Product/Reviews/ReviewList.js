@@ -15,14 +15,18 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
     return (
         <>
             <Card title="Reviews"> 
-                {
-                    reviews.map((review) => (
-                        <Review 
-                            review={review} 
-                            dispatch={dispatch}
-                            user={user} 
-                            key={review.id}/>
-                    ))
+                { // if review are not empty display them 
+                    reviews.length > 0
+                    ? (
+                        reviews.map((review) => (
+                            <Review 
+                                review={review} 
+                                dispatch={dispatch}
+                                user={user} 
+                                key={review.id}/>
+                        ))
+                    )
+                    : <div>No Reviews to show...</div>
                 }
             </Card>
             <ReviewForm 
