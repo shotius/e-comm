@@ -19,7 +19,7 @@ export const AppRoutes =
       exact: true
     },
     products: {
-      path: 'products/:page',
+      path: 'products/:page(\\d+)',
       view: 'Home',
       isPrivate: true,
       exact: true
@@ -31,7 +31,7 @@ export const AppRoutes =
       exact: false
     },
     productsList: {
-      path: 'products/:category',
+      path: 'products/:category([A-Za-z]+)',
       view: 'ProductList',
       isPrivate: true,
       exact: true
