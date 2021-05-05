@@ -13,6 +13,9 @@ import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
 import {deleteProduct} from "../../../redux/actions/itemActions";
 import ModifyProduct from "./ModifyProduct";
+
+import ReviewList from './Reviews/ReviewList'
+
 import ExtraImages from "../ExtraImages";
 import {extraImages} from "../../../const/productExtraImages";
 
@@ -104,7 +107,18 @@ const Product = ({id}) => {
 
         </Row>
 
-          <br/><br/>
+         {/* REVIEWS */}
+         {
+          product // when product exists
+          && 
+          <ReviewList 
+            dispatch={dispatch}
+            useSelector={useSelector}
+            user={user}
+            product={product}
+            />
+        } 
+
         </>
       )}
     </div>

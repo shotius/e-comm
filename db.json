@@ -207,5 +207,136 @@
       "id": 7789
     }
   ],
-  "reviews": []
+  "reviews": [
+    {
+      "userId": 1,
+      "id": 1,
+      "prodId": 4,
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
+      "stars": 5
+    },
+    {
+      "userId": 1,
+      "id": 1,
+      "prodId": 4,
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს"
+    },
+    {
+      "userId": 1,
+      "id": 1,
+      "stars": 3,
+      "prodId": 4,
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს"
+    },
+    {
+      "userId": 1,
+      "id": 1,
+      "prodId": 4,
+      "stars": 2,
+      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს"
+    },
+    {
+      "stars": 4,
+      "review": "ტესტური ",
+      "id": 2
+    },
+    {
+      "review": "testutri",
+      "stars": 4,
+      "id": 3
+    },
+    {
+      "review": "updated",
+      "id": 4
+    },
+    {
+      "review": "რა გაგცვითააა დალოცვილო",
+      "stars": 1,
+      "userId": "2",
+      "prodId": 7,
+      "id": 13
+    },
+    {
+      "review": "კლავიატურაზე გადაუღე კაი ფოტო",
+      "stars": 2,
+      "userId": "2",
+      "prodId": 7,
+      "id": 14
+    },
+    {
+      "review": "გამოსახულება კაიააა",
+      "userId": "2",
+      "prodId": 3,
+      "id": 15
+    },
+    {
+      "review": "ბარო ბარო",
+      "userId": "2",
+      "prodId": 3,
+      "id": 16
+    },
+    {
+      "review": "გამო გამო",
+      "userId": "2",
+      "prodId": 3,
+      "id": 17
+    },
+    {
+      "review": "ენთერზე დავაწვე?",
+      "userId": "2",
+      "prodId": 3,
+      "id": 18
+    },
+    {
+      "review": "იყო ერთI ",
+      "userId": "2",
+      "prodId": 3,
+      "id": 20
+    },
+    {
+      "review": "მეხუთე",
+      "userId": "2",
+      "prodId": 2,
+      "id": 21
+    },
+    {
+      "review": "აწი აღარ უჭირს",
+      "userId": "2",
+      "prodId": 2,
+      "id": 22
+    },
+    {
+      "review": "გაიტანაა, ალბათ რედაქსის პრობლემა იყო ",
+      "userId": "2",
+      "prodId": 2,
+      "id": 23
+    },
+    {
+      "review": "ასდ",
+      "stars": 5,
+      "userId": "2",
+      "prodId": 2,
+      "id": 24
+    },
+    {
+      "review": "",
+      "userId": "2",
+      "prodId": 8,
+      "id": 25,
+      "stars": 5
+    },
+    {
+      "review": "დაგრეხილოო\n",
+      "userId": "2",
+      "prodId": 8,
+      "id": 26
+    },
+    {
+      "review": "5 stars",
+      "stars": 5,
+      "userId": "2",
+      "prodId": 4,
+      "id": 27
+    }
+  ]
 }

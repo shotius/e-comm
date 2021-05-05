@@ -93,3 +93,7 @@
 .btn-back:active {
     transform: translateX(0);
 }
+
+#root > section > main > section > main > div > form > div > div > div > div > div {
+    margin-bottom: 10px;
+}

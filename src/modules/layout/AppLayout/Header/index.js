@@ -50,9 +50,10 @@ const Header = () => {
         <img src={logo} className="logo" alt="logo" />
       </Link>
       <Row type="flex" justify="end" align="middle" className="row">
-        <Col pull={1} className="col col-3">
-          <Space size="middle">
-            {/* Search field */}
+
+        <Col className="col">
+          <Space size="small">
+            {/* search field */}
             <div className="search-container">
               <Input
                 ref={searchValue}
