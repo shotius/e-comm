@@ -6,16 +6,8 @@ import { deleteReview, updateReview, toggleEditMode } from '../../../../redux/ac
 
 const Review = ({ review, user, dispatch }) => {
 
-    const { isEditing } = review
-
-    // useEffect(() => {
-    //     setIsEditing(review.isEditing)
-    // }, [review])
-
-    console.log("editing", isEditing)
-    console.log("review", review)
     // toggles editable reviews mode
-    const handleEdit = () => dispatch(toggleEditMode(review, isEditing))
+    const handleEdit = () => dispatch(toggleEditMode(review))
 
     // removes review
     const handleRemove = () => {
@@ -29,7 +21,7 @@ const Review = ({ review, user, dispatch }) => {
             ...values,
         }
         dispatch(updateReview(newReview))
-        dispatch(toggleEditMode(review, isEditing))
+        // dispatch(toggleEditMode(review))
     }
 
     return (
@@ -57,7 +49,7 @@ const Review = ({ review, user, dispatch }) => {
                 </div>
                 {/* here are two cases, whether user is editing the review or not */}
                 {
-                    isEditing 
+                    review.isEditing
                         ? (
                             <Form
                                 onFinish={onFinish}

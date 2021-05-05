@@ -45,7 +45,11 @@ export const updateReview = (newReview) => {
         dispatch(updateReviewStart())
         axios
             .put(`${process.env.REACT_APP_BASE_URL}/reviews/${newReview.id}`, newReview)
-            .then(() => dispatch(updateReviewSuccess(newReview)))
+            .then(() => {
+                console.log('updated')
+                dispatch(updateReviewSuccess(newReview))
+                dispatch(toggleEditMode(newReview))
+            })
             .catch(error => dispatch(updateReviewFail(error)))
     }
 }
@@ -60,8 +64,8 @@ export const deleteReview = (id) => {
     }
 } 
 
-export const toggleEditMode = (review, isEditing) => {
-    const newReview = {...review, isEditing: !isEditing}
+export const toggleEditMode = (review) => {
+    const newReview = {...review, isEditing: !review.isEditing}
     return dispatch => {
         axios
             .put(`${process.env.REACT_APP_BASE_URL}/reviews/${newReview.id}`, newReview)
