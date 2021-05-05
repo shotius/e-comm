@@ -7,9 +7,11 @@ import {
 } from "../constants";
 import axios from "axios";
 
+const per_page = 10;
+const limit = 10;
 
 export const fetchProducts = (category = "", filters=null, sort_by=null, page=1) => {
-  let url = `${process.env.REACT_APP_BASE_URL}/products?_page=${page}`;
+  let url = `${process.env.REACT_APP_BASE_URL}/products?_start=${(page - 1) * per_page}&_limit=${limit}`;
   if (category) {
     url += `&category=${category}`;
   }
@@ -33,10 +35,8 @@ export const fetchProducts = (category = "", filters=null, sort_by=null, page=1)
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
-        console.log(response.headers["x-total-count"], 'response')
         dispatch(fetchProductsSuccess(response.data))
         dispatch(setTotalCount(+response.headers["x-total-count"]));
-        // dispatch(setCurrentCategory(category));
       })
       .catch(error => {
         dispatch(fetchProductsError(error));
