@@ -9,37 +9,36 @@ import ProductCard from '../Shared/ProductCard'
 import "./index.css"
 import Spinner from "../Shared/Spinner";
 import SortProducts from "../SortProducts";
+import {useParams} from "react-router-dom";
 
 const Products = ({category}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.authReducer.user);
-
-  useEffect(() => {
-    dispatch(fetchProducts(category));
-  }, [])
+  const {page} = useParams();
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
+  console.log('product cards');
 
-  // if (productsFetchLoading) {
-  //   // return <Spinner/>
-  // }
+  useEffect(() => {
+    dispatch(fetchProducts(category, null, null, page));
+  }, [page])
 
   return (
     <>
       <SortProducts/>
-      {productsFetchLoading ? <Spinner /> : <Row gutter={[12, 12]} style={{padding: "13px"}}>
-      {
-        products.map((product, i) => (
-        <ProductCard
-        key={i}
-        product={product}
-        user={user}
-        dispatch={dispatch}
-        addToCart={addToCart}
-        />
-        ))
-      }
-        </Row>}
+      {productsFetchLoading ? <Spinner/> : <Row gutter={[12, 12]} style={{padding: "13px"}}>
+        {
+          products.map((product, i) => (
+            <ProductCard
+              key={i}
+              product={product}
+              user={user}
+              dispatch={dispatch}
+              addToCart={addToCart}
+            />
+          ))
+        }
+      </Row>}
     </>
   )
 

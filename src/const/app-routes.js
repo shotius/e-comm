@@ -13,12 +13,11 @@ export const AppRoutes =
       exact: true
     },
     home: {
-      path: '/',
+      path: '',
       view: 'Home',
       isPrivate: true,
       exact: true
     },
-
     products: {
       path: 'products/:page',
       view: 'Home',

@@ -11,10 +11,11 @@ export default function SortProducts() {
   const [sortBy, setSortBy] = useState('relevance');
   const {category} = useParams();
   const dispatch = useDispatch();
+  const {page} = useParams();
 
   const handleSelect = (value) => {
     setSortBy(value);
-    dispatch(fetchProducts(category, null, value));
+    dispatch(fetchProducts(category, null, value, page));
   }
 
   return (
