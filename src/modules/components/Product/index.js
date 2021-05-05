@@ -65,59 +65,62 @@ const Product = ({id}) => {
         <Spinner/>
       ) : (
         <>
-        <Row className="product-detail">
-          <Col sm={24} md={10} className="product-col-1">
-            <button onClick={history.goBack} className="btn-back">
-              <ArrowLeftOutlined/>
-            </button>
-            <img src={product?.image} alt="product"/>
-            {/*Should be dynamic*/}
-            <ExtraImages sliderData={extraImages}/>
-          </Col>
-          <Col sm={24} md={14}>
-            {user.sub === product.userId ? (
-              <ModifyProduct
-                confirmDeleteModal={confirmDeleteModal}
-                product={product}
-              />
-            ) : null}
-            <div className="product-content-holder">
-              <h2 className="product-title">{product.title}</h2>
-              <p className="product-price">${product.price}</p>
-              <Divider/>
-              <p
-                className="product-description"
-                dangerouslySetInnerHTML={{
-                  __html: product.description,
-                }}
-              />
-              <Button
-                type={"primary"}
-                loading={addToCartLoading}
-                className="product-btn"
-                onClick={() => {
-                  const {userId, ...pr} = product;
-                  dispatch(addToCart(pr, user));
-                }}
-              >
-                Add to Cart
-              </Button>
-            </div>
-          </Col>
+          <Row className="product-detail">
+            <Col sm={24} md={10} className="product-col-1">
+              <button onClick={history.goBack} className="btn-back">
+                <ArrowLeftOutlined/>
+              </button>
+              <img src={product?.image} alt="product"/>
+              {/*Should be dynamic*/}
+              <ExtraImages sliderData={extraImages}/>
+            </Col>
+            <Col sm={24} md={14}>
+              {user.sub === product.userId ? (
+                <ModifyProduct
+                  confirmDeleteModal={confirmDeleteModal}
+                  product={product}
+                />
+              ) : null}
+              <div className="product-content-holder">
+                <h2 className="product-title">{product.title}</h2>
+                <p className="product-price">${product.price}</p>
+                <Divider/>
+                <p
+                  className="product-description"
+                  dangerouslySetInnerHTML={{
+                    __html: product.description,
+                  }}
+                />
+                <div style={{display: "flex", justifyContent:"center"}}>
+                  <Button
+                    type={"primary"}
+                    loading={addToCartLoading}
+                    className="product-btn"
+                    onClick={() => {
+                      const {userId, ...pr} = product;
+                      dispatch(addToCart(pr, user));
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
 
-        </Row>
+              </div>
+            </Col>
 
-         {/* REVIEWS */}
-         {
-          product // when product exists
-          && 
-          <ReviewList 
-            dispatch={dispatch}
-            useSelector={useSelector}
-            user={user}
-            product={product}
+          </Row>
+
+          {/* REVIEWS */}
+          {
+            product // when product exists
+            &&
+            <ReviewList
+              dispatch={dispatch}
+              useSelector={useSelector}
+              user={user}
+              product={product}
             />
-        } 
+          }
 
         </>
       )}

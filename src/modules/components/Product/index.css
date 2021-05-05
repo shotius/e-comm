@@ -31,6 +31,13 @@
     margin-top: 60px;
 }
 
+.product-btn {
+    width: 100% !important;
+    max-width: 200px;
+    height: 45px !important;
+}
+
+
 .product-price {
     color: #d12020;
     font-weight: bold;
@@ -92,8 +99,4 @@
 
 .btn-back:active {
     transform: translateX(0);
-}
-
-#root > section > main > section > main > div > form > div > div > div > div > div {
-    margin-bottom: 10px;
 }

@@ -378,6 +378,21 @@
       "prodId": 7,
       "isEditing": false,
       "id": 29
+    },
+    {
+      "review": "ტესტ",
+      "userId": "1",
+      "prodId": 3702,
+      "isEditing": false,
+      "id": 30
+    },
+    {
+      "review": "ტეტს",
+      "userId": "1",
+      "prodId": 3702,
+      "isEditing": false,
+      "id": 31,
+      "stars": 3
     }
   ]
 }
