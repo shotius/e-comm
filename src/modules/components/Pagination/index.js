@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from "react"
 import {Pagination} from "antd";
 import {useHistory} from "react-router-dom";
-
-function PagePagination(props){
+import "./index.css"
+function PagePagination(props) {
   const [current, setCurrent] = useState(1);
   const history = useHistory();
 
@@ -14,18 +14,17 @@ function PagePagination(props){
     history.push(`/products/${current}`);
   }, [current])
 
-  return<>
+  return <div className="pagination">
     <Pagination
       defaultCurrent={1}
       current={current}
       onChange={onChange}
       total={props.total}
     />
-    {console.log('rendered pagination')}
-  </>
+  </div>
 }
 
-function areEqual(prevProps, nextProps){
+function areEqual(prevProps, nextProps) {
   return prevProps === nextProps;
 }
 
