@@ -18,6 +18,7 @@ const Slider = () => {
   }, [])
 
   const handleOnItemClick = useCallback((e) => {
+    // if user is dragging slider, <Link> component won't  be fired automatically
     if(dragging) {
       e.preventDefault();
     }
