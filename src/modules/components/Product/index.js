@@ -70,7 +70,10 @@ const Product = ({id}) => {
               <button onClick={history.goBack} className="btn-back">
                 <ArrowLeftOutlined/>
               </button>
-              <img src={product?.image} alt="product"/>
+              <div style={{display: "flex", justifyContent:"center"}}>
+                 <img src={product?.image} alt="product"/>
+              </div>
+
               {/*Should be dynamic*/}
               <ExtraImages sliderData={extraImages}/>
             </Col>
