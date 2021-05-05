@@ -9,8 +9,6 @@ function PagePagination(props) {
   const location = useLocation();
   const {category} = useParams();
 
-  console.log(location);
-
 
   const onChange = (value) => {
     setCurrent(value);
