@@ -1,7 +1,7 @@
 import { DeleteOutlined, EditOutlined, UserOutlined } from '@ant-design/icons'
 import { Card, Input, Rate, Button, Form } from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { deleteReview, updateReview, toggleEditMode } from '../../../../redux/actions/reviewsActions'
 
 const Review = ({ review, user, dispatch }) => {
