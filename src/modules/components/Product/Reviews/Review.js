@@ -6,16 +6,13 @@ import { deleteReview, updateReview } from '../../../../redux/actions/reviewsAct
 
 const Review = ({ review, user, dispatch }) => {
     const [isEditing, setIsEditing] = useState(false)
-    const [reviewShown, setReviewShown] = useState(true)
 
     // toggles editable reviews mode
     const handleEdit = () => 
             setIsEditing(!isEditing)
-    
 
     // removes review
     const handleRemove = () => {
-        setReviewShown(false)
         dispatch(deleteReview(review.id))
     }
 
@@ -26,17 +23,12 @@ const Review = ({ review, user, dispatch }) => {
             ...values
         }
 
-        // visual update happens localy here
-        // review fields become edited values
-        review.stars = values.stars
-        review.review = values.review
-        
         setIsEditing(false)
         dispatch(updateReview(newReview))
     }
 
     return (
-            <Card style={{marginBottom: 5, display: `${reviewShown ? "": "none"}`}}>
+            <Card style={{marginBottom: 5}}>
                 <div>
                     <Avatar icon={<UserOutlined />} style={{marginRight: 10}}/>
                     <span>{user.email}</span>

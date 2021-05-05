@@ -74,6 +74,12 @@ export default function reviewsReducer(state=initState, action) {
         case UPDATE_REVIEW_SUCCESS:
             return {
                 ...state, 
+                reviews: state.reviews.map(review => {
+                    if (review.id === action.newReview.id) {
+                        return action.newReview
+                    } 
+                    return review
+                }),
                 updateReviewLoading: false,
                 updateReviewError: null
             }
@@ -92,6 +98,7 @@ export default function reviewsReducer(state=initState, action) {
         case DELETE_REVIEW_SUCCESS:
             return {
                 ...state,
+                reviews: state.reviews.filter(review => review.id !== action.reviewId),
                 deleteReviewLoading: false,
                 deleteReviewError: null
             }

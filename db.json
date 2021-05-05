@@ -160,31 +160,6 @@
       "id": 4
     },
     {
-      "review": "გარე ",
-      "userId": "2",
-      "prodId": 4,
-      "id": 6
-    },
-    {
-      "review": "ზის ის მაი review",
-      "userId": "2",
-      "prodId": 4,
-      "id": 7
-    },
-    {
-      "review": "mano",
-      "userId": "2",
-      "prodId": 4,
-      "id": 10
-    },
-    {
-      "review": "ზამთარია",
-      "stars": 5,
-      "userId": "2",
-      "prodId": 4,
-      "id": 12
-    },
-    {
       "review": "რა გაგცვითააა დალოცვილო",
       "stars": 1,
       "userId": "2",
@@ -221,12 +196,6 @@
       "userId": "2",
       "prodId": 3,
       "id": 18
-    },
-    {
-      "review": "ელასტიური\n",
-      "userId": "2",
-      "prodId": 4,
-      "id": 19
     },
     {
       "review": "იყო ერთI ",
@@ -273,17 +242,11 @@
       "id": 26
     },
     {
-      "review": "ან ფული ან სული",
-      "stars": 2,
+      "review": "5 stars",
+      "stars": 5,
       "userId": "2",
       "prodId": 4,
       "id": 27
-    },
-    {
-      "review": "არის ასეთი ქვეყანა\nმას საქართველო ქვიაო",
-      "userId": "2",
-      "prodId": 4,
-      "id": 28
     }
   ]
 }

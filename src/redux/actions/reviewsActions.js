@@ -38,12 +38,12 @@ export const addReview = (review) => {
     }
 }
 
-export const updateReview = (review) => {
+export const updateReview = (newReview) => {
     return dispatch => {
         dispatch(updateReviewStart())
         axios
-            .put(`${process.env.REACT_APP_BASE_URL}/reviews/${review.id}`, review)
-            .then(() => dispatch(updateReviewSuccess()))
+            .put(`${process.env.REACT_APP_BASE_URL}/reviews/${newReview.id}`, newReview)
+            .then(() => dispatch(updateReviewSuccess(newReview)))
             .catch(error => dispatch(updateReviewFail(error)))
     }
 }
@@ -53,7 +53,7 @@ export const deleteReview = (id) => {
         dispatch(deleteReviewStart())
         axios
             .delete(`${process.env.REACT_APP_BASE_URL}/reviews/${id}`)
-            .then(() => dispatch(deleteReviewSuccess()))
+            .then(() => dispatch(deleteReviewSuccess(id)))
             .catch(error => dispatch(deleteReviewError(error)))
     }
 } 
@@ -94,8 +94,9 @@ const updateReviewStart = () => ({
     type: UPDATE_REVIEW_START
 })
 
-const updateReviewSuccess = () => ({
-    type: UPDATE_REVIEW_SUCCESS
+const updateReviewSuccess = (newReview) => ({
+    type: UPDATE_REVIEW_SUCCESS,
+    newReview,
 })
 
 const updateReviewFail = (error) => ({
@@ -108,8 +109,9 @@ const deleteReviewStart = () => ({
     type: DELETE_REVIEW_START
 })
 
-const deleteReviewSuccess = () => ({
-    type: DELETE_REVIEW_SUCCESS
+const deleteReviewSuccess = (reviewId) => ({
+    type: DELETE_REVIEW_SUCCESS,
+    reviewId
 })
 
 const deleteReviewError = (error) => ({
