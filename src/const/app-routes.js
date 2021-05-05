@@ -19,7 +19,7 @@ export const AppRoutes =
       exact: true
     },
     products: {
-      path: 'products/:page(\\d+)',
+      path: 'products/:page(\\d+)', // matches only numbers e.g /products/1
       view: 'Home',
       isPrivate: true,
       exact: true
@@ -28,10 +28,10 @@ export const AppRoutes =
       path: 'products/:category/:id',
       view: 'ProductDetailed',
       isPrivate: true,
-      exact: false
+      exact: true
     },
     productsList: {
-      path: 'products/:category([A-Za-z]+)',
+      path: 'products/:category([A-Za-z]+)/page/:page(\\d+)', // the first one matches only strings, e.g /products/laptops
       view: 'ProductList',
       isPrivate: true,
       exact: true

@@ -1,17 +1,28 @@
 import React, {useEffect, useState} from "react"
 import {Pagination} from "antd";
-import {useHistory} from "react-router-dom";
+import {useHistory, useLocation, useParams} from "react-router-dom";
 import "./index.css"
+
 function PagePagination(props) {
   const [current, setCurrent] = useState(1);
   const history = useHistory();
+  const location = useLocation();
+  const {category} = useParams();
+
+  console.log(location);
+
 
   const onChange = (value) => {
     setCurrent(value);
   }
 
   useEffect(() => {
-    history.push(`/products/${current}`);
+    // user is on category page e.g /products/laptops and want to navigate to the next page
+    if (location.pathname.includes('/page/')){
+      history.push(`/products/${category}/page/${current}`)
+    } else { // user is on main page
+      history.push(`/products/${current}`);
+    }
   }, [current])
 
   return <div className="pagination">
