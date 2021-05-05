@@ -2,7 +2,8 @@ import {
   PRODUCTS_FETCH_START,
   PRODUCTS_FETCH_SUCCESS,
   PRODUCTS_FETCH_FAIL,
-  PRODUCTS_SET_CATEGORY
+  PRODUCTS_SET_CATEGORY,
+  SET_TOTAL_COUNT
 } from "../constants";
 
 const initState = {
@@ -11,11 +12,18 @@ const initState = {
   productsFetchError: null,
   currentCategory: "",
   deleteProductStart: false,
-  deleteProductError: false
+  deleteProductError: false,
+  totalCount: 0
 }
 
 export default function productsReducer(state = initState, action) {
   switch (action.type) {
+    case SET_TOTAL_COUNT:
+      return {
+        ...state,
+        totalCount: action.count
+      }
+
     case PRODUCTS_SET_CATEGORY:
       return {
         ...state,

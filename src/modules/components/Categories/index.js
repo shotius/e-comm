@@ -10,7 +10,7 @@ const Categories = () => {
     {
       categoryData.map((category, i) => {
         return <Col xs={24} sm={12} md={6} key={i} >
-          <Link to={`/products/${category.link}`} ><div className="categories-card">
+          <Link to={`/products/${category.link}/page/1`} ><div className="categories-card">
             <p>{category.name}</p>
             <img src={category.img} alt="category"/>
           </div></Link>

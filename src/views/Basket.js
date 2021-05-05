@@ -1,6 +1,6 @@
 import React from 'react'
 import { Row, Layout} from 'antd'
-import ActualBasket from '../modules/components/basket/'
+import ActualBasket from '../modules/components/Basket/'
 
 export const Basket = () => {
     return (

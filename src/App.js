@@ -7,6 +7,7 @@ import UnauthenticatedRoute from "./modules/components/Router/UnauthenticatedRou
 import {useSelector} from "react-redux";
 import AppLayout from "./modules/layout/AppLayout";
 import AuthLayout from "./modules/layout/AuthLayout";
+import Error from "./views/Error";
 
 
 const App = () => {
@@ -35,7 +36,7 @@ const App = () => {
       <Switch>
         {generateRoutes(AppRoutes)}
         <Route path="*">
-          Error Component
+          <Error />
         </Route>
       </Switch>
     )
