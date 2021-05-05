@@ -286,14 +286,6 @@
       "id": 4
     },
     {
-      "review": "კლავიატურაზე ",
-      "stars": 4,
-      "userId": "2",
-      "prodId": 7,
-      "id": 14,
-      "isEditing": false
-    },
-    {
       "review": "გამოსახულება კაიააა",
       "userId": "2",
       "prodId": 3,
@@ -378,6 +370,14 @@
       "isEditing": false,
       "id": 28,
       "stars": 3
+    },
+    {
+      "review": "ვალჰალააა",
+      "stars": 4,
+      "userId": "2",
+      "prodId": 7,
+      "isEditing": false,
+      "id": 29
     }
   ]
 }

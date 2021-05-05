@@ -36,10 +36,6 @@ export const fetchProducts = (category = "", filters=null, sort_by=null, page=1)
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
-<<<<<<< HEAD
-        // console.log(response.headers, 'headereere');
-=======
->>>>>>> star
         dispatch(fetchProductsSuccess(response.data))
         dispatch(setTotalCount(+response.headers["x-total-count"]));
       })

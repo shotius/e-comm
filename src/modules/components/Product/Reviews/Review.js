@@ -1,11 +1,10 @@
 import {DeleteOutlined, EditOutlined, UserOutlined} from '@ant-design/icons'
 import {Card, Input, Rate, Button, Form} from 'antd'
 import Avatar from 'antd/lib/avatar/avatar'
-import React, {useState} from 'react'
-import {deleteReview, updateReview} from '../../../../redux/actions/reviewsActions'
+import React from 'react'
+import { deleteReview, updateReview, toggleEditMode } from '../../../../redux/actions/reviewsActions'
 
 const Review = ({review, user, dispatch}) => {
-  const [isEditing, setIsEditing] = useState(false)
 
     // toggles editable reviews mode
     const handleEdit = () => 
@@ -48,74 +47,39 @@ const Review = ({review, user, dispatch}) => {
           </>
         }
       </div>
-      {/* here are two cases, whether user is editing the review or not */}
+      {/* here are two modes, user is editing or not */}
       {
-        isEditing
-          ? (
-            <Form
-              onFinish={onFinish}
-              initialValues={
-                {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                    isEditing 
-=======
-                    review.isEditing
->>>>>>> star
-                        ? (
-                            <Form
-                                onFinish={onFinish}
-                                initialValues={
-                                    {
-                                        "review": review.review,
-                                        "stars":  review.stars
-                                    }
-                                }
-                            >
-                                <Form.Item name="stars">
-                                    <Rate />
-                                </Form.Item>
-                                <Form.Item name="review">
-                                    <Input.TextArea 
-                                        autoSize={true}
-                                        bordered={true}
-                                        />
-                                </Form.Item>
-                                <Button type="primary" htmlType="submit">submit</Button>
-                            </Form>
-                        )
-                        : (
-                            <div>
-                                {/* {console.log(review)} */}
-                                <Rate disabled defaultValue={review.stars}/>
-                                <div>{review.review}</div>
-                            </div>
-                        )
-=======
-                  "review": review.review
->>>>>>> 17d4097d4ff98e55483b76f96af1ae7ecb601bf8
-                }
-              }
-            >
-              <Form.Item name="stars">
-                <Rate defaultValue={review.stars || 0}/>
-              </Form.Item>
-              <Form.Item name="review">
-                <Input.TextArea
-                  autoSize={true}
-                  bordered={true}
-                />
-              </Form.Item>
-              <Button type="primary" htmlType="submit">submit</Button>
-            </Form>
-          )
-          : (
-            <div>
-              <Rate disabled defaultValue={review.stars || 0}/>
-              <div>{review.review}</div>
-            </div>
-          )
-      }
+        review.isEditing
+            ? (
+                <Form
+                    onFinish={onFinish}
+                    initialValues={
+                        {
+                            "review": review.review,
+                            "stars":  review.stars
+                        }
+                    }
+                >
+                    <Form.Item name="stars">
+                        <Rate />
+                    </Form.Item>
+                    <Form.Item name="review">
+                        <Input.TextArea 
+                            autoSize={true}
+                            bordered={true}
+                            />
+                    </Form.Item>
+                    <Button type="primary" htmlType="submit">submit</Button>
+                </Form>
+            )
+            : (
+                <div>
+                    {/* {console.log(review)} */}
+                    <Rate disabled defaultValue={review.stars}/>
+                    <div>{review.review}</div>
+                </div>
+            )
+    }
     </Card>
   )
 }
