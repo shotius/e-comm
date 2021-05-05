@@ -50,6 +50,7 @@ const Header = () => {
         <img src={logo} className="logo" alt="logo" />
       </Link>
       <Row type="flex" justify="end" align="middle" className="row">
+
         <Col className="col">
           <Space size="small">
             {/* search field */}

@@ -6,6 +6,7 @@ import './index.css'
 
 const Footer = () => {
     return (
+
             <Row className="footer-container" justify='space-around'>
                 <Col span={6}>
                     <div className="footer-heading">COMPANY</div>
@@ -22,6 +23,7 @@ const Footer = () => {
                                 <a href="https://github.com/VanoAkofashvili"><GithubOutlined className="icon-contact"/></a>
                                 <a href="#"><MailOutlined className="icon-contact"/></a>
                             </Space>
+
                         </div>
                         <hr className="line"/>
                         <div>

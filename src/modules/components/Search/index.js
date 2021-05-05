@@ -13,7 +13,7 @@ const SearchResult = () => {
         dispatch(fetchProducts())
     }, [])
 
-   // search if product name includes keyword
+   // Search if product name includes keyword
     const search = (products) => {
         return products.filter((product) => (
                 product['title'].toString().toLowerCase().indexOf(keyword.toLowerCase()) > -1

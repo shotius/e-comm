@@ -18,9 +18,8 @@ export const AppRoutes =
       isPrivate: true,
       exact: true
     },
-
     products: {
-      path: 'products',
+      path: 'products/:page',
       view: 'Home',
       isPrivate: true,
       exact: true
@@ -38,7 +37,7 @@ export const AppRoutes =
       exact: true
     },
     search : {
-      path: 'search/:keyword',
+      path: 'Search/:keyword',
       view: "SearchPage",
       isPrivate: true,
       exact: true,
