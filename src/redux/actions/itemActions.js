@@ -14,6 +14,7 @@ import {
 } from "../constants";
 import axios from "axios";
 import {notification} from "antd";
+import {fetchProducts} from "./productsAction";
 
 export const editProduct = (id, newInfo) => {
   return (dispatch) => {
@@ -85,7 +86,7 @@ const deleteProductSuccess = () => ({
 export const addProduct = (productInfo) => {
   return dispatch => {
     dispatch(addProductStart())
-    axios
+    return axios
       .post(`${process.env.REACT_APP_BASE_URL}/products`, productInfo)
       .then(response => {
         dispatch(addProductSuccess())

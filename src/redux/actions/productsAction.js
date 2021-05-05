@@ -11,6 +11,7 @@ const per_page = 10;
 const limit = 10;
 
 export const fetchProducts = (category = "", filters=null, sort_by=null, page=1) => {
+  console.log('FETCHING....');
   let url = `${process.env.REACT_APP_BASE_URL}/products?_start=${(page - 1) * per_page}&_limit=${limit}`;
   if (category) {
     url += `&category=${category}`;
@@ -30,7 +31,6 @@ export const fetchProducts = (category = "", filters=null, sort_by=null, page=1)
     default:
       url += `&_sort=id&_order=desc`;
   }
-  console.log(url);
   
   return (dispatch) => {
     dispatch(fetchProductsStart())
