@@ -8,7 +8,7 @@ import {useParams} from "react-router-dom";
 const {Option} = Select;
 
 export default function SortProducts() {
-  const [sortBy, setSortBy] = useState(null);
+  const [sortBy, setSortBy] = useState('relevance');
   const {category} = useParams();
   const dispatch = useDispatch();
 
@@ -24,7 +24,6 @@ export default function SortProducts() {
         style={{width: 120}}
         onSelect={handleSelect}
         defaultValue={sortBy}
-        allowClear
       >
         <Option value="relevance">Relevance</Option>
         <Option value="price">Price</Option>
