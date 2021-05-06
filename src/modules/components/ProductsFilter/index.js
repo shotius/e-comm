@@ -1,10 +1,11 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Collapse, Slider} from "antd";
 import "./index.css"
 import {FilterOutlined} from "@ant-design/icons";
 import {useDispatch} from "react-redux";
 import {fetchProducts} from "../../../redux/actions/productsAction";
 import {useHistory, useLocation, useParams} from "react-router-dom";
+import {useQuery} from "../../../hooks/useQuery";
 
 const {Panel} = Collapse;
 
@@ -15,7 +16,8 @@ const initialFilters = {
 const ProductsFilter = () => {
   const [price, setPrice] = useState([...initialFilters.price]);
   const history = useHistory();
-  const currentLocation = useLocation().pathname;
+  const currentLocation = useLocation();
+  const query = useQuery();
 
 
   const onPriceChange = (value) => {
@@ -32,6 +34,13 @@ const ProductsFilter = () => {
     console.log('clearFields')
     // setPrice(initialFilters.price);
   }
+
+  useEffect(() => {
+    if (query.toString()){
+      setPrice([query.get("price_gte"), query.get("price_lte")])
+    }
+
+  }, [query.toString()])
 
   return <Collapse>
     <Panel
