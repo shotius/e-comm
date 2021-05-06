@@ -3,10 +3,10 @@ import React, { useEffect, useState } from 'react'
 import { Table, Button, Popconfirm } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteUser, getUsers } from '../../../../redux/actions/adminActions'
+import { deleteUser, getUsers } from '../../../../../redux/actions/adminActions'
 
 
-const ProfileContent = () => {
+const AdminProfileContent = () => {
     const dispatch = useDispatch()
     const users = useSelector((state) => state.adminReducer.users)
     
@@ -63,4 +63,4 @@ const ProfileContent = () => {
         <Table columns={columns} dataSource={users} />
     )
 }
-export default ProfileContent
+export default AdminProfileContent

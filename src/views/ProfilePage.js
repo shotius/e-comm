@@ -1,10 +1,14 @@
 import {Layout} from 'antd'
 import React from 'react'
-import ProfileContent from '../modules/components/Profile/Content'
+import { useSelector } from 'react-redux';
+import { Roles } from '../const/Roles';
+import AdminProfileContent from '../modules/components/Profile/AdminProfile/Content'
+import UserProfileContent from '../modules/components/Profile/UserProfile/Content';
 // import SideMenu from '../modules/components/AdminPageContent/SideMenu';
 const { Content, Sider } = Layout;
 
 export const ProfilePage = () => {
+    const role = useSelector(state => state.authReducer.role)
     return (
         <Layout>
             {/* <Sider width={200} style={{minHeight: "65vh", background: '#d3d3d3'}}>
@@ -18,7 +22,11 @@ export const ProfilePage = () => {
                     minHeight: 280,
                 }}
                 >
-                <ProfileContent />
+                {role === Roles.admin ? (
+                    <AdminProfileContent />
+                ): (
+                    <UserProfileContent />
+                )}
                 </Content>
             </Layout>
         </Layout>
