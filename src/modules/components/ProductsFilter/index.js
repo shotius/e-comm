@@ -30,7 +30,7 @@ const ProductsFilter = () => {
   }
 
   const clearFields = () => {
-    console.log('clearFields')
+    // console.log('clearFields')
     // setPrice(initialFilters.price);
   }
 

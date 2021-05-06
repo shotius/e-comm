@@ -33,7 +33,6 @@ export const fetchProducts = (category = "", filters = {}, sort_by = null, page 
     default:
       url += `&_sort=id&_order=desc`;
   }
-
   return (dispatch) => {
     dispatch(fetchProductsStart())
     axios.get(url)

@@ -14,7 +14,7 @@ const Basket = () => {
     // to get products on the Basket page we need to fetch it from db
     useEffect(() => {
         dispatch(fetchBasketProducts(userId));
-    }, [dispatch]);
+    }, [dispatch, userId]);
     
     return (
         <>

@@ -4,9 +4,9 @@ import Avatar from 'antd/lib/avatar/avatar'
 import React from 'react'
 import { deleteReview, updateReview, toggleEditMode } from '../../../../redux/actions/reviewsActions'
 
-const Review = ({review, user, dispatch}) => {
-
-    // toggles editable reviews mode
+const Review = ({review, reviewAuthor,  user, dispatch}) => {
+  
+  // toggles editable reviews mode
     const handleEdit = () => 
         dispatch(toggleEditMode(review))
 
@@ -28,10 +28,10 @@ const Review = ({review, user, dispatch}) => {
     <Card style={{marginBottom: 5}}>
       <div>
         <Avatar icon={<UserOutlined/>} style={{marginRight: 10}}/>
-        <span>{user.email}</span>
+        <span>{reviewAuthor.email}</span>
         {/* if user is owner of the review edit and remove buttons will be shown */}
         {
-          review.userId === user.sub
+          reviewAuthor.sub === user.sub
           &&
           <>
             <Button

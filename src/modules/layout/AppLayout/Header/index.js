@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Col, Row, Input, Space, Dropdown, Menu, Button } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import {
@@ -9,23 +9,37 @@ import {
   SearchOutlined,
   PlusCircleOutlined,
   LogoutOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 import logo from "../../../../assets/logo.png";
 import "./index.css";
 
 import { logOut } from "../../../../redux/actions/authActions";
 import { openAddProductModal } from "../../../../redux/actions/itemActions";
+import { Roles } from "../../../../const/Roles";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const role = useSelector(state => state.authReducer.role)
   const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
   const searchValue = useRef();
 
   const menu = (
     <Menu>
-      <Menu.Item
-        key="0"
+      {
+          role === Roles.admin
+          ? (
+            <Menu.Item onClick={() => history.push('/profile/admin')}>
+              <UserOutlined style={{ fontSize: "16px" }} />Admin Page
+            </Menu.Item>
+          ) : (
+            <Menu.Item onClick={() => history.push('/profile/user')}>
+              <UserOutlined style={{ fontSize: "16px" }} />Profile
+            </Menu.Item>
+          )
+      }
+      <Menu.Item key="0"
         onClick={() => {
           setMenuIsSmall(true);
           dispatch(openAddProductModal());
@@ -33,9 +47,14 @@ const Header = () => {
       >
         <PlusCircleOutlined style={{ fontSize: "16px" }} /> Add a New Product
       </Menu.Item>
-      <Menu.Item key="1" onClick={() => dispatch(logOut())}>
+
+      <Menu.Item key="1" onClick={() => {
+        dispatch(logOut())
+        history.push('/login')
+      }}>
         <LogoutOutlined style={{ fontSize: "16px" }} /> Log Out
       </Menu.Item>
+
     </Menu>
   );
 

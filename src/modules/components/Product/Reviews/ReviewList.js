@@ -3,14 +3,13 @@ import Review from './Review'
 import { fetchReviews } from '../../../../redux/actions/reviewsActions'
 import { Card } from 'antd'
 import ReviewForm from './ReviewForm'
-import ReactQuill from 'react-quill'
 
 const ProductReviews = ({ dispatch, useSelector, user, product}) => {
     const reviews = useSelector(state => state.reviewsReducer.reviews)
 
     useEffect(() => {
         dispatch(fetchReviews(product.id))
-    }, [])
+    }, [dispatch, product.id])
 
     return (
         <>
@@ -21,6 +20,7 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
                         reviews.map((review) => (
                             <Review 
                                 review={review} 
+                                reviewAuthor={review.user}
                                 dispatch={dispatch}
                                 user={user} 
                                 key={review.id}/>
@@ -32,7 +32,7 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
             <ReviewForm 
                 dispatch={dispatch}
                 prodId={product.id}
-                userId={user.sub}
+                user={user}
             />
         </>
     )

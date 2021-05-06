@@ -7,7 +7,8 @@ import productsReducer from "./reducers/productsReducer";
 import cartReducer from "./reducers/cartReducer";
 import basketReducer from "./reducers/basketReducer";
 import itemReducer from "./reducers/itemReducer";
-import reviewsReducer from './reducers/reviewsReducer'
+import reviewsReducer from './reducers/reviewsReducer';
+import adminReducer from './reducers/adminReducer'
 
 const rootReducer = combineReducers({
   authReducer,
@@ -15,7 +16,8 @@ const rootReducer = combineReducers({
   cartReducer,
   itemReducer,
   basketReducer,
-  reviewsReducer
+  reviewsReducer,
+  adminReducer
 });
 
 const enhancer = applyMiddleware(thunk);

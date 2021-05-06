@@ -46,7 +46,6 @@ export const updateReview = (newReview) => {
         axios
             .put(`${process.env.REACT_APP_BASE_URL}/reviews/${newReview.id}`, newReview)
             .then(() => {
-                console.log('updated')
                 dispatch(updateReviewSuccess(newReview))
                 dispatch(toggleEditMode(newReview))
             })
