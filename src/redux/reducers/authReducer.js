@@ -18,7 +18,6 @@ if (lsToken.length === 2) {
   lsToken = lsToken[0];
 }
 
-console.log(lsToken);
 localStorage.setItem("token", lsToken);
 
 const initState = {

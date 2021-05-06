@@ -47,6 +47,7 @@ export const loginUser = (user, callback) => {
       });
   };
 };
+
 export const logOut = () => {
   return (dispatch) => {
     window.localStorage.clear();
