@@ -9,19 +9,26 @@ import ProductCard from '../Shared/ProductCard'
 import "./index.css"
 import Spinner from "../Shared/Spinner";
 import SortProducts from "../SortProducts";
-import {useParams} from "react-router-dom";
+import {useHistory, useLocation, useParams} from "react-router-dom";
+import {useQuery} from "../../../hooks/useQuery";
+
 
 const Products = ({category}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.authReducer.user);
-  const {page} = useParams();
+  const params = useParams();
+  const query = useQuery()
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
   console.log('product cards');
 
   useEffect(() => {
-    dispatch(fetchProducts(category, null, null, page));
-  }, [page])
+    console.log(query.toString());
+    const filters = {
+      price: {}
+    }
+    dispatch(fetchProducts(category, null, null, params.page));
+  }, [params.page])
 
   return (
     <>

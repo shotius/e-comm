@@ -4,7 +4,7 @@ import "./index.css"
 import {FilterOutlined} from "@ant-design/icons";
 import {useDispatch} from "react-redux";
 import {fetchProducts} from "../../../redux/actions/productsAction";
-import {useParams} from "react-router-dom";
+import {useHistory, useLocation, useParams} from "react-router-dom";
 
 const {Panel} = Collapse;
 
@@ -15,6 +15,8 @@ const initialFilters = {
 const ProductsFilter = () => {
   const [price, setPrice] = useState([...initialFilters.price]);
   const dispatch = useDispatch();
+  const history = useHistory();
+  const currentLocation = useLocation().pathname;
   const {category} = useParams();
 
 
@@ -23,7 +25,9 @@ const ProductsFilter = () => {
   }
 
   const handleApplyClick = () => {
-    dispatch(fetchProducts(category, {price}))
+    // url should be dynamic, now we have only price filter and it is not necessary
+    history.push(`${currentLocation}?price_gt=${price[0]}&price_lt=${price[1]}`)
+    // dispatch(fetchProducts(category, {price}))
   }
 
   const clearFields = () => {
