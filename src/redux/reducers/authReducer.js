@@ -14,7 +14,7 @@ import jwt from "jsonwebtoken"
 
 const initState = {
   isLoggedIn: !!localStorage.token,
-  role: localStorage.role,
+  role: null,
   loginError: false,
   user: localStorage.token ? jwt.decode(localStorage.token) : null,
   token: localStorage.token,

@@ -13,6 +13,7 @@ import {
 } from "../constants";
 import jwt from "jsonwebtoken";
 
+const apiUrl = process.env.REACT_APP_BASE_URL
 
 // const base_url = "http://localhost:3001";
 let expirationTimeout = null;
@@ -21,7 +22,7 @@ export const registerUser = (user, callback) => {
   return (dispatch) => {
     dispatch(userRegisterStart());
     return axios
-      .post(`${process.env.REACT_APP_BASE_URL}/register`, user)
+      .post(`${apiUrl}/register`, user)
       .then(() => {
         dispatch(registerUserSuccess());
         callback();
@@ -36,10 +37,10 @@ export const loginUser = (user) => {
   return async (dispatch) => {
     dispatch(userLoginStart());
     axios
-      .post(`${process.env.REACT_APP_BASE_URL}/login`, user)
+      .post(`${apiUrl}/login`, user)
       .then((response) => {
         const user = jwt.decode(response.data.accessToken);
-        dispatch(saveRoles(user.sub))
+        dispatch(getRoles(user.sub))
         dispatch(userLoginSuccess(response.data.accessToken, user));
       })
       .catch((error) => {
@@ -47,6 +48,31 @@ export const loginUser = (user) => {
       });
   };
 };
+
+export const getProfileFetch = () => {
+  return dispatch => {
+    // if right token exists in localstorage get role of the current user
+    const token = localStorage.getItem('token')
+    const user = jwt.decode(token)
+    const expDate = localStorage.getItem('expirationDate')
+
+    if (token  && +expDate > moment().valueOf()) {
+      return axios
+        .get(`${apiUrl}/users`)
+        .then(({data}) => {
+          const match = data.some(d => d.email === user.email)
+          if (match) {
+            dispatch(getRoles(user.sub))
+          } else {
+            dispatch(logOut())
+          }
+        })
+        .catch(error => console.log(error))
+    } else {
+      dispatch(logOut())
+    } 
+  }
+}
 
 export const logOut = () => {
   return (dispatch) => {
@@ -57,14 +83,13 @@ export const logOut = () => {
   };
 };
 
-const saveRoles = (id) => {
+const getRoles = (id) => {
   return dispatch => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/users/${id}`)
       .then(({data}) => {
         // if an user has a role
         if (data.role) {
-          localStorage.setItem('role', data.role)
           dispatch(addUserRole(data.role))
         }
       })

@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {AppRoutes} from "./const/app-routes";
 import * as views from "./views"
 import PrivateRoute from "./modules/components/Router/PrivateRoute";
 import UnauthenticatedRoute from "./modules/components/Router/UnauthenticatedRoute";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import AppLayout from "./modules/layout/AppLayout";
 import AuthLayout from "./modules/layout/AuthLayout";
 import Error from "./views/Error";
+import { getProfileFetch } from "./redux/actions/authActions";
 
 
 const App = () => {
+  const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   const role = useSelector(state => state.authReducer.role)
+  const user = useSelector(state => state.authReducer.user)
+
+  useEffect(() => {
+    dispatch(getProfileFetch())
+  },[])
 
   
   // return all routes then does not have any permission
