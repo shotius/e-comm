@@ -20,8 +20,6 @@ const Products = ({category}) => {
   const query = useQuery();
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
-  console.log('product cards');
-  
   useEffect(() => {
     let filters = {}
     for (const i of query.keys())

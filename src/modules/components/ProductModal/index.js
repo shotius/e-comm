@@ -27,7 +27,7 @@ const AddProduct = () => {
 
   const [form] = Form.useForm();
   const history = useHistory();
-  console.log(history, 'history')
+  // console.log(history, 'history')
 
   const dispatch = useDispatch();
   const {isModalOpen, addProductLoading, nowEditing} = useSelector(state => state.itemReducer);
