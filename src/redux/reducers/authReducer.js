@@ -11,19 +11,19 @@ import {
 } from "../constants";
 import jwt from "jsonwebtoken";
 
-let lsToken = localStorage.token.split(" ");
-if (lsToken.length === 2) {
-  lsToken = lsToken[1];
-} else {
-  lsToken = lsToken[0];
-}
+// let lsToken = localStorage.token.split(" ");
+// if (lsToken.length === 2) {
+//   lsToken = lsToken[1];
+// } else {
+//   lsToken = lsToken[0];
+// }
 
-localStorage.setItem("token", lsToken);
+// localStorage.setItem("token", lsToken);
 
 const initState = {
   isLoggedIn: !!localStorage.token,
   loginError: false,
-  user: localStorage.token ? jwt.decode(lsToken) : null,
+  user: localStorage.token ? jwt.decode(localStorage.token) : null,
   token: localStorage.token,
   expirationDate: localStorage.expirationDate,
   userRegisterLoading: false,
