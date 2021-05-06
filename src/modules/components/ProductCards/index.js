@@ -1,4 +1,4 @@
-import React, {useEffect} from "react"
+import React, {useEffect, useState} from "react"
 import {Pagination, Row} from "antd";
 import {useSelector} from "react-redux";
 import {fetchProducts, setCurrentCategory} from "../../../redux/actions/productsAction";
@@ -17,18 +17,18 @@ const Products = ({category}) => {
   const dispatch = useDispatch();
   const user = useSelector(state => state.authReducer.user);
   const params = useParams();
-  const query = useQuery()
+  const query = useQuery();
 
   const {products, productsFetchLoading} = useSelector(state => state.productsReducer);
   console.log('product cards');
-
+  
   useEffect(() => {
-    console.log(query.toString());
-    const filters = {
-      price: {}
-    }
-    dispatch(fetchProducts(category, null, null, params.page));
-  }, [params.page])
+    let filters = {}
+    for (const i of query.keys())
+      filters[i] = query.get(i);
+
+    dispatch(fetchProducts(category, filters, null, params.page));
+  }, [params.page, query.toString()])
 
   return (
     <>

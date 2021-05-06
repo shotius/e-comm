@@ -14,10 +14,8 @@ const initialFilters = {
 
 const ProductsFilter = () => {
   const [price, setPrice] = useState([...initialFilters.price]);
-  const dispatch = useDispatch();
   const history = useHistory();
   const currentLocation = useLocation().pathname;
-  const {category} = useParams();
 
 
   const onPriceChange = (value) => {
@@ -26,7 +24,7 @@ const ProductsFilter = () => {
 
   const handleApplyClick = () => {
     // url should be dynamic, now we have only price filter and it is not necessary
-    history.push(`${currentLocation}?price_gt=${price[0]}&price_lt=${price[1]}`)
+    history.push(`${currentLocation}?price_gte=${price[0]}&price_lte=${price[1]}`)
     // dispatch(fetchProducts(category, {price}))
   }
 
