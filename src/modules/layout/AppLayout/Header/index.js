@@ -34,7 +34,7 @@ const Header = () => {
               <UserOutlined style={{ fontSize: "16px" }} />Admin Page
             </Menu.Item>
           ) : (
-            <Menu.Item onClick={() => history.push('/profile')}>
+            <Menu.Item onClick={() => history.push('/profile/user')}>
               <UserOutlined style={{ fontSize: "16px" }} />Profile
             </Menu.Item>
           )

@@ -58,7 +58,7 @@ export const AppRoutes =
       permission: Roles.admin
     },
     {
-      path: "profile",
+      path: "profile/user",
       view: "ProfilePage",
       isPrivate: true,
       exact: true,
