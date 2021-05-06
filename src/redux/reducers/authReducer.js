@@ -58,7 +58,8 @@ export default function authReducer(state = initState, action) {
         ...state,
         isLoggedIn: false,
         token: "",
-        user: null
+        user: null,
+        role: null,
       }
     case LOGIN_ERROR_CLEAR:
       return {

@@ -52,7 +52,7 @@ export const AppRoutes =
     },
      {
       path: 'admin',
-      view: "AdminPage",
+      view: "ProfilePage",
       isPrivate: true,
       exact: true,
       permission: Roles.admin

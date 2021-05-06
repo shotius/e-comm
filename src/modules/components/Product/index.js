@@ -8,6 +8,8 @@ import {
 } from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 
+import { Roles } from '/home/shoutius/e-comm/src/const/Roles.js';
+
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
@@ -18,7 +20,6 @@ import ReviewList from './Reviews/ReviewList'
 
 import ExtraImages from "../ExtraImages";
 import {extraImages} from "../../../const/productExtraImages";
-import { Roles } from '/home/shoutius/e-comm/src/const/Roles.js'
 
 
 const {confirm} = Modal;
