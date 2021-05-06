@@ -5,7 +5,7 @@ import { Roles } from '../const/Roles';
 import AdminProfileContent from '../modules/components/Profile/AdminProfile/Content'
 import UserProfileContent from '../modules/components/Profile/UserProfile/Content';
 // import SideMenu from '../modules/components/AdminPageContent/SideMenu';
-const { Content, Sider } = Layout;
+const { Content } = Layout;
 
 export const ProfilePage = () => {
     const role = useSelector(state => state.authReducer.role)
