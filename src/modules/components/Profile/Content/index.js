@@ -2,22 +2,16 @@ import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Table, Button, Popconfirm } from 'antd'
 import { DeleteOutlined } from '@ant-design/icons'
+import { useDispatch, useSelector } from 'react-redux'
+import { deleteUser, getUsers } from '../../../../redux/actions/adminActions'
 
 
 const ProfileContent = () => {
-    const [users, setUsers] = useState([])
+    const dispatch = useDispatch()
+    const users = useSelector((state) => state.adminReducer.users)
     
     useEffect(() => {
-        axios
-            .get("http://localhost:3001/users")
-            .then(({ data }) => {
-                const users = data.map((user, key) => {
-                    const { password, ...rest} = user
-                    return {...rest, key}
-                 })
-                setUsers(users)
-            })
-            .catch(error => console.log(error))
+        dispatch(getUsers())
     }, [])
 
     const columns = [
@@ -57,7 +51,7 @@ const ProfileContent = () => {
           title: 'Action',
           key: 'action',
           render: (data) => (
-                <Popconfirm title={'Are you sure?'}  okText="Yes" cancelText="No">
+                <Popconfirm title={'Are you sure?'} onConfirm={() => dispatch(deleteUser(data))} okText="Yes" cancelText="No">
                     <Button icon={<DeleteOutlined />}/>
                 </Popconfirm>
         )

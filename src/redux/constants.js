@@ -64,3 +64,7 @@ export const TOGGLE_EDIT_FAIL = 'TOGGLE_EDIT_FAIL'
 
 // role 
 export const ADD_USER_ROLE = 'ADD_USER_ROLE'
+
+// admin
+export const DELETE_USER_SUCCESS = 'DELETE_USER_SUCCESS'
+export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS'

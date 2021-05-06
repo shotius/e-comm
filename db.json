@@ -10,12 +10,44 @@
       "id": 1
     },
     {
-      "email": "test1@gmail.com",
+      "email": "2@gmail.com",
       "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
       "username": "username",
       "name": "name",
       "phone": "+995123123123",
       "id": 2
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 3
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 4
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 5
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 6
     }
   ],
   "products": [
