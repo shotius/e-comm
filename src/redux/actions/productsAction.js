@@ -17,7 +17,7 @@ export const fetchProducts = (category = "", filters = {}, sort_by = null, page 
   }
 
   // hardcoded, should be dynamic
-  if (Object.keys(filters).length) {
+  if (filters && Object.keys(filters).length) {
     for (const filter in filters) {
       url += `&${filter}=${filters[filter]}`
     }
