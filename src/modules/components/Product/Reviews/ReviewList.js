@@ -9,7 +9,7 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
 
     useEffect(() => {
         dispatch(fetchReviews(product.id))
-    }, [])
+    }, [dispatch, product.id])
 
     return (
         <>

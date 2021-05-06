@@ -19,7 +19,7 @@ const App = () => {
   // check localstorage and assing roles every render
   useEffect(() => {
     dispatch(getProfileFetch())
-  },[])
+  },[dispatch])
 
   
   // return all routes then does not have any permission
@@ -28,6 +28,7 @@ const App = () => {
     return  routes.filter(({ permission }) => {
         if (!permission) return true
         else if (permission === role) return true
+        else return false
     })
 }
 

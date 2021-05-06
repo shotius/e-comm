@@ -1,5 +1,4 @@
-import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import { Table, Button, Popconfirm } from 'antd'
 import { DeleteOutlined, UserOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,7 +12,7 @@ const AdminProfileContent = () => {
     
     useEffect(() => {
         dispatch(getUsers())
-    }, [])
+    }, [dispatch ])
 
     const columns = [
         {
@@ -25,7 +24,7 @@ const AdminProfileContent = () => {
           title: 'Name',
           dataIndex: 'name',
           key: 'name',
-          render: text => <a>{text}</a>,
+          render: text => <div style={{color: "#1890ff"}}>{text}</div>,
         },
         {
             title: "UserName",
