@@ -7,7 +7,7 @@ const UserProfileContent = () => {
     return (
         <div style={{width: "80px", margin: "auto"}}>
             <Avatar size={64} icon={<UserOutlined />} />
-            <h1>User Pfofile</h1>
+            <h1>User Profile</h1>
         </div>
     )
 }

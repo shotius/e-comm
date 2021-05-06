@@ -1,9 +1,10 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
 import { Table, Button, Popconfirm } from 'antd'
-import { DeleteOutlined } from '@ant-design/icons'
+import { DeleteOutlined, UserOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { deleteUser, getUsers } from '../../../../../redux/actions/adminActions'
+import Avatar from 'antd/lib/avatar/avatar'
 
 
 const AdminProfileContent = () => {
@@ -60,7 +61,13 @@ const AdminProfileContent = () => {
       
       
     return (
+      <>
+       <div style={{width: "90px", margin: "auto", textAlign: "center"}}>
+            <Avatar size={64} icon={<UserOutlined />} />
+            <h1>Admin Profile</h1>
+        </div>
         <Table columns={columns} dataSource={users} />
+      </>
     )
 }
 export default AdminProfileContent
