@@ -68,17 +68,27 @@
     padding-top: 10%;
     transition: all 200ms ease-in-out;
 }
-/* 
+
+.icon-menu {
+    transition: all .1s linear;
+}
+
+.icon-menu:active,
+.icon-menu:focus{
+    transform: scale(1.2);
+}
+
+/*
 .icon-menu:hover {
     font-size: 37px;
     padding-top: 21%;
     transition: all 200ms ease-in-out;
 } */
 
-.large {
-    font-size: 37px;
-    padding-top: 21%;
-}
+/*.large {*/
+/*    font-size: 37px;*/
+/*    padding-top: 21%;*/
+/*}*/
 
 .search-buton {
     border: none !important;

@@ -8,7 +8,7 @@ import {
 } from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 
-import { Roles } from '/home/shoutius/e-comm/src/const/Roles.js';
+import { Roles } from '../../../const/Roles';
 
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";

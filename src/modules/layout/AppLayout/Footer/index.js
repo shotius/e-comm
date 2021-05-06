@@ -21,7 +21,7 @@ const Footer = () => {
                             <Space size="middle">
                                 <a href="https://www.facebook.com/3bbwXScxJrDiKMZtvjVekA"><FacebookOutlined className="icon-contact"/></a>
                                 <a href="https://github.com/VanoAkofashvili"><GithubOutlined className="icon-contact"/></a>
-                                <a href="mailto:sh.archemashvili@gmail.com"><MailOutlined className="icon-contact"/></a>
+                                <a href="mailto:vanikoakofa@gmail.com"><MailOutlined className="icon-contact"/></a>
                             </Space>
 
                         </div>
@@ -41,7 +41,7 @@ const Footer = () => {
                     <div className="footer-heading">ADRESS</div>
                     <div className="footer-info">
                         <a href="https://www.google.com/maps/dir/41.7044819,44.8703534/41.7087161,44.7722134/@41.6965017,44.7519414,12z/data=!3m1!4b1!4m4!4m3!1m1!4e1!1m0">
-                            28 Ilia Chavchavadze Avenue, T'bilisi
+                            30 Ilia Chavchavadze Avenue, T'bilisi
                         </a>
                     </div>
                     <div style={{textAlign: "center"}}>

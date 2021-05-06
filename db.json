@@ -48,6 +48,15 @@
       "name": "name",
       "phone": "+995123123123",
       "id": 6
+    },
+    {
+      "email": "vanikoakofa@gmail.com",
+      "password": "$2a$10$e9M.gezXtJukIR1ByvKkN.qR1qfK/tGG5lzL/2K.WqbvVZA5xACwG",
+      "role": "admin",
+      "username": "vano.akofa",
+      "name": "Vaniko Akopashvili",
+      "phone": "+995599565656",
+      "id": 7
     }
   ],
   "products": [
