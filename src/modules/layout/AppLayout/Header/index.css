@@ -74,6 +74,7 @@
 }
 
 .icon-menu:active,
+.icon-menu:hover,
 .icon-menu:focus{
     transform: scale(1.2);
 }

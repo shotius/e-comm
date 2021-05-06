@@ -10,14 +10,6 @@
       "id": 1
     },
     {
-      "email": "user@gmail.com",
-      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
-      "username": "username",
-      "name": "name",
-      "phone": "+995123123123",
-      "id": 2
-    },
-    {
       "email": "3@gmail.com",
       "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
       "username": "username",
@@ -32,22 +24,6 @@
       "name": "name",
       "phone": "+995123123123",
       "id": 4
-    },
-    {
-      "email": "3@gmail.com",
-      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
-      "username": "username",
-      "name": "name",
-      "phone": "+995123123123",
-      "id": 5
-    },
-    {
-      "email": "3@gmail.com",
-      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
-      "username": "username",
-      "name": "name",
-      "phone": "+995123123123",
-      "id": 6
     },
     {
       "email": "vanikoakofa@gmail.com",
