@@ -26,7 +26,8 @@ const ProductsFilter = () => {
 
   const handleApplyClick = () => {
     // url should be dynamic, now we have only price filter and it is not necessary
-    history.push(`${currentLocation}?price_gte=${price[0]}&price_lte=${price[1]}`)
+    // console.log(`${currentLocation.pathname}?price_gte=${price[0]}&price_lte=${price[1]}`, 'olala');
+    history.push(`${currentLocation.pathname}?price_gte=${price[0]}&price_lte=${price[1]}`)
     // dispatch(fetchProducts(category, {price}))
   }
 
