@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {useDispatch} from 'react-redux'
-import {deleteBasketItem, deleteProduct} from '../../../redux/actions/basketActions'
+import {deleteBasketItem} from '../../../redux/actions/basketActions'
 import {Button, Col, Row, Card} from 'antd'
 import {MinusOutlined, PlusOutlined} from '@ant-design/icons'
 import './index.css'

@@ -8,6 +8,8 @@ import {
 } from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 
+import { Roles } from '/home/shoutius/e-comm/src/const/Roles.js';
+
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
@@ -19,10 +21,12 @@ import ReviewList from './Reviews/ReviewList'
 import ExtraImages from "../ExtraImages";
 import {extraImages} from "../../../const/productExtraImages";
 
+
 const {confirm} = Modal;
 const Product = ({id}) => {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const role = useSelector(state => state.authReducer.role)
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -65,6 +69,7 @@ const Product = ({id}) => {
         <Spinner/>
       ) : (
         <>
+
           <Row className="product-detail">
             <Col sm={24} md={10} className="product-col-1">
               <button onClick={history.goBack} className="btn-back">
@@ -77,16 +82,17 @@ const Product = ({id}) => {
                 />
               </div>
 
+
               {/*Should be dynamic*/}
               <ExtraImages sliderData={extraImages}/>
             </Col>
             <Col sm={24} md={14}>
-              {user.sub === product.userId ? (
-                <ModifyProduct
-                  confirmDeleteModal={confirmDeleteModal}
-                  product={product}
-                />
-              ) : null}
+              {user.sub === product.userId || role === Roles.admin ? (
+              <ModifyProduct
+                confirmDeleteModal={confirmDeleteModal}
+                product={product}
+              />
+            ) : null}
               <div className="product-content-holder">
                 <h2 className="product-title">{product.title}</h2>
                 <p className="product-price">${product.price}</p>

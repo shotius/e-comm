@@ -75,7 +75,7 @@ export default function reviewsReducer(state=initState, action) {
                 updateReviewloading: true
             }
         case UPDATE_REVIEW_SUCCESS:
-            console.log("update red", action.newReview)
+            // console.log("update red", action.newReview)
             return {
                 ...state, 
                 reviews: state.reviews.map(review => {

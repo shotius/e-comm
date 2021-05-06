@@ -11,7 +11,6 @@ export const Login = () => {
   const userLoginError = useSelector(state => state.authReducer.userLoginError); 
 
   const onFinish = (values) => {
-    // console.log(values)
     dispatch(loginUser(values))
   };
 

@@ -54,7 +54,7 @@ const AddProduct = () => {
         setSelectedImg([initialImg])
       })
       .catch(error => {
-        console.log(error, 'failed')
+        // console.log(error, 'failed')
       })
   }
 

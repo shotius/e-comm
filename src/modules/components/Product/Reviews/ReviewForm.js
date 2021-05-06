@@ -4,7 +4,7 @@ import Avatar from 'antd/lib/avatar/avatar'
 import React, { useState } from 'react'
 import { addReview } from '../../../../redux/actions/reviewsActions'
 
-const ReviewForm = ({ dispatch, userId, prodId }) => {
+const ReviewForm = ({ dispatch, user, prodId }) => {
     const [stars, setStars] = useState(0)
     const [form] = Form.useForm();
     const desc = ['terrible', 'bad', 'normal', 'good', 'wonderful'];
@@ -13,7 +13,7 @@ const ReviewForm = ({ dispatch, userId, prodId }) => {
         form.resetFields()
         const review = {
             ...values,
-            userId,
+            user,
             prodId,
             isEditing: false
         }

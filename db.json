@@ -1,28 +1,53 @@
 {
   "users": [
     {
-      "email": "vanikoakofa@yahoo.com",
-      "password": "$2a$10$Z.1FSGm/qosGhGqYka/v5eaaImtYpJxhNYh8SDbllYeTYO7D4Xyzy",
-      "username": "vano.akofa",
-      "name": "vaniko akopashvili",
-      "phone": "+995568769804",
+      "email": "admin@gmail.com",
+      "password": "$2a$10$zL.jUKdGfBiKTqvw.mCPsub91Q1/IUkAP3NDQT23zB88u8vejAYre",
+      "role": "admin",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
       "id": 1
     },
     {
-      "email": "test@gmail.com",
-      "password": "$2a$10$7uWrBD8jfMT9hUOwUP7JBOnvGWYOugc3iqn/bvyVMqkBqa/MshZZW",
-      "username": "shota",
-      "name": "shota",
+      "email": "user@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
       "phone": "+995123123123",
       "id": 2
     },
     {
-      "email": "testing@gmail.com",
-      "password": "$2a$10$3kjElnP5T9vcYsOtRqlbueUL238UBXoyx2pA7BRKTjlximDO8xoDe",
-      "username": "testing",
-      "name": "testing",
-      "phone": "+995565656565",
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
       "id": 3
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 4
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 5
+    },
+    {
+      "email": "3@gmail.com",
+      "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
+      "username": "username",
+      "name": "name",
+      "phone": "+995123123123",
+      "id": 6
     }
   ],
   "products": [
@@ -181,20 +206,10 @@
       "brand": "Acer ",
       "category": "laptops",
       "price": 2599,
-      "description": "<p>ბრენდი/Brand: Acer Nitro 5 an515-53</p><p>ეკრანის ზომა/Screen Size: 15.6 FHD</p><p>პროცესორი/Cpu: Intel (R) Core(TM) i5-8300H 2.3 GHz</p><p>ოპერატიული მეხსიერება/RAM: 8 GB DDR4&nbsp;&nbsp;&nbsp;</p><p>მყარი დისკი/SSD: 256 GB SSD, 320 GB HDD</p><p>ვიდეოკარტა/GPU: Nvidia GeForce GTX 1050 Ti, 4 GB</p><p>მაქს. გაფართოება/Max. Resolution: 1920 x 1080</p><p>კლავიატურის განათება/Backlit Keyboard: Yes.</p><p>მდგომარეობა: მეორადი</p><p>გარანტია: 3 თვე.</p>",
+      "description": "<p>ბრენდი/Brand: Acer Nitro 5 an515-53</p><p><br></p>",
       "userId": "1",
       "image": "https://static.my.ge/mymarket/photos/thumbs/0402/20502997_1.jpg?v=0",
       "id": 3701
-    },
-    {
-      "title": "HP ELITEBOOK 840 G3 I5, იდეალურ მდგომარეობაში!!! (სულ ახალია)",
-      "brand": "HP ",
-      "category": "laptops",
-      "price": 1500,
-      "description": "<p><strong style=\"color: rgb(137, 150, 174); background-color: rgb(247, 249, 252);\"><em><u>100% ორიგინალი, ამერიკული ლეპტოპი!!&nbsp;იუ ეს სთორის მაღაზიიდან!! 3 თვიანი გარანტიით და განვადებით!!!HP ELITEBOOK 840 G3&nbsp;</u>&nbsp;INTEL CORE I5-6300U, 256 ssd&nbsp;ვინჩესტერით, 8GB ოპერატიული მეხსიერება, ბიზნესკლასის ერთ-ერთი წარმატებული მოდელი,&nbsp;თხელი და მსუბუქი ძალიან ლამაზი დიზაინით.ლეპტოპი შემოწმებულია&nbsp;ვიზუალურად და ტექნიკურად იდეალურ მდგომარეობაშია, მუშაობს ძალიან სწრაფად!!! მოყვება ორიგინალი დამტენი!&nbsp;&nbsp;</em></strong></p>",
-      "userId": "1",
-      "image": "https://in-media.apjonlinecdn.com/catalog/product/cache/b3b166914d87ce343d4dc5ec5117b502/c/0/c06596764_1_8.png",
-      "id": 3702
     }
   ],
   "basket": [
@@ -221,143 +236,26 @@
   ],
   "reviews": [
     {
-      "userId": 1,
-      "id": 1,
-      "prodId": 4,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
-      "stars": 5,
-      "isEditing": false
-    },
-    {
-      "userId": 1,
-      "id": 1,
-      "prodId": 4,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
-      "isEditing": false
-    },
-    {
-      "userId": 1,
-      "id": 1,
-      "stars": 3,
-      "prodId": 4,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
-      "isEditing": false
-    },
-    {
-      "userId": 1,
-      "id": 1,
-      "prodId": 4,
-      "stars": 2,
-      "review": "მშვენიერი პროდუქტიაააა გენაცვალოს",
-      "isEditing": false
-    },
-    {
-      "stars": 4,
-      "review": "ტესტური ",
-      "id": 2,
-      "isEditing": false
-    },
-    {
-      "review": "testutri",
-      "stars": 4,
-      "id": 3,
-      "isEditing": false
-    },
-    {
-      "review": "updated",
-      "id": 4
-    },
-    {
-      "review": "გამოსახულება კაიააა",
-      "userId": "2",
-      "prodId": 3,
-      "id": 15,
-      "isEditing": false
-    },
-    {
-      "review": "ბარო ბარო",
-      "userId": "2",
-      "prodId": 3,
-      "id": 16,
-      "isEditing": false
-    },
-    {
-      "review": "გამო გამო",
-      "userId": "2",
-      "prodId": 3,
-      "id": 17,
-      "isEditing": false
-    },
-    {
-      "review": "ენთერზე დავაწვე?",
-      "userId": "2",
-      "prodId": 3,
-      "id": 18,
-      "isEditing": false
-    },
-    {
-      "review": "იყო ერთI ",
-      "userId": "2",
-      "prodId": 3,
-      "id": 20,
-      "isEditing": false
-    },
-    {
-      "review": "მეხუთე",
-      "userId": "2",
-      "prodId": 2,
-      "id": 21,
-      "isEditing": false
-    },
-    {
-      "review": "აწი აღარ უჭირს",
-      "userId": "2",
-      "prodId": 2,
-      "id": 22,
-      "isEditing": false
-    },
-    {
-      "review": "გაიტანაა, ალბათ რედაქსის პრობლემა იყო ",
-      "userId": "2",
-      "prodId": 2,
-      "id": 23,
-      "isEditing": false
-    },
-    {
-      "review": "ასდ",
-      "stars": 5,
-      "userId": "2",
-      "prodId": 2,
-      "id": 24,
-      "isEditing": false
-    },
-    {
-      "id": 25
-    },
-    {
-      "id": 26
-    },
-    {
-      "review": "5 stars",
-      "stars": 5,
-      "userId": "2",
-      "prodId": 4,
-      "id": 27,
-      "isEditing": false
-    },
-    {
-      "review": "post123",
-      "userId": "2",
-      "prodId": 8,
+      "review": "asdf\n",
+      "user": {
+        "email": "test1@gmail.com",
+        "iat": 1620284224,
+        "exp": 1620287824,
+        "sub": "2"
+      },
+      "prodId": 3701,
       "isEditing": false,
-      "id": 28,
-      "stars": 3
+      "id": 34
     },
     {
-      "review": "ვალჰალააა",
-      "stars": 4,
-      "userId": "2",
-      "prodId": 7,
+      "review": "test",
+      "user": {
+        "email": "test1@gmail.com",
+        "iat": 1620284224,
+        "exp": 1620287824,
+        "sub": "2"
+      },
+      "prodId": 3702,
       "isEditing": false,
       "id": 29
     },

@@ -11,7 +11,7 @@ const SearchResult = () => {
 
     useEffect(() => {
         dispatch(fetchProducts())
-    }, [])
+    }, [dispatch])
 
    // Search if product name includes keyword
     const search = (products) => {
