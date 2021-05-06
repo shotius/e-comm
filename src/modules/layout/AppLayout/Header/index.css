@@ -68,12 +68,13 @@
     padding-top: 10%;
     transition: all 200ms ease-in-out;
 }
-/* 
+
+/* TODO: animate icon-menu on hover */
 .icon-menu:hover {
     font-size: 37px;
     padding-top: 21%;
     transition: all 200ms ease-in-out;
-} */
+}
 
 .large {
     font-size: 37px;
