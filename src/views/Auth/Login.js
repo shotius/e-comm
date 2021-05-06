@@ -1,14 +1,14 @@
 import React, {useEffect} from "react";
 import {Form, Input, Button, notification} from 'antd';
 import "./index.css"
-import { Link, useHistory} from "react-router-dom";
+import { Link} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {loginErrorClear, loginUser} from '../../redux/actions/authActions'
 
 export const Login = () => {
   const dispatch = useDispatch()
-  const history = useHistory()
-  const userLoginError = useSelector(state => state.authReducer.userLoginError);
+  // const history = useHistory()
+  const userLoginError = useSelector(state => state.authReducer.userLoginError); 
 
   const onFinish = (values) => {
     dispatch(loginUser(values))

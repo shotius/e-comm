@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
 import axios from "axios";
 import Spinner from "../Shared/Spinner";
-import {Button, Col, Divider, Modal, Row} from "antd";
+import {Button, Col, Divider, Image, Modal, Row} from "antd";
 import {
   ArrowLeftOutlined,
   ExclamationCircleOutlined,
 } from "@ant-design/icons";
 import {useHistory} from "react-router-dom";
 
-import { Roles } from '/home/shoutius/e-comm/src/const/Roles.js';
+import { Roles } from '../../../const/Roles';
 
 import "./index.css";
 import {useDispatch, useSelector} from "react-redux";
@@ -69,59 +69,70 @@ const Product = ({id}) => {
         <Spinner/>
       ) : (
         <>
-        <Row className="product-detail">
-          <Col sm={24} md={10} className="product-col-1">
-            <button onClick={history.goBack} className="btn-back">
-              <ArrowLeftOutlined/>
-            </button>
-            <img src={product?.image} alt="product"/>
-            {/*Should be dynamic*/}
-            <ExtraImages sliderData={extraImages}/>
-          </Col>
-          <Col sm={24} md={14}>
-            {user.sub === product.userId || role === Roles.admin ? (
+
+          <Row className="product-detail">
+            <Col sm={24} md={10} className="product-col-1">
+              <button onClick={history.goBack} className="btn-back">
+                <ArrowLeftOutlined/>
+              </button>
+              <div style={{display: "flex", justifyContent:"center"}}>
+                 {/*<img src={product?.image} alt="product"/>*/}
+                <Image
+                  src={product?.image}
+                />
+              </div>
+
+
+              {/*Should be dynamic*/}
+              <ExtraImages sliderData={extraImages}/>
+            </Col>
+            <Col sm={24} md={14}>
+              {user.sub === product.userId || role === Roles.admin ? (
               <ModifyProduct
                 confirmDeleteModal={confirmDeleteModal}
                 product={product}
               />
             ) : null}
-            <div className="product-content-holder">
-              <h2 className="product-title">{product.title}</h2>
-              <p className="product-price">${product.price}</p>
-              <Divider/>
-              <p
-                className="product-description"
-                dangerouslySetInnerHTML={{
-                  __html: product.description,
-                }}
-              />
-              <Button
-                type={"primary"}
-                loading={addToCartLoading}
-                className="product-btn"
-                onClick={() => {
-                  const {userId, ...pr} = product;
-                  dispatch(addToCart(pr, user));
-                }}
-              >
-                Add to Cart
-              </Button>
-            </div>
-          </Col>
+              <div className="product-content-holder">
+                <h2 className="product-title">{product.title}</h2>
+                <p className="product-price">${product.price}</p>
+                <Divider/>
+                <p
+                  className="product-description"
+                  dangerouslySetInnerHTML={{
+                    __html: product.description,
+                  }}
+                />
+                <div style={{display: "flex", justifyContent:"center"}}>
+                  <Button
+                    type={"primary"}
+                    loading={addToCartLoading}
+                    className="product-btn"
+                    onClick={() => {
+                      const {userId, ...pr} = product;
+                      dispatch(addToCart(pr, user));
+                    }}
+                  >
+                    Add to Cart
+                  </Button>
+                </div>
 
-        </Row>
+              </div>
+            </Col>
 
-         {/* REVIEWS */}
-         {
-          product // when product exists
-          && 
-          <ReviewList 
-            dispatch={dispatch}
-            useSelector={useSelector}
-            user={user}
-            product={product}
+          </Row>
+
+          {/* REVIEWS */}
+          {
+            product // when product exists
+            &&
+            <ReviewList
+              dispatch={dispatch}
+              useSelector={useSelector}
+              user={user}
+              product={product}
             />
-        } 
+          }
 
         </>
       )}

@@ -3,7 +3,6 @@ import {Row, Col} from "antd";
 import "./index.css"
 import {Link} from "react-router-dom";
 import {categoryData} from "../../../const/categoryData";
-import {setCurrentCategory} from "../../../redux/actions/productsAction";
 
 const Categories = () => {
   return <Row className="categories" align={"middle"} gutter={[8,8]}>

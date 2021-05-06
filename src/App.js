@@ -16,10 +16,10 @@ const App = () => {
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   const role = useSelector(state => state.authReducer.role)
 
-  // check localstorage and assing roles every render
+  // check localstorage and assign roles every render
   useEffect(() => {
     dispatch(getProfileFetch())
-  },[dispatch])
+  },[])
 
   
   // return all routes then does not have any permission

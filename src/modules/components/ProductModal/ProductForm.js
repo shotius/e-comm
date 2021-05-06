@@ -22,7 +22,7 @@ const ProductForm = (props) => {
     if (!nowEditing) {
       props.form.resetFields();
     }
-  }, [nowEditing])
+  }, [nowEditing, props.form])
 
   let pic = [...props.selectedImg];
 

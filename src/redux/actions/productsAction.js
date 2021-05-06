@@ -10,17 +10,21 @@ import axios from "axios";
 const per_page = 10;
 const limit = 10;
 
-export const fetchProducts = (category = "", filters=null, sort_by=null, page=1) => {
+export const fetchProducts = (category = "", filters = {}, sort_by = null, page = 1) => {
   let url = `${process.env.REACT_APP_BASE_URL}/products?_start=${(page - 1) * per_page}&_limit=${limit}`;
   if (category) {
     url += `&category=${category}`;
   }
+
   // hardcoded, should be dynamic
-  if (filters) {
-    url += `&price_gte=${filters.price[0]}&price_lte=${filters.price[1]}`
+  if (filters && Object.keys(filters).length) {
+    for (const filter in filters) {
+      url += `&${filter}=${filters[filter]}`
+    }
+    console.log(url, 'URL');
   }
 
-  switch (sort_by){
+  switch (sort_by) {
     case 'price':
       url += `&_sort=${sort_by}`
       break;
@@ -30,12 +34,14 @@ export const fetchProducts = (category = "", filters=null, sort_by=null, page=1)
     default:
       url += `&_sort=id&_order=desc`;
   }
-  // console.log(url);
-  
+
   return (dispatch) => {
+    console.log('fetching....');
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {
+        console.log(response.data);
+        
         dispatch(fetchProductsSuccess(response.data))
         dispatch(setTotalCount(+response.headers["x-total-count"]));
       })

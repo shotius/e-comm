@@ -89,17 +89,17 @@ export const Register = () => {
       className="auth-form"
       name="login"
       onFinish={onFinish}
-      initialValues={{
-        username: "username",
-        name: "name",
-        phone: 123123123,
-        email: "test",
-        password: "1234",
-        confirm_password: "1234",
-      }}
+      // initialValues={{
+      //   username: "username",
+      //   name: "name",
+      //   phone: 123123123,
+      //   email: "test",
+      //   password: "1234",
+      //   confirm_password: "1234",
+      // }}
     >
       <Form.Item
-          label="role"
+          label="Role"
           name="role"
       >
         <Select>
