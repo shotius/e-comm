@@ -2,9 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Button, Collapse, Slider} from "antd";
 import "./index.css"
 import {FilterOutlined} from "@ant-design/icons";
-import {useDispatch} from "react-redux";
-import {fetchProducts} from "../../../redux/actions/productsAction";
-import {useHistory, useLocation, useParams} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
 import {useQuery} from "../../../hooks/useQuery";
 
 const {Panel} = Collapse;

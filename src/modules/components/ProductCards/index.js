@@ -1,15 +1,14 @@
-import React, {useEffect, useState} from "react"
-import {Pagination, Row} from "antd";
+import React, {useEffect} from "react"
+import {Row} from "antd";
 import {useSelector} from "react-redux";
-import {fetchProducts, setCurrentCategory} from "../../../redux/actions/productsAction";
+import {fetchProducts, } from "../../../redux/actions/productsAction";
 import {useDispatch} from "react-redux";
 import {addToCart} from "../../../redux/actions/cartActions";
 import ProductCard from '../Shared/ProductCard'
-
 import "./index.css"
 import Spinner from "../Shared/Spinner";
 import SortProducts from "../SortProducts";
-import {useHistory, useLocation, useParams} from "react-router-dom";
+import {useParams} from "react-router-dom";
 import {useQuery} from "../../../hooks/useQuery";
 
 

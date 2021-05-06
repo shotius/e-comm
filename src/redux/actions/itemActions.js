@@ -14,7 +14,6 @@ import {
 } from "../constants";
 import axios from "axios";
 import {notification} from "antd";
-import {fetchProducts} from "./productsAction";
 
 export const editProduct = (id, newInfo) => {
   return (dispatch) => {
