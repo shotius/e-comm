@@ -14,6 +14,8 @@ notification.config({
   duration: 2
 })
 
+
+
 ReactDOM.render(
   <Provider store={store}>
     <App/>

@@ -3,12 +3,11 @@ import {Link} from "react-router-dom";
 import { Col, Card, Button} from 'antd'
 
 const ProductCard = ({ product, user, dispatch, addToCart }) => {
-
     return (
         <Col xs={24} sm={12} md={8} lg={6} >
             <Card className="product-item" cover={
               <img
-                alt="product picture"
+                alt="product"
                 className="product-picture"
                 src={product.image}
               />

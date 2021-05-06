@@ -17,9 +17,9 @@ function PagePagination(props) {
   useEffect(() => {
     // user is on category page e.g /products/laptops and want to navigate to the next page
     if (location.pathname.includes('/page/')){
-      history.push(`/products/${category}/page/${current}`)
+      history.push(`/products/${category}/page/${current}${location.search}`)
     } else { // user is on main page
-      history.push(`/products/${current}`);
+      // history.push(`/products/${current}`);
     }
   }, [current])
 

@@ -1,4 +1,4 @@
-import React, {useCallback, useEffect, useRef, useState} from "react";
+import React, {useCallback, useRef, useState} from "react";
 import {Carousel} from "antd";
 import {carouselData} from "../../../const/carouselData";
 import {Link} from "react-router-dom";
@@ -45,7 +45,7 @@ const Slider = () => {
             textAlign: 'center',
             marginBottom: "0",
             background: `url("${slider.background}") no-repeat center center/cover`
-          }}/></Link>
+          }}>{null}</h3></Link>
         </div>
       )}
     </Carousel>

@@ -20,6 +20,7 @@ export const AppRoutes =
       isPrivate: true,
       exact: true
     },
+
      {
       path: 'products/:page(\\d+)', // matches only numbers e.g /products/1
       view: 'Home',

@@ -6,7 +6,7 @@ import Pagination from "../modules/components/Pagination";
 import {useSelector} from "react-redux";
 
 export const Home = () => {
-    const total = useSelector(state => state.productsReducer.totalCount);
+  const total = useSelector(state => state.productsReducer.totalCount);
   return <>
     <Slider/>
     <Categories/>

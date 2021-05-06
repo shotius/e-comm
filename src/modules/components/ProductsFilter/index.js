@@ -1,10 +1,9 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Collapse, Slider} from "antd";
 import "./index.css"
 import {FilterOutlined} from "@ant-design/icons";
-import {useDispatch} from "react-redux";
-import {fetchProducts} from "../../../redux/actions/productsAction";
-import {useParams} from "react-router-dom";
+import {useHistory, useLocation} from "react-router-dom";
+import {useQuery} from "../../../hooks/useQuery";
 
 const {Panel} = Collapse;
 
@@ -14,8 +13,9 @@ const initialFilters = {
 
 const ProductsFilter = () => {
   const [price, setPrice] = useState([...initialFilters.price]);
-  const dispatch = useDispatch();
-  const {category} = useParams();
+  const history = useHistory();
+  const currentLocation = useLocation();
+  const query = useQuery();
 
 
   const onPriceChange = (value) => {
@@ -23,13 +23,23 @@ const ProductsFilter = () => {
   }
 
   const handleApplyClick = () => {
-    dispatch(fetchProducts(category, {price}))
+    // url should be dynamic, now we have only price filter and it is not necessary
+    // console.log(`${currentLocation.pathname}?price_gte=${price[0]}&price_lte=${price[1]}`, 'olala');
+    history.push(`${currentLocation.pathname}?price_gte=${price[0]}&price_lte=${price[1]}`)
+    // dispatch(fetchProducts(category, {price}))
   }
 
   const clearFields = () => {
     // console.log('clearFields')
     // setPrice(initialFilters.price);
   }
+
+  useEffect(() => {
+    if (query.toString()){
+      setPrice([query.get("price_gte"), query.get("price_lte")])
+    }
+
+  }, [query.toString()])
 
   return <Collapse>
     <Panel

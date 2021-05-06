@@ -15,7 +15,6 @@ export const ProductList = () => {
   return <Layout className="container">
     <Content>
          <ProductsFilter />
-
           <Products category={params.category} />
           <Pagination total={totalCount} />
     </Content>
