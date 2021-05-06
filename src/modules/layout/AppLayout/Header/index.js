@@ -26,28 +26,33 @@ const Header = () => {
   const menu = (
     <Menu>
       {
-        localStorage.getItem('role')=== 'admin' 
-          &&
-        <Menu.Item onClick={() => history.push('/admin')}>
-          <UserOutlined style={{ fontSize: "16px" }} />Admin Page
-        </Menu.Item>
+        localStorage.getItem('role') === 'admin'
+          ? (
+            <Menu.Item onClick={() => history.push('/admin')}>
+              <UserOutlined style={{ fontSize: "16px" }} />Admin Page
+            </Menu.Item>
+          ) : (
+            <Menu.Item onClick={() => history.push('/profile')}>
+              <UserOutlined style={{ fontSize: "16px" }} />Profile
+            </Menu.Item>
+          )
       }
       <Menu.Item key="0"
         onClick={() => {
           setMenuIsSmall(true);
           dispatch(openAddProductModal());
         }}
-        >
-          <PlusCircleOutlined style={{ fontSize: "16px" }} /> Add a New Product
+      >
+        <PlusCircleOutlined style={{ fontSize: "16px" }} /> Add a New Product
       </Menu.Item>
-      
+
       <Menu.Item key="1" onClick={() => {
         dispatch(logOut())
         history.push('/login')
       }}>
         <LogoutOutlined style={{ fontSize: "16px" }} /> Log Out
       </Menu.Item>
-      
+
     </Menu>
   );
 

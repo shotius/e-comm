@@ -20,6 +20,7 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
                         reviews.map((review) => (
                             <Review 
                                 review={review} 
+                                reviewAuthor={review.user}
                                 dispatch={dispatch}
                                 user={user} 
                                 key={review.id}/>
@@ -31,7 +32,7 @@ const ProductReviews = ({ dispatch, useSelector, user, product}) => {
             <ReviewForm 
                 dispatch={dispatch}
                 prodId={product.id}
-                userId={user.sub}
+                user={user}
             />
         </>
     )

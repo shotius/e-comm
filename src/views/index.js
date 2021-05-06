@@ -6,3 +6,4 @@ export * from "./ProductList";
 export * from "./ProductDetailed";
 export * from './SearchPage'
 export * from './AdminPage'
+export * from './ProfilePage'

@@ -14,8 +14,10 @@ const App = () => {
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   const role = useSelector(state => state.authReducer.role)
 
+  
+  // return all routes then does not have any permission
+  // and return routes that match client role
   const getAllowedRoutes = (routes) => {
-    console.log('role', role)
     return  routes.filter(({ permission }) => {
         if (!permission) return true
         else if (permission === role) return true
@@ -39,7 +41,6 @@ const App = () => {
   // wraps routes in two different layouts 
   const wrapLayout = () => {
     const allowedRoutes = getAllowedRoutes(AppRoutes)
-    console.log(allowedRoutes)
     // all routes are wrapped in switch
     const routesInSwitch = (
       <Switch>
