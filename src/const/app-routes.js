@@ -51,7 +51,7 @@ export const AppRoutes =
       exact: true
     },
      {
-      path: 'admin',
+      path: 'profile/admin',
       view: "ProfilePage",
       isPrivate: true,
       exact: true,

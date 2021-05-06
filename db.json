@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "email": "test@gmail.com",
+      "email": "admin@gmail.com",
       "password": "$2a$10$zL.jUKdGfBiKTqvw.mCPsub91Q1/IUkAP3NDQT23zB88u8vejAYre",
       "role": "admin",
       "username": "username",
@@ -10,7 +10,7 @@
       "id": 1
     },
     {
-      "email": "2@gmail.com",
+      "email": "user@gmail.com",
       "password": "$2a$10$aBHHRquBCBpCO2kzXVz92.4wkoPU2Iegx6E6l55Oqd0BiLQpbfUlm",
       "username": "username",
       "name": "name",

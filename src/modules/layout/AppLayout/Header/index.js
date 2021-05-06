@@ -30,7 +30,7 @@ const Header = () => {
       {
           role === Roles.admin
           ? (
-            <Menu.Item onClick={() => history.push('/admin')}>
+            <Menu.Item onClick={() => history.push('/profile/admin')}>
               <UserOutlined style={{ fontSize: "16px" }} />Admin Page
             </Menu.Item>
           ) : (
