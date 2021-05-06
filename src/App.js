@@ -15,8 +15,8 @@ const App = () => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   const role = useSelector(state => state.authReducer.role)
-  const user = useSelector(state => state.authReducer.user)
 
+  // check localstorage and assing roles every render
   useEffect(() => {
     dispatch(getProfileFetch())
   },[])

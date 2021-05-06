@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Col, Row, Input, Space, Dropdown, Menu, Button } from "antd";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import {
@@ -16,9 +16,11 @@ import "./index.css";
 
 import { logOut } from "../../../../redux/actions/authActions";
 import { openAddProductModal } from "../../../../redux/actions/itemActions";
+import { Roles } from "../../../../const/Roles";
 
 const Header = () => {
   const dispatch = useDispatch();
+  const role = useSelector(state => state.authReducer.role)
   const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
   const searchValue = useRef();
@@ -26,7 +28,7 @@ const Header = () => {
   const menu = (
     <Menu>
       {
-        localStorage.getItem('role') === 'admin'
+          role === Roles.admin
           ? (
             <Menu.Item onClick={() => history.push('/admin')}>
               <UserOutlined style={{ fontSize: "16px" }} />Admin Page

@@ -18,11 +18,14 @@ import ReviewList from './Reviews/ReviewList'
 
 import ExtraImages from "../ExtraImages";
 import {extraImages} from "../../../const/productExtraImages";
+import { Roles } from '/home/shoutius/e-comm/src/const/Roles.js'
+
 
 const {confirm} = Modal;
 const Product = ({id}) => {
   const [product, setProduct] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const role = useSelector(state => state.authReducer.role)
 
   const history = useHistory();
   const dispatch = useDispatch();
@@ -75,7 +78,7 @@ const Product = ({id}) => {
             <ExtraImages sliderData={extraImages}/>
           </Col>
           <Col sm={24} md={14}>
-            {user.sub === product.userId ? (
+            {user.sub === product.userId || role === Roles.admin ? (
               <ModifyProduct
                 confirmDeleteModal={confirmDeleteModal}
                 product={product}
