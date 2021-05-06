@@ -40,7 +40,7 @@ export const AppRoutes =
       exact: true
     },
      {
-      path: 'Search/:keyword',
+      path: 'search/:keyword',
       view: "SearchPage",
       isPrivate: true,
       exact: true,
