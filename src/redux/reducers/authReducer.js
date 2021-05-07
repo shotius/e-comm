@@ -8,7 +8,7 @@ import {
   LOGIN_USER_FAIL,
   LOG_OUT,
   LOGIN_ERROR_CLEAR,
-  ADD_USER_ROLE
+  UPDATE_USER_DETAILS
 } from "../constants";
 import jwt from "jsonwebtoken";
 
@@ -23,7 +23,6 @@ import jwt from "jsonwebtoken";
 
 const initState = {
   isLoggedIn: !!localStorage.token,
-  role: null,
   loginError: false,
   user: localStorage.token ? jwt.decode(localStorage.token) : null,
   token: localStorage.token,
@@ -32,6 +31,7 @@ const initState = {
   userRegisterError: null,
   userLoginError: false,
   userLoginLoading: false,
+  userDetails: null,
 };
 
 export default function authReducer(state = initState, action) {
@@ -50,8 +50,8 @@ export default function authReducer(state = initState, action) {
         userLoginError: null,
         token: action.token,
         expirationDate: action.expirationDate,
-        isLoggedIn: true,
-        user: action.user,
+        // isLoggedIn: true,
+        // user: action.user,
       };
     case LOGIN_USER_FAIL:
       return {
@@ -67,7 +67,7 @@ export default function authReducer(state = initState, action) {
         isLoggedIn: false,
         token: "",
         user: null,
-        role: null,
+        userDetails:null
       }
     case LOGIN_ERROR_CLEAR:
       return {
@@ -98,10 +98,10 @@ export default function authReducer(state = initState, action) {
         ...state,
         userRegisterError: null
       }
-    case ADD_USER_ROLE:
+    case UPDATE_USER_DETAILS:
       return {
         ...state, 
-        role: action.role
+        userDetails: action.user
       }
 
     default:

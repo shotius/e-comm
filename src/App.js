@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect } from "react";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import {AppRoutes} from "./const/app-routes";
 import * as views from "./views"
@@ -7,27 +7,34 @@ import UnauthenticatedRoute from "./modules/components/Router/UnauthenticatedRou
 import {useDispatch, useSelector} from "react-redux";
 import AppLayout from "./modules/layout/AppLayout";
 import AuthLayout from "./modules/layout/AuthLayout";
-import Error from "./views/Error";
 import { getProfileFetch } from "./redux/actions/authActions";
+import useUserRole from "./hooks/useUserRole";
 
 
 const App = () => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
-  const role = useSelector(state => state.authReducer.role)
+  
+  const userRoles = useUserRole()
+  console.log("profile", userRoles.role)
 
+
+  // TODO: create custom hook for roles
   // check localstorage and assign roles every render
-  useEffect(() => {
+  useLayoutEffect(() => {
     dispatch(getProfileFetch())
-  },[])
+  },[dispatch])
+
+
 
   
   // return all routes then does not have any permission
   // and return routes that match client role
   const getAllowedRoutes = (routes) => {
+    // console.log(role, 'role')
     return  routes.filter(({ permission }) => {
         if (!permission) return true
-        else if (permission === role) return true
+        else if (permission === userRoles.role) return true
         else return false
     })
 }
@@ -53,9 +60,6 @@ const App = () => {
     const routesInSwitch = (
       <Switch>
         {generateRoutes(allowedRoutes)}
-        <Route path="*">
-          <Error />
-        </Route>
       </Switch>
     )
 
