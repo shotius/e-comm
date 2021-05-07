@@ -2,13 +2,15 @@ import {Layout} from 'antd'
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Roles } from '../const/Roles';
+import useUserRole from '../hooks/useUserRole';
 import AdminProfileContent from '../modules/components/Profile/AdminProfile/Content'
 import UserProfileContent from '../modules/components/Profile/UserProfile/Content';
 // import SideMenu from '../modules/components/AdminPageContent/SideMenu';
 const { Content, Sider } = Layout;
 
+
 export const ProfilePage = () => {
-    const role = useSelector(state => state.authReducer.role)
+    const {role} = useUserRole()
     return (
         <Layout>
             {/* <Sider width={200} style={{minHeight: "65vh", background: '#d3d3d3'}}>

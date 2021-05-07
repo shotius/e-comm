@@ -17,10 +17,11 @@ import "./index.css";
 import { logOut } from "../../../../redux/actions/authActions";
 import { openAddProductModal } from "../../../../redux/actions/itemActions";
 import { Roles } from "../../../../const/Roles";
+import useUserRole from "../../../../hooks/useUserRole";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const role = useSelector(state => state.authReducer.role)
+  const { role } = useUserRole()
   const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
   const searchValue = useRef();
@@ -30,11 +31,11 @@ const Header = () => {
       {
           role === Roles.admin
           ? (
-            <Menu.Item onClick={() => history.push('/admin')}>
+            <Menu.Item onClick={() => history.push('/profile/admin')}>
               <UserOutlined style={{ fontSize: "16px" }} />Admin Page
             </Menu.Item>
           ) : (
-            <Menu.Item onClick={() => history.push('/profile')}>
+            <Menu.Item onClick={() => history.push('/profile/user')}>
               <UserOutlined style={{ fontSize: "16px" }} />Profile
             </Menu.Item>
           )

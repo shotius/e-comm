@@ -9,12 +9,17 @@ import AppLayout from "./modules/layout/AppLayout";
 import AuthLayout from "./modules/layout/AuthLayout";
 import Error from "./views/Error";
 import { getProfileFetch } from "./redux/actions/authActions";
+import useUserRole from "./hooks/useUserRole";
 
 
 const App = () => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
-  const role = useSelector(state => state.authReducer.role)
+  // const role = useSelector(state => state.authReducer.role)
+
+  const {role} = useUserRole()
+
+  // console.log('user role', role)
 
   // check localstorage and assing roles every render
   useEffect(() => {
