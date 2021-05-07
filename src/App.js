@@ -21,7 +21,7 @@ const App = () => {
 
   // TODO: create custom hook for roles
   // check localstorage and assign roles every render
-  useLayoutEffect(() => {
+  useEffect(() => {
     dispatch(getProfileFetch());
   }, [dispatch]);
 
