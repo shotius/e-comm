@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Col, Row, Input, Space, Dropdown, Menu, Button } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
 
 import {

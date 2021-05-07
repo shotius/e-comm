@@ -93,7 +93,9 @@ const updateUser = (id) => {
           const {password, id, ...user} = data
           dispatch(updateUserDetails(user))
 
-          if(user.role) {
+          if(localStorage.getItem('role') && user.role !== localStorage.getItem('role')) {
+            dispatch(logOut())
+          } else {
             localStorage.setItem('role', user.role)
           }
         }

@@ -1,6 +1,5 @@
 import {Layout} from 'antd'
 import React from 'react'
-import { useSelector } from 'react-redux';
 import { Roles } from '../const/Roles';
 import useUserRole from '../hooks/useUserRole';
 import AdminProfileContent from '../modules/components/Profile/AdminProfile/Content'

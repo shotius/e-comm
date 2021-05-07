@@ -17,6 +17,15 @@
       "name": "test test",
       "phone": "+995565656565",
       "id": 2
+    },
+    {
+      "email": "admin@gmail.com",
+      "password": "$2a$10$/rx11JAmHFxfvERRj3TGyeZnyZQhEzeH8cwk0FRBkZeLM64YuM9o.",
+      "role": "admin",
+      "username": "shota",
+      "name": "shota",
+      "phone": "+995234234234",
+      "id": 3
     }
   ],
   "products": [
