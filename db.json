@@ -8,6 +8,15 @@
       "name": "Vaniko Akopashvili",
       "phone": "+995555555555",
       "id": 1
+    },
+    {
+      "email": "test@gmail.com",
+      "password": "$2a$10$.uURA9FX7eWWBlYo20CObeFt.HZF50xVn6DSUreXLDKivt2c0Q706",
+      "role": "user",
+      "username": "test",
+      "name": "test test",
+      "phone": "+995565656565",
+      "id": 2
     }
   ],
   "products": [
@@ -200,8 +209,89 @@
       "userId": "1",
       "image": "https://static.my.ge/mymarket/photos/large/0506/20911223_1.jpg?v=0",
       "id": 19
+    },
+    {
+      "title": "ყავის აპარატი VENETI VI 6823",
+      "brand": "Veneti",
+      "category": "kitchen-appliances",
+      "price": 360,
+      "description": "<ul><li>კაპუჩინოს,ესპრესოს,ლატეს აპარატი</li><li>წნევა: 15 ბარი</li><li>მოცულობა: 1,6ლ</li><li>ყავის ტიპი: დაფქვილი</li><li>ფუნქციები : ორთქლი/ცხელი წყალი</li><li>მოცურების საწინააღმდეგო ფეხები</li><li>გარანტია: 1 წელი</li><li>ორთქლის გამოშვების კონტროლი</li><li>წყლის სწრაფად გაცხელების სისტემა</li><li>სითბოს შენარჩუნების ფუნქცია</li><li>ძაბვის მახასიათებლები: 220-240V; 50 / 60Hz</li><li>სიმძლავრე: 850W</li><li>გარანტია 1 წელი</li></ul>",
+      "userId": "2",
+      "image": "https://static.my.ge/mymarket/photos/large/0102/19323167_1.jpg?v=4",
+      "id": 20
     }
   ],
-  "basket": [],
-  "reviews": []
+  "basket": [
+    {
+      "shipping": "5.40",
+      "userId": 2,
+      "title": "ახალი iPhone 8 +",
+      "brand": "Apple",
+      "price": 2250,
+      "description": "<p>ახალი&nbsp;iPhone 8 + მოყვება ყუთი აქსესუარებით - დამტენი და ყურსასმენები. 256 GB მეხსიერება. მუშაობს ქართულ სიმ ბარათზე. იხილეთ სურათები.&nbsp;</p>",
+      "image": "https://static.my.ge/mymarket/photos/large/0506/20911223_1.jpg?v=0",
+      "id": 19
+    },
+    {
+      "shipping": "5.73",
+      "userId": 2,
+      "title": "ყავის აპარატი VENETI VI 6823",
+      "brand": "Veneti",
+      "price": 360,
+      "description": "<ul><li>კაპუჩინოს,ესპრესოს,ლატეს აპარატი</li><li>წნევა: 15 ბარი</li><li>მოცულობა: 1,6ლ</li><li>ყავის ტიპი: დაფქვილი</li><li>ფუნქციები : ორთქლი/ცხელი წყალი</li><li>მოცურების საწინააღმდეგო ფეხები</li><li>გარანტია: 1 წელი</li><li>ორთქლის გამოშვების კონტროლი</li><li>წყლის სწრაფად გაცხელების სისტემა</li><li>სითბოს შენარჩუნების ფუნქცია</li><li>ძაბვის მახასიათებლები: 220-240V; 50 / 60Hz</li><li>სიმძლავრე: 850W</li><li>გარანტია 1 წელი</li></ul>",
+      "image": "https://static.my.ge/mymarket/photos/large/0102/19323167_1.jpg?v=4",
+      "id": 20
+    }
+  ],
+  "reviews": [
+    {
+      "review": "როგორ მდგომარეობაშია?",
+      "user": {
+        "email": "test@gmail.com",
+        "iat": 1620369931,
+        "exp": 1620373531,
+        "sub": "2"
+      },
+      "prodId": 19,
+      "isEditing": false,
+      "id": 1
+    },
+    {
+      "review": "ნომერი არ გიწერია :(",
+      "stars": 1,
+      "user": {
+        "email": "test@gmail.com",
+        "iat": 1620369931,
+        "exp": 1620373531,
+        "sub": "2"
+      },
+      "prodId": 18,
+      "isEditing": false,
+      "id": 2
+    },
+    {
+      "review": "სულ ახალია ",
+      "user": {
+        "email": "vanikoakofa@gmail.com",
+        "iat": 1620370425,
+        "exp": 1620374025,
+        "sub": "1"
+      },
+      "prodId": 19,
+      "isEditing": false,
+      "id": 3
+    },
+    {
+      "stars": 5,
+      "user": {
+        "email": "vanikoakofa@gmail.com",
+        "iat": 1620370425,
+        "exp": 1620374025,
+        "sub": "1"
+      },
+      "prodId": 20,
+      "isEditing": false,
+      "id": 4
+    }
+  ]
 }

@@ -25,12 +25,12 @@ const Product = ({item}) => {
   const Plus = () => setQuantity(quantity + 1)
 
   return (
-    <Card className="product-card" style={{boxShadow: "0 3px 15px rgba(0,0,0,.2)"}}>
+    <Card className="product-card" style={{marginBottom: "15px"}}>
       <Row className="cart-content" gutter={{xs: 8, sm: 16, md: 24, lg: 32}} style={{marginBottom: "10px"}}>
         <Col span={24}>
           <h2 style={{textTransform: "capitalize"}}>{item.title}</h2></Col>
         <Col xs={16} sm={8} md={6} lg={5} className="col1">
-          <img src={item.image} className="image" alt="product pic"/>
+          <img style={{objectFit: "cover"}} src={item.image} className="image" alt="product pic"/>
         </Col>
         <Col xs={24} sm={14} md={12} lg={12}>
           <p><strong>Brand:</strong> {item.brand}</p>
@@ -44,8 +44,8 @@ const Product = ({item}) => {
           <div className={`${descriptionShown ? '' : 'description'}`}>
             <div dangerouslySetInnerHTML={{__html: item.description}}/>
           </div>
-          <Button onClick={() => setDescriptionShown(!descriptionShown)}>
-            {descriptionShown ? 'click for less' : 'click for more'}
+          <Button style={{marginTop: "10px"}} onClick={() => setDescriptionShown(!descriptionShown)}>
+            {descriptionShown ? 'Show less' : 'Show more'}
           </Button>
         </Col>
         <Col xs={24} md={6} lg={7} className="col3">

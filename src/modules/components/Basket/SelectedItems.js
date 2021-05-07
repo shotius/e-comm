@@ -21,7 +21,7 @@ export const SelectedItems = ({ basketProducts }) => {
               basketProducts.map((item, index) => (
                     <div key={index}>
                       <Product item={item} />
-                      <hr className="line" />
+
                     </div>
                   ))
             )
