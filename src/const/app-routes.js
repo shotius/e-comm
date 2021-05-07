@@ -63,5 +63,11 @@ export const AppRoutes =
       view: "ProfilePage",
       isPrivate: true,
       exact: true,
+    },
+    {
+      path: '*',
+      view: "Error",
+      isPrivate: true,
+      exact: true
     }
   ]

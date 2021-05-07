@@ -36,7 +36,6 @@ export const fetchProducts = (category = "", filters = {}, sort_by = null, page 
   }
 
   return (dispatch) => {
-    console.log('fetching....');
     dispatch(fetchProductsStart())
     axios.get(url)
       .then(response => {

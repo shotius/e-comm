@@ -17,10 +17,11 @@ import "./index.css";
 import { logOut } from "../../../../redux/actions/authActions";
 import { openAddProductModal } from "../../../../redux/actions/itemActions";
 import { Roles } from "../../../../const/Roles";
+import useUserRole from "../../../../hooks/useUserRole";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const role = useSelector(state => state.authReducer.role)
+  const role = useUserRole()
   const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
   const searchValue = useRef();

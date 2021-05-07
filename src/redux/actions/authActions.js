@@ -9,7 +9,7 @@ import {
   LOGIN_USER_SUCCESS,
   LOGIN_USER_FAIL,
   LOG_OUT, LOGIN_ERROR_CLEAR,
-  ADD_USER_ROLE
+  UPDATE_USER_DETAILS
 } from "../constants";
 import jwt from "jsonwebtoken";
 
@@ -40,7 +40,7 @@ export const loginUser = (user) => {
       .post(`${apiUrl}/login`, user)
       .then((response) => {
         const user = jwt.decode(response.data.accessToken);
-        dispatch(getRoles(user.sub))
+        dispatch(updateUser(user.sub))
         dispatch(userLoginSuccess(response.data.accessToken, user));
       })
       .catch((error) => {
@@ -62,7 +62,7 @@ export const getProfileFetch = () => {
         .then(({data}) => {
           const match = data.some(d => d.email === user.email)
           if (match) {
-            dispatch(getRoles(user.sub))
+            dispatch(updateUser(user.sub))
           } else {
             dispatch(logOut())
           }
@@ -83,14 +83,19 @@ export const logOut = () => {
   };
 };
 
-const getRoles = (id) => {
+const updateUser = (id) => {
   return dispatch => {
     axios
       .get(`${process.env.REACT_APP_BASE_URL}/users/${id}`)
       .then(({data}) => {
         // if an user has a role
-        if (data.role) {
-          dispatch(addUserRole(data.role))
+        if (data) {
+          const {password, id, ...user} = data
+          dispatch(updateUserDetails(user))
+
+          if(user.role) {
+            localStorage.setItem('role', user.role)
+          }
         }
       })
       .catch((error) => console.log(error))
@@ -153,7 +158,7 @@ export const registerErrorClear = () => ({
 })
 
 // role
-const addUserRole = (role) => ({
-  type: ADD_USER_ROLE,
-  role
+const updateUserDetails = (user) => ({
+  type: UPDATE_USER_DETAILS,
+  user
 })

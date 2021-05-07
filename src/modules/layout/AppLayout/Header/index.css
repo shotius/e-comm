@@ -69,27 +69,17 @@
     transition: all 200ms ease-in-out;
 }
 
-.icon-menu {
-    transition: all .1s linear;
-}
-
-.icon-menu:active,
-.icon-menu:hover,
-.icon-menu:focus{
-    transform: scale(1.2);
-}
-
-/*
+/* TODO: animate icon-menu on hover */
 .icon-menu:hover {
     font-size: 37px;
     padding-top: 21%;
     transition: all 200ms ease-in-out;
-} */
+}
 
-/*.large {*/
-/*    font-size: 37px;*/
-/*    padding-top: 21%;*/
-/*}*/
+.large {
+    font-size: 37px;
+    padding-top: 21%;
+}
 
 .search-buton {
     border: none !important;
