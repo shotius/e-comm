@@ -17,7 +17,7 @@ const App = () => {
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
   // const role = useSelector(state => state.authReducer.role)
 
-  const {role} = useUserRole()
+  const role = useUserRole()
 
   // console.log('user role', role)
 

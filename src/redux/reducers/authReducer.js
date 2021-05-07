@@ -14,7 +14,6 @@ import jwt from "jsonwebtoken"
 
 const initState = {
   isLoggedIn: !!localStorage.token,
-  role: null,
   loginError: false,
   user: localStorage.token ? jwt.decode(localStorage.token) : null,
   token: localStorage.token,
@@ -59,7 +58,7 @@ export default function authReducer(state = initState, action) {
         isLoggedIn: false,
         token: "",
         user: null,
-        role: null,
+        userDetails: null,
       }
     case LOGIN_ERROR_CLEAR:
       return {

@@ -10,7 +10,7 @@ const { Content, Sider } = Layout;
 
 
 export const ProfilePage = () => {
-    const {role} = useUserRole()
+    const role = useUserRole()
     return (
         <Layout>
             {/* <Sider width={200} style={{minHeight: "65vh", background: '#d3d3d3'}}>

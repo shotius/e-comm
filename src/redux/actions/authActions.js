@@ -95,9 +95,6 @@ const updateUser = (id) => {
 
           if(user.role) {
             localStorage.setItem('role', user.role)
-          } else {
-            // in case some one will write role manualy it will be cleared
-            localStorage.removeItem('role')
           }
         }
       })

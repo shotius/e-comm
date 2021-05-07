@@ -21,7 +21,7 @@ import useUserRole from "../../../../hooks/useUserRole";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const { role } = useUserRole()
+  const role = useUserRole()
   const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
   const searchValue = useRef();
