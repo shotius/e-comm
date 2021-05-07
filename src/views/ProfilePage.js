@@ -8,9 +8,9 @@ import UserProfileContent from '../modules/components/Profile/UserProfile/Conten
 // import SideMenu from '../modules/components/AdminPageContent/SideMenu';
 const { Content } = Layout;
 
+
 export const ProfilePage = () => {
-    const userRole = useUserRole()
-    console.log('role in admin page', userRole.role)
+    const role = useUserRole()
     return (
         <Layout>
             {/* <Sider width={200} style={{minHeight: "65vh", background: '#d3d3d3'}}>
@@ -24,7 +24,7 @@ export const ProfilePage = () => {
                     minHeight: 280,
                 }}
                 >
-                {userRole.role === Roles.admin ? (
+                {role === Roles.admin ? (
                     <AdminProfileContent />
                 ): (
                     <UserProfileContent />

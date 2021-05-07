@@ -21,7 +21,7 @@ import useUserRole from "../../../../hooks/useUserRole";
 
 const Header = () => {
   const dispatch = useDispatch();
-  const userRole = useUserRole()
+  const role = useUserRole()
   const history = useHistory();
   const [menuIsSmall, setMenuIsSmall] = useState(true);
   const searchValue = useRef();
@@ -29,7 +29,7 @@ const Header = () => {
   const menu = (
     <Menu>
       {
-          userRole.role === Roles.admin
+          role === Roles.admin
           ? (
             <Menu.Item onClick={() => history.push('/profile/admin')}>
               <UserOutlined style={{ fontSize: "16px" }} />Admin Page

@@ -10,16 +10,7 @@ import {
   LOGIN_ERROR_CLEAR,
   UPDATE_USER_DETAILS
 } from "../constants";
-import jwt from "jsonwebtoken";
-
-// let lsToken = localStorage.token.split(" ");
-// if (lsToken.length === 2) {
-//   lsToken = lsToken[1];
-// } else {
-//   lsToken = lsToken[0];
-// }
-
-// localStorage.setItem("token", lsToken);
+import jwt from "jsonwebtoken"
 
 const initState = {
   isLoggedIn: !!localStorage.token,
@@ -32,17 +23,17 @@ const initState = {
   userLoginError: false,
   userLoginLoading: false,
   userDetails: null,
-};
+}
 
 export default function authReducer(state = initState, action) {
   switch (action.type) {
-    /******************** LOGIN *****************/
+     /******************** LOGIN *****************/
     case LOGIN_USER_START:
       return {
         ...state,
         userLoginError: null,
-        userLoginLoading: true,
-      };
+        userLoginLoading: true
+      }
     case LOGIN_USER_SUCCESS:
       return {
         ...state,
@@ -50,49 +41,49 @@ export default function authReducer(state = initState, action) {
         userLoginError: null,
         token: action.token,
         expirationDate: action.expirationDate,
-        // isLoggedIn: true,
-        // user: action.user,
-      };
+        isLoggedIn: true,
+        user: action.user
+      }
     case LOGIN_USER_FAIL:
       return {
         ...state,
         userLoginError: action.error,
         userLoginLoading: false,
         isLoggedIn: false,
-        token: "",
-      };
+        token: ""
+      }
     case LOG_OUT:
       return {
         ...state,
         isLoggedIn: false,
         token: "",
         user: null,
-        userDetails:null
+        userDetails: null,
       }
     case LOGIN_ERROR_CLEAR:
       return {
         ...state,
-        userLoginError: null,
-      };
+        userLoginError: null
+      }
     /******************** REGISTER *****************/
     case REGISTER_USER_START:
       return {
-        ...state,
+        ...state, 
         userRegisterLoading: true,
-        userRegisterError: null,
-      };
-    case REGISTER_USER_SUCCESS:
+        userRegisterError: null
+      }
+    case REGISTER_USER_SUCCESS: 
       return {
-        ...state,
+        ...state, 
         userRegisterLoading: false,
-        userRegisterError: null,
-      };
+        userRegisterError: null
+      }
     case REGISTER_USER_FAIL:
       return {
         ...state,
         userRegisterError: action.error,
-        userRegisterLoading: false,
-      };
+        userRegisterLoading: false
+      }
     case REGISTER_ERROR_CLEAR:
       return {
         ...state,
@@ -103,8 +94,8 @@ export default function authReducer(state = initState, action) {
         ...state, 
         userDetails: action.user
       }
-
     default:
       return state;
   }
-}
+
+};

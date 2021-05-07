@@ -91,9 +91,9 @@ const updateUser = (id) => {
         // if an user has a role
         if (data) {
           const {password, id, ...user} = data
-
           dispatch(updateUserDetails(user))
-          if (user.role) {
+
+          if(user.role) {
             localStorage.setItem('role', user.role)
           }
         }
@@ -107,7 +107,7 @@ const userLoginStart = () => ({
   type: LOGIN_USER_START,
 });
 
-const userLoginSuccess = (token) => {
+const userLoginSuccess = (token, user) => {
   return (dispatch) => {
     const expirationTime = 1000 * 60 * 60; // one hour
     const expirationDate = moment().valueOf() + expirationTime;
@@ -126,6 +126,7 @@ const userLoginSuccess = (token) => {
       type: LOGIN_USER_SUCCESS,
       token: token,
       expirationDate: expirationDate,
+      user
     });
   };
 };
@@ -156,7 +157,7 @@ export const registerErrorClear = () => ({
   type: REGISTER_ERROR_CLEAR
 })
 
-// ading user details
+// role
 const updateUserDetails = (user) => ({
   type: UPDATE_USER_DETAILS,
   user

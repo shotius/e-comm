@@ -14,10 +14,11 @@ import useUserRole from "./hooks/useUserRole";
 const App = () => {
   const dispatch = useDispatch()
   const isLoggedIn = useSelector(state => state.authReducer.isLoggedIn);
-  
-  const userRoles = useUserRole()
-  console.log("profile", userRoles.role)
+  // const role = useSelector(state => state.authReducer.role)
 
+  const role = useUserRole()
+
+  // console.log('user role', role)
 
   // TODO: create custom hook for roles
   // check localstorage and assign roles every render
@@ -34,7 +35,7 @@ const App = () => {
     // console.log(role, 'role')
     return  routes.filter(({ permission }) => {
         if (!permission) return true
-        else if (permission === userRoles.role) return true
+        else if (permission === role) return true
         else return false
     })
 }
