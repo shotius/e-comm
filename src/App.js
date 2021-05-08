@@ -1,5 +1,5 @@
-import React, { useEffect, useLayoutEffect } from "react";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect } from "react";
+import { BrowserRouter as Router, Switch } from "react-router-dom";
 import { AppRoutes } from "./const/app-routes";
 import * as views from "./views";
 import PrivateRoute from "./modules/components/Router/PrivateRoute";
