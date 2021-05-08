@@ -7,8 +7,8 @@ if user does not have permissions on the route, this route
 does not generates. Since redux info updates on every render
 we don't want to rely on it. on the first render (on page update) role in redux is null
 so not all route are generated. e.i. /profile/admin shows 404 error
-I preffered to use role in localstorage and it risky, every one can change it's data.
-that's why I created this hook. user initialy gets role from local storage, but when getProfileFetch()
+I preferred to use role in localstorage and it risky, every one can change it's data.
+that's why I created this hook. user initially gets role from local storage, but when getProfileFetch()
 is fires, userDetails (in redux user from db) variable is updates, and user gets role from redux
 */
 const useUserRole = () => {
