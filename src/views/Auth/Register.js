@@ -1,8 +1,11 @@
 import React, {useCallback, useEffect, useState} from "react";
 import {Link, useHistory} from "react-router-dom";
-import {Button, Form, Input, notification, Select} from "antd";
+import {Button, Divider, Form, Input, notification, Select} from "antd";
 import {registerErrorClear, registerUser} from "../../redux/actions/authActions";
 import {useDispatch, useSelector} from "react-redux";
+import {Typography} from "antd";
+
+const {Title} = Typography;
 
 const {Option} = Select;
 // matches georgian phone numbers /^[0-9]{3}\s([0-9]{2}\s*)*$/g
@@ -83,8 +86,9 @@ export const Register = () => {
     }
   }, [userRegisterError])
 
-  return (
-
+  return (<>
+    <Title level={3} className="auth-title">Sign up</Title>
+    <Divider/>
     <Form
       className="auth-form"
       name="login"
@@ -198,5 +202,6 @@ export const Register = () => {
         </p>
       </Form.Item>
     </Form>
+    </>
   );
 };
