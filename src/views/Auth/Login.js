@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Form, Input, Button, notification} from 'antd';
+import {Form, Input, Button, notification, Divider} from 'antd';
 import "./index.css"
 import { Link} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
@@ -29,7 +29,8 @@ export const Login = () => {
   }, [userLoginError])
 
   return <>
-      <Title level={2} className="auth-title">Login</Title>
+      <Title level={3} className="auth-title">Login</Title>
+    <Divider />
   <Form
     className="auth-form"
     name="login"
