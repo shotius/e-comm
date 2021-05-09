@@ -4,6 +4,9 @@ import "./index.css"
 import { Link} from "react-router-dom";
 import {useDispatch, useSelector} from 'react-redux'
 import {loginErrorClear, loginUser} from '../../redux/actions/authActions'
+import {Typography} from "antd";
+
+const {Title} = Typography;
 
 export const Login = () => {
   const dispatch = useDispatch()
@@ -25,7 +28,9 @@ export const Login = () => {
 
   }, [userLoginError])
 
-  return<Form
+  return <>
+      <Title level={2} className="auth-title">Login</Title>
+  <Form
     className="auth-form"
     name="login"
     onFinish={onFinish}
@@ -65,6 +70,6 @@ export const Login = () => {
       </p>
     </Form.Item>
   </Form>
-
+</>
 }
 

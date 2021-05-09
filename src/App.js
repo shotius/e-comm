@@ -17,8 +17,6 @@ const App = () => {
 
   const role = useUserRole();
 
-  // console.log('user role', role)
-
   // TODO: create custom hook for roles
   // check localstorage and assign roles every render
   useEffect(() => {
