@@ -8,13 +8,15 @@ import axios from "axios";
 import {notification} from "antd";
 
 export const addToCart = (product, user) => {
-  const {category, ...rest} = product;
+  const {category, id,  ...rest} = product;
+  console.log('user: ', user)
   return dispatch => {
     dispatch(addToCartStart());
     axios
       .post(`${API_URL}/basket`, {
         shipping: (Math.random() * 10).toFixed(2),
         userId: Number(user.sub),
+        id: Math.random(), 
         ...rest
       })
       .then(response => {
